@@ -2,6 +2,206 @@ let courses = [];
 let users = [];
 let accessRows = [];
 let currentAdminId = null;
+let progressRows = [];
+let quizRows = [];
+
+const COURSE_TOTALS = {
+  A1: 30,
+  A2: 30
+};
+
+function getCourseByCode(code) {
+  return courses.find(c => c.code === code);
+}
+
+function userCourseProgress(userId, code) {
+  const total = COURSE_TOTALS[code] || 0;
+  const keys = new Set(
+    progressRows
+      .filter(p => p.user_id === userId && p.completed && String(p.lesson_key || '').startsWith(code.toLowerCase() + '-'))
+      .map(p => p.lesson_key)
+  );
+
+  // Final exam is stored separately and must not count as one of the 30 lessons.
+  keys.delete(`${code.toLowerCase()}-final`);
+
+  const done = keys.size;
+  const percent = total ? Math.min(100, Math.round(done / total * 100)) : 0;
+  const finalPassed = progressRows.some(
+    p => p.user_id === userId &&
+         p.lesson_key === `${code.toLowerCase()}-final` &&
+         p.completed
+  );
+
+  const courseQuizRows = quizRows.filter(
+    q => q.user_id === userId &&
+         String(q.lesson_key || '').startsWith(code.toLowerCase() + '-')
+  );
+
+  const regularQuizRows = courseQuizRows.filter(q => q.lesson_key !== `${code.toLowerCase()}-final`);
+  const avg = regularQuizRows.length
+    ? Math.round(regularQuizRows.reduce((sum, q) => sum + Number(q.score || 0), 0) / regularQuizRows.length)
+    : 0;
+
+  const finalResults = courseQuizRows
+    .filter(q => q.lesson_key === `${code.toLowerCase()}-final`)
+    .sort((a,b) => Number(b.score || 0) - Number(a.score || 0));
+
+  return {
+    total,
+    done,
+    percent,
+    avg,
+    finalPassed,
+    finalScore: finalResults[0]?.score ?? null
+  };
+}
+
+function getLastActivity(userId) {
+  const dates = [];
+
+  progressRows
+    .filter(p => p.user_id === userId)
+    .forEach(p => {
+      if (p.updated_at) dates.push(new Date(p.updated_at));
+      else if (p.completed_at) dates.push(new Date(p.completed_at));
+    });
+
+  quizRows
+    .filter(q => q.user_id === userId && q.created_at)
+    .forEach(q => dates.push(new Date(q.created_at)));
+
+  if (!dates.length) return null;
+  return new Date(Math.max(...dates.map(d => d.getTime())));
+}
+
+function trainingStatusHtml(userId) {
+  const accessibleCodes = courses
+    .filter(c => accessRows.some(a => a.user_id === userId && a.course_id === c.id && a.allowed))
+    .map(c => c.code);
+
+  if (!accessibleCodes.length) return '<span class="muted">Нет обучения</span>';
+
+  const blocks = accessibleCodes.map(code => {
+    if (!COURSE_TOTALS[code]) return `<span class="badge">${code}: доступ</span>`;
+    const s = userCourseProgress(userId, code);
+
+    if (s.finalPassed) {
+      return `<span class="badge active">${code}: завершён ✓</span>`;
+    }
+
+    if (s.done === 0) {
+      return `<span class="badge">${code}: 0%</span>`;
+    }
+
+    return `<span class="badge">${code}: ${s.percent}%</span>`;
+  });
+
+  return `<div class="course-tags">${blocks.join('')}</div>`;
+}
+
+function formatDateTime(date) {
+  if (!date) return 'Нет активности';
+  return date.toLocaleString('ru-RU', {
+    day:'2-digit',
+    month:'2-digit',
+    year:'numeric',
+    hour:'2-digit',
+    minute:'2-digit'
+  });
+}
+
+window.openStudentStatus = (id) => {
+  const u = users.find(x => x.id === id);
+  if (!u) return;
+
+  const accessCodes = courses
+    .filter(c => accessRows.some(a => a.user_id === id && a.course_id === c.id && a.allowed))
+    .map(c => c.code);
+
+  const userQuizzes = quizRows.filter(q => q.user_id === id);
+  const passedQuizzes = userQuizzes.filter(q => q.passed);
+  const avgAll = userQuizzes.length
+    ? Math.round(userQuizzes.reduce((sum,q)=>sum+Number(q.score||0),0)/userQuizzes.length)
+    : 0;
+  const bestAll = userQuizzes.length
+    ? Math.max(...userQuizzes.map(q=>Number(q.score||0)))
+    : 0;
+
+  document.getElementById('studentStatusName').textContent =
+    `${u.full_name || 'Без имени'} — ${u.email || ''}`;
+
+  const cards = [
+    ['Статус аккаунта', u.status === 'active' ? 'Активен' : 'Заблокирован'],
+    ['Доступные уровни', accessCodes.length ? accessCodes.join(', ') : 'Нет доступа'],
+    ['Попыток тестов', userQuizzes.length],
+    ['Средний балл', userQuizzes.length ? `${avgAll}%` : '—'],
+    ['Лучший результат', userQuizzes.length ? `${bestAll}%` : '—'],
+    ['Последняя активность', formatDateTime(getLastActivity(id))]
+  ];
+
+  document.getElementById('studentStatusSummary').innerHTML = cards.map(([label,value]) => `
+    <div class="metric">
+      <span>${label}</span>
+      <strong>${value}</strong>
+    </div>
+  `).join('');
+
+  const levels = ['A1','A2']
+    .filter(code => accessCodes.includes(code) || progressRows.some(p => p.user_id === id && String(p.lesson_key||'').startsWith(code.toLowerCase() + '-')))
+    .map(code => {
+      const s = userCourseProgress(id, code);
+
+      return `
+        <div class="student-level-card">
+          <div class="student-level-head">
+            <div>
+              <div class="eyebrow">${code}</div>
+              <h3>${s.finalPassed ? 'Уровень завершён' : 'Обучение продолжается'}</h3>
+            </div>
+            <span class="badge ${s.finalPassed ? 'active' : ''}">
+              ${s.finalPassed ? '✓ Завершён' : `${s.percent}%`}
+            </span>
+          </div>
+
+          <div class="progress-line"><div style="width:${s.percent}%"></div></div>
+
+          <div class="student-status-grid">
+            <div><span>Уроков</span><strong>${s.done}/${s.total}</strong></div>
+            <div><span>Средний балл</span><strong>${s.avg ? `${s.avg}%` : '—'}</strong></div>
+            <div><span>Final Exam</span><strong>${s.finalPassed ? `${s.finalScore ?? 'Пройден'}%` : 'Не пройден'}</strong></div>
+            <div><span>Сертификат</span><strong>${s.finalPassed ? 'Доступен' : 'Нет'}</strong></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+  document.getElementById('studentCourseStatus').innerHTML =
+    levels || '<p class="muted">У ученика пока нет прогресса A1/A2.</p>';
+
+  const recent = [...userQuizzes]
+    .sort((a,b) => new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 12);
+
+  document.getElementById('studentRecentTests').innerHTML = recent.length
+    ? `<div class="table-wrap"><table>
+        <thead><tr><th>Тест</th><th>Баллы</th><th>Статус</th><th>Попытка</th><th>Дата</th></tr></thead>
+        <tbody>
+          ${recent.map(q => `
+            <tr>
+              <td>${String(q.lesson_key || '').replace('a1-final','A1 Final Exam').replace('a2-final','A2 Final Exam')}</td>
+              <td><strong>${q.score}%</strong></td>
+              <td><span class="badge ${q.passed ? 'active' : 'blocked'}">${q.passed ? 'Пройден' : 'Не пройден'}</span></td>
+              <td>${q.attempt || '—'}</td>
+              <td>${q.created_at ? new Date(q.created_at).toLocaleString('ru-RU') : '—'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table></div>`
+    : '<p class="muted">Ученик ещё не проходил тесты.</p>';
+
+  document.getElementById('studentStatusModal').classList.remove('hidden');
+};
 
 function courseChecks(targetId, selected = new Set()) {
   document.getElementById(targetId).innerHTML = courses.map(c => `
@@ -23,8 +223,10 @@ function drawUsers(filter='') {
       <td><span class="badge">${u.role}</span></td>
       <td><span class="badge ${u.status}">${u.status === 'active' ? 'Активен' : 'Заблокирован'}</span></td>
       <td><div class="course-tags">${tagsFor(u.id)}</div></td>
+      <td>${trainingStatusHtml(u.id)}</td>
       <td>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
+          ${u.role === 'student' ? `<button class="btn primary" onclick="openStudentStatus('${u.id}')">Просмотр</button>` : ''}
           <button class="btn ghost" onclick="openAccess('${u.id}')">Изменить</button>
           ${u.id !== currentAdminId
             ? `<button class="btn danger" onclick="deleteUser('${u.id}')">Удалить</button>`
@@ -40,12 +242,22 @@ function drawUsers(filter='') {
 }
 
 async function reloadData() {
-  const [c,u,a] = await Promise.all([
+  const [c,u,a,p,q] = await Promise.all([
     sb.from('courses').select('*').order('sort_order'),
     sb.from('profiles').select('*').order('created_at'),
-    sb.from('course_access').select('*')
+    sb.from('course_access').select('*'),
+    sb.from('lesson_progress').select('user_id,course_id,lesson_key,completed,completed_at,updated_at'),
+    sb.from('quiz_results').select('user_id,course_id,lesson_key,score,passed,attempt,created_at')
   ]);
-  courses = c.data || []; users = u.data || []; accessRows = a.data || [];
+
+  if (p.error) console.error('Не удалось загрузить прогресс учеников:', p.error);
+  if (q.error) console.error('Не удалось загрузить результаты тестов:', q.error);
+
+  courses = c.data || [];
+  users = u.data || [];
+  accessRows = a.data || [];
+  progressRows = p.data || [];
+  quizRows = q.data || [];
   courseChecks('newCourseChecks');
   drawUsers(document.getElementById('userSearch').value || '');
 }
@@ -129,6 +341,13 @@ window.deleteUser = async (id) => {
   document.getElementById('openCreateUser').onclick = () => document.getElementById('createUserModal').classList.remove('hidden');
   document.getElementById('closeCreateUser').onclick = () => document.getElementById('createUserModal').classList.add('hidden');
   document.getElementById('closeAccess').onclick = () => document.getElementById('accessModal').classList.add('hidden');
+  document.getElementById('closeStudentStatus').onclick = () => document.getElementById('studentStatusModal').classList.add('hidden');
+
+  document.getElementById('studentStatusModal').addEventListener('click', e => {
+    if (e.target.id === 'studentStatusModal') {
+      document.getElementById('studentStatusModal').classList.add('hidden');
+    }
+  });
 
   document.getElementById('createUserForm').addEventListener('submit', async e => {
     e.preventDefault();
