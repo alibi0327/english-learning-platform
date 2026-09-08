@@ -1931,6 +1931,1890 @@ window.A1_DATA = {
           "answer": 0
         }
       ]
+    },
+    {
+      "key": "a1-11",
+      "title": "Days, Months & Dates",
+      "ru": "Дни недели, месяцы и даты",
+      "theory": [
+        "Дни недели в английском пишутся с заглавной буквы: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.",
+        "Месяцы также пишутся с заглавной буквы: January, February, March и т.д. Для дат обычно нужны порядковые числительные: first, second, third, fourth, fifth.",
+        "Чтобы спросить дату, используйте What’s the date today? Чтобы спросить день недели: What day is it today?"
+      ],
+      "grammar": [
+        [
+          "Вопрос",
+          "Ответ",
+          "Перевод"
+        ],
+        [
+          "What day is it today?",
+          "It’s Monday.",
+          "Какой сегодня день?"
+        ],
+        [
+          "What’s the date today?",
+          "It’s the fifth of May.",
+          "Какое сегодня число?"
+        ],
+        [
+          "When is your birthday?",
+          "It’s in July.",
+          "Когда твой день рождения?"
+        ]
+      ],
+      "examples": [
+        [
+          "Today is Monday.",
+          "Сегодня понедельник."
+        ],
+        [
+          "My birthday is in September.",
+          "Мой день рождения в сентябре."
+        ],
+        [
+          "It’s the first of January.",
+          "Первое января."
+        ],
+        [
+          "School starts in September.",
+          "Школа начинается в сентябре."
+        ]
+      ],
+      "vocab": [
+        [
+          "Monday",
+          "/ˈmʌndeɪ/",
+          "понедельник",
+          "Today is Monday."
+        ],
+        [
+          "Tuesday",
+          "/ˈtjuːzdeɪ/",
+          "вторник",
+          "See you on Tuesday."
+        ],
+        [
+          "Wednesday",
+          "/ˈwenzdeɪ/",
+          "среда",
+          "We study on Wednesday."
+        ],
+        [
+          "Friday",
+          "/ˈfraɪdeɪ/",
+          "пятница",
+          "Friday is my favourite day."
+        ],
+        [
+          "weekend",
+          "/ˌwiːkˈend/",
+          "выходные",
+          "I relax at the weekend."
+        ],
+        [
+          "month",
+          "/mʌnθ/",
+          "месяц",
+          "There are twelve months."
+        ],
+        [
+          "birthday",
+          "/ˈbɜːθdeɪ/",
+          "день рождения",
+          "My birthday is in May."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Как сказать «Сегодня пятница»?",
+          "a": "Today is Friday.",
+          "hint": "Дни недели пишутся с заглавной буквы."
+        },
+        {
+          "q": "Как спросить «Когда твой день рождения?»",
+          "a": "When is your birthday?",
+          "hint": "Начните с When is..."
+        },
+        {
+          "q": "Напишите по-английски «январь».",
+          "a": "January",
+          "hint": "Первый месяц года."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Какой день идёт после Monday?",
+          "options": [
+            "Sunday",
+            "Tuesday",
+            "Friday",
+            "Thursday"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “weekend”?",
+          "options": [
+            "рабочий день",
+            "месяц",
+            "выходные",
+            "год"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Как спросить «Какой сегодня день?»",
+          "options": [
+            "What day is it today?",
+            "What date are you?",
+            "When day today?",
+            "How day is it?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Месяцы в английском пишутся...",
+          "options": [
+            "только маленькой буквой",
+            "с заглавной буквы",
+            "цифрами",
+            "без пробелов"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как сказать «Мой день рождения в июле»?",
+          "options": [
+            "My birthday is on July.",
+            "My birthday is in July.",
+            "My birthday at July.",
+            "I birthday July."
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Сколько месяцев в году?",
+          "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“Wednesday” — это среда.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как спросить дату?",
+          "options": [
+            "What’s the date today?",
+            "What’s your weekday?",
+            "How date is?",
+            "Where is date?"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-12",
+      "title": "Telling the Time",
+      "ru": "Как говорить время",
+      "theory": [
+        "Чтобы спросить время, используйте What time is it? или What’s the time? Ответ: It’s seven o’clock.",
+        "Для половины часа используется half past: 7:30 — half past seven. Для четверти часа: 7:15 — quarter past seven, 7:45 — quarter to eight.",
+        "Для расписания используйте предлог at: I get up at seven o’clock."
+      ],
+      "grammar": [
+        [
+          "Время",
+          "Фраза",
+          "Перевод"
+        ],
+        [
+          "7:00",
+          "seven o’clock",
+          "семь часов"
+        ],
+        [
+          "7:15",
+          "quarter past seven",
+          "четверть восьмого"
+        ],
+        [
+          "7:30",
+          "half past seven",
+          "половина восьмого"
+        ],
+        [
+          "7:45",
+          "quarter to eight",
+          "без четверти восемь"
+        ]
+      ],
+      "examples": [
+        [
+          "What time is it?",
+          "Который час?"
+        ],
+        [
+          "It’s half past eight.",
+          "Сейчас половина девятого."
+        ],
+        [
+          "I go to school at eight o’clock.",
+          "Я иду в школу в восемь."
+        ],
+        [
+          "The lesson starts at quarter past nine.",
+          "Урок начинается в 9:15."
+        ]
+      ],
+      "vocab": [
+        [
+          "o’clock",
+          "/əˈklɒk/",
+          "ровно (о времени)",
+          "It’s five o’clock."
+        ],
+        [
+          "half",
+          "/hɑːf/",
+          "половина",
+          "Half past six."
+        ],
+        [
+          "quarter",
+          "/ˈkwɔːtə/",
+          "четверть",
+          "Quarter to ten."
+        ],
+        [
+          "past",
+          "/pɑːst/",
+          "после",
+          "Ten past three."
+        ],
+        [
+          "to",
+          "/tuː/",
+          "до",
+          "Ten to four."
+        ],
+        [
+          "start",
+          "/stɑːt/",
+          "начинаться",
+          "School starts at eight."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Как сказать 6:30?",
+          "a": "half past six",
+          "hint": "30 минут = half past."
+        },
+        {
+          "q": "Как сказать 8:15?",
+          "a": "quarter past eight",
+          "hint": "15 минут после часа."
+        },
+        {
+          "q": "Как спросить время?",
+          "a": "What time is it?",
+          "hint": "What time..."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "7:00 =",
+          "options": [
+            "seven o’clock",
+            "half seven",
+            "seven past",
+            "quarter seven"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "6:30 =",
+          "options": [
+            "quarter to six",
+            "half past six",
+            "six o’clock",
+            "half to six"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "9:15 =",
+          "options": [
+            "quarter to nine",
+            "quarter past nine",
+            "half past nine",
+            "nine to quarter"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "7:45 =",
+          "options": [
+            "quarter past seven",
+            "quarter to eight",
+            "half past seven",
+            "seven o’clock"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как спросить время?",
+          "options": [
+            "What time is it?",
+            "How time are you?",
+            "Where time?",
+            "When clock?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Перед временем в расписании обычно используется...",
+          "options": [
+            "in",
+            "on",
+            "at",
+            "from"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“past” используется для минут после часа.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что означает “start”?",
+          "options": [
+            "заканчивать",
+            "начинать(ся)",
+            "опаздывать",
+            "спать"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-13",
+      "title": "Prepositions of Time & Place",
+      "ru": "Предлоги времени и места",
+      "theory": [
+        "Для времени: at — точное время (at 7 o’clock), on — дни и даты (on Monday), in — месяцы, годы и части дня (in May, in 2026, in the morning).",
+        "Для места: in — внутри, on — на поверхности, under — под, next to — рядом, between — между, behind — позади, in front of — перед.",
+        "Эти предлоги лучше запоминать в коротких готовых фразах."
+      ],
+      "grammar": [
+        [
+          "Предлог",
+          "Использование",
+          "Пример"
+        ],
+        [
+          "at",
+          "точное время",
+          "at 8 o’clock"
+        ],
+        [
+          "on",
+          "день/дата",
+          "on Friday"
+        ],
+        [
+          "in",
+          "месяц/год/внутри",
+          "in June; in the box"
+        ],
+        [
+          "under",
+          "под",
+          "under the table"
+        ],
+        [
+          "next to",
+          "рядом",
+          "next to the school"
+        ]
+      ],
+      "examples": [
+        [
+          "The book is on the table.",
+          "Книга на столе."
+        ],
+        [
+          "The cat is under the chair.",
+          "Кошка под стулом."
+        ],
+        [
+          "I study English on Monday.",
+          "Я учу английский в понедельник."
+        ],
+        [
+          "My birthday is in October.",
+          "Мой день рождения в октябре."
+        ]
+      ],
+      "vocab": [
+        [
+          "under",
+          "/ˈʌndə/",
+          "под",
+          "The bag is under the desk."
+        ],
+        [
+          "between",
+          "/bɪˈtwiːn/",
+          "между",
+          "The bank is between two shops."
+        ],
+        [
+          "behind",
+          "/bɪˈhaɪnd/",
+          "позади",
+          "The car is behind the house."
+        ],
+        [
+          "next to",
+          "/nekst tuː/",
+          "рядом с",
+          "The cafe is next to the school."
+        ],
+        [
+          "in front of",
+          "/ɪn frʌnt əv/",
+          "перед",
+          "He is in front of the door."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Выберите предлог: ___ Monday.",
+          "a": "on",
+          "hint": "День недели → on."
+        },
+        {
+          "q": "Выберите предлог: ___ 8 o’clock.",
+          "a": "at",
+          "hint": "Точное время → at."
+        },
+        {
+          "q": "Переведите: «под столом».",
+          "a": "under the table",
+          "hint": "Под = under."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "___ Monday",
+          "options": [
+            "at",
+            "on",
+            "in",
+            "under"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "___ July",
+          "options": [
+            "in",
+            "on",
+            "at",
+            "next"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "___ 9 o’clock",
+          "options": [
+            "on",
+            "in",
+            "at",
+            "between"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“under the table” означает...",
+          "options": [
+            "на столе",
+            "под столом",
+            "рядом со столом",
+            "перед столом"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“next to” означает...",
+          "options": [
+            "между",
+            "за",
+            "рядом с",
+            "внутри"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Книга на столе: The book is ___ the table.",
+          "options": [
+            "under",
+            "on",
+            "between",
+            "in front"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Для месяцев обычно используем in.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“between” означает...",
+          "options": [
+            "между",
+            "над",
+            "под",
+            "рядом"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-14",
+      "title": "There Is / There Are",
+      "ru": "Конструкция there is / there are",
+      "theory": [
+        "There is используется, когда говорим об одном предмете: There is a table in the room. There are — о нескольких: There are two chairs.",
+        "Отрицание: There isn’t ... / There aren’t .... Вопрос: Is there ...? / Are there ...?",
+        "С some часто говорим о неопределённом количестве во множественном числе: There are some books."
+      ],
+      "grammar": [
+        [
+          "Количество",
+          "Утверждение",
+          "Отрицание",
+          "Вопрос"
+        ],
+        [
+          "1",
+          "There is",
+          "There isn’t",
+          "Is there...?"
+        ],
+        [
+          "2+",
+          "There are",
+          "There aren’t",
+          "Are there...?"
+        ]
+      ],
+      "examples": [
+        [
+          "There is a sofa in the room.",
+          "В комнате есть диван."
+        ],
+        [
+          "There are three windows.",
+          "Есть три окна."
+        ],
+        [
+          "Is there a bathroom?",
+          "Есть ванная?"
+        ],
+        [
+          "There aren’t any chairs.",
+          "Стульев нет."
+        ]
+      ],
+      "vocab": [
+        [
+          "room",
+          "/ruːm/",
+          "комната",
+          "There is a room."
+        ],
+        [
+          "window",
+          "/ˈwɪndəʊ/",
+          "окно",
+          "There are two windows."
+        ],
+        [
+          "door",
+          "/dɔː/",
+          "дверь",
+          "The door is open."
+        ],
+        [
+          "sofa",
+          "/ˈsəʊfə/",
+          "диван",
+          "There is a sofa."
+        ],
+        [
+          "kitchen",
+          "/ˈkɪtʃɪn/",
+          "кухня",
+          "The kitchen is small."
+        ],
+        [
+          "bathroom",
+          "/ˈbɑːθruːm/",
+          "ванная",
+          "Is there a bathroom?"
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: There ___ a table.",
+          "a": "is",
+          "hint": "Один предмет → is."
+        },
+        {
+          "q": "Дополните: There ___ two chairs.",
+          "a": "are",
+          "hint": "Несколько → are."
+        },
+        {
+          "q": "Сделайте вопрос: There is a kitchen.",
+          "a": "Is there a kitchen?",
+          "hint": "Is переносится в начало."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "There ___ a bed in the room.",
+          "options": [
+            "are",
+            "is",
+            "be",
+            "am"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "There ___ three windows.",
+          "options": [
+            "is",
+            "are",
+            "has",
+            "be"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Вопрос к “There is a bathroom.”",
+          "options": [
+            "Is there a bathroom?",
+            "Does there bathroom?",
+            "Are there a bathroom?",
+            "There is bathroom?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Отрицание для множественного числа:",
+          "options": [
+            "There isn’t chairs.",
+            "There aren’t chairs.",
+            "There not are chairs.",
+            "There doesn’t chairs."
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “kitchen”?",
+          "options": [
+            "спальня",
+            "ванная",
+            "кухня",
+            "окно"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что означает “window”?",
+          "options": [
+            "окно",
+            "дверь",
+            "стул",
+            "стол"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "There are используется с несколькими предметами.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Правильно:",
+          "options": [
+            "There are a sofa.",
+            "There is a sofa.",
+            "There am sofa.",
+            "There be a sofa."
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-15",
+      "title": "Food, Some & Any",
+      "ru": "Еда, some и any",
+      "theory": [
+        "Some и any используются с множественными исчисляемыми и неисчисляемыми существительными. Some обычно в утверждениях: I’ve got some apples. Any часто в вопросах и отрицаниях: Have you got any milk? I haven’t got any milk.",
+        "Неисчисляемые существительные обычно не имеют формы множественного числа: water, milk, bread, rice, cheese.",
+        "В кафе полезны фразы: I’d like ..., Can I have ...?, How much is it?"
+      ],
+      "grammar": [
+        [
+          "Тип",
+          "Обычно",
+          "Пример"
+        ],
+        [
+          "Утверждение",
+          "some",
+          "There is some water."
+        ],
+        [
+          "Вопрос",
+          "any",
+          "Is there any milk?"
+        ],
+        [
+          "Отрицание",
+          "any",
+          "There isn’t any bread."
+        ]
+      ],
+      "examples": [
+        [
+          "I’d like some water, please.",
+          "Я хотел(а) бы воды, пожалуйста."
+        ],
+        [
+          "Have you got any apples?",
+          "У тебя есть яблоки?"
+        ],
+        [
+          "There isn’t any milk.",
+          "Молока нет."
+        ],
+        [
+          "We have some bread and cheese.",
+          "У нас есть хлеб и сыр."
+        ]
+      ],
+      "vocab": [
+        [
+          "bread",
+          "/bred/",
+          "хлеб",
+          "I eat bread for breakfast."
+        ],
+        [
+          "milk",
+          "/mɪlk/",
+          "молоко",
+          "Do you drink milk?"
+        ],
+        [
+          "cheese",
+          "/tʃiːz/",
+          "сыр",
+          "I like cheese."
+        ],
+        [
+          "rice",
+          "/raɪs/",
+          "рис",
+          "We have some rice."
+        ],
+        [
+          "water",
+          "/ˈwɔːtə/",
+          "вода",
+          "I’d like some water."
+        ],
+        [
+          "apple",
+          "/ˈæpəl/",
+          "яблоко",
+          "There are some apples."
+        ],
+        [
+          "hungry",
+          "/ˈhʌŋɡri/",
+          "голодный",
+          "I’m hungry."
+        ],
+        [
+          "thirsty",
+          "/ˈθɜːsti/",
+          "хочу пить",
+          "I’m thirsty."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: I have ___ apples.",
+          "a": "some",
+          "hint": "Утверждение → some."
+        },
+        {
+          "q": "Дополните: Have you got ___ milk?",
+          "a": "any",
+          "hint": "Вопрос → any."
+        },
+        {
+          "q": "Как сказать «Я хотел бы воды»?",
+          "a": "I’d like some water.",
+          "hint": "I’d like..."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I have ___ bread.",
+          "options": [
+            "any",
+            "some",
+            "an",
+            "manys"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Have you got ___ milk?",
+          "options": [
+            "some",
+            "any",
+            "a",
+            "two"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "There isn’t ___ cheese.",
+          "options": [
+            "some",
+            "any",
+            "an",
+            "many"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “hungry”?",
+          "options": [
+            "хочу пить",
+            "голодный",
+            "уставший",
+            "счастливый"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “thirsty”?",
+          "options": [
+            "голодный",
+            "хочу пить",
+            "холодный",
+            "занятый"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как вежливо заказать воду?",
+          "options": [
+            "Give water.",
+            "I’d like some water, please.",
+            "Water now.",
+            "I am water."
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Some чаще используется в утверждениях.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Bread обычно неисчисляемое существительное.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-16",
+      "title": "Can / Can’t",
+      "ru": "Умения и возможности: can / can’t",
+      "theory": [
+        "Can означает «мочь/уметь». После can всегда идёт базовая форма глагола без to: I can swim. She can speak English.",
+        "Отрицание: cannot или can’t. Вопрос: Can you swim? Короткие ответы: Yes, I can. / No, I can’t.",
+        "Can также используют для простых просьб: Can you help me?"
+      ],
+      "grammar": [
+        [
+          "Тип",
+          "Схема",
+          "Пример"
+        ],
+        [
+          "Утверждение",
+          "subject + can + verb",
+          "He can drive."
+        ],
+        [
+          "Отрицание",
+          "subject + can’t + verb",
+          "He can’t drive."
+        ],
+        [
+          "Вопрос",
+          "Can + subject + verb?",
+          "Can he drive?"
+        ]
+      ],
+      "examples": [
+        [
+          "I can swim.",
+          "Я умею плавать."
+        ],
+        [
+          "She can’t drive.",
+          "Она не умеет водить."
+        ],
+        [
+          "Can you speak English?",
+          "Ты умеешь говорить по-английски?"
+        ],
+        [
+          "Can you help me?",
+          "Ты можешь мне помочь?"
+        ]
+      ],
+      "vocab": [
+        [
+          "swim",
+          "/swɪm/",
+          "плавать",
+          "I can swim."
+        ],
+        [
+          "drive",
+          "/draɪv/",
+          "водить",
+          "He can drive."
+        ],
+        [
+          "cook",
+          "/kʊk/",
+          "готовить",
+          "She can cook."
+        ],
+        [
+          "dance",
+          "/dɑːns/",
+          "танцевать",
+          "They can dance."
+        ],
+        [
+          "sing",
+          "/sɪŋ/",
+          "петь",
+          "Can you sing?"
+        ],
+        [
+          "help",
+          "/help/",
+          "помогать",
+          "Can you help me?"
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Скажите: «Я умею плавать».",
+          "a": "I can swim.",
+          "hint": "can + базовая форма."
+        },
+        {
+          "q": "Сделайте отрицание: She can drive.",
+          "a": "She can’t drive.",
+          "hint": "can’t + verb."
+        },
+        {
+          "q": "Сделайте вопрос: You can cook.",
+          "a": "Can you cook?",
+          "hint": "Can в начало."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Выберите: I can ___ .",
+          "options": [
+            "to swim",
+            "swim",
+            "swims",
+            "swimming"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Отрицание can:",
+          "options": [
+            "don’t can",
+            "can’t",
+            "doesn’t can",
+            "not can to"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Правильный вопрос:",
+          "options": [
+            "Do you can swim?",
+            "Can you swim?",
+            "Can you to swim?",
+            "You can swim?"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Короткий ответ: Can she cook?",
+          "options": [
+            "Yes, she does.",
+            "Yes, she can.",
+            "Yes, she is.",
+            "Yes, can she."
+          ],
+          "answer": 1
+        },
+        {
+          "q": "После can используется...",
+          "options": [
+            "глагол с -s",
+            "to + глагол",
+            "базовая форма глагола",
+            "-ing"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Что означает “drive”?",
+          "options": [
+            "бегать",
+            "водить",
+            "готовить",
+            "рисовать"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Can можно использовать для просьб.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“I can’t sing” означает...",
+          "options": [
+            "Я люблю петь.",
+            "Я не умею петь.",
+            "Я сейчас пою.",
+            "Я буду петь."
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-17",
+      "title": "Present Continuous",
+      "ru": "Present Continuous: действия сейчас",
+      "theory": [
+        "Present Continuous используется для действий, происходящих прямо сейчас: I am reading now. She is working at the moment.",
+        "Формула: am/is/are + глагол-ing. I am studying, he is studying, they are studying.",
+        "Отрицание: isn’t/aren’t + -ing. Вопрос: Are you studying? Is she sleeping?"
+      ],
+      "grammar": [
+        [
+          "Подлежащее",
+          "Утверждение",
+          "Отрицание"
+        ],
+        [
+          "I",
+          "am working",
+          "am not working"
+        ],
+        [
+          "He/She/It",
+          "is working",
+          "isn’t working"
+        ],
+        [
+          "You/We/They",
+          "are working",
+          "aren’t working"
+        ]
+      ],
+      "examples": [
+        [
+          "I’m reading now.",
+          "Я сейчас читаю."
+        ],
+        [
+          "She is talking on the phone.",
+          "Она разговаривает по телефону."
+        ],
+        [
+          "They aren’t sleeping.",
+          "Они не спят."
+        ],
+        [
+          "Are you listening to me?",
+          "Ты меня слушаешь?"
+        ]
+      ],
+      "vocab": [
+        [
+          "now",
+          "/naʊ/",
+          "сейчас",
+          "I’m working now."
+        ],
+        [
+          "read",
+          "/riːd/",
+          "читать",
+          "She is reading."
+        ],
+        [
+          "write",
+          "/raɪt/",
+          "писать",
+          "He is writing."
+        ],
+        [
+          "listen",
+          "/ˈlɪsən/",
+          "слушать",
+          "We are listening."
+        ],
+        [
+          "sleep",
+          "/sliːp/",
+          "спать",
+          "The baby is sleeping."
+        ],
+        [
+          "talk",
+          "/tɔːk/",
+          "разговаривать",
+          "They are talking."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: I ___ reading now.",
+          "a": "am",
+          "hint": "I + am."
+        },
+        {
+          "q": "Дополните: She is ___ . (work)",
+          "a": "working",
+          "hint": "work + ing."
+        },
+        {
+          "q": "Сделайте вопрос: They are studying.",
+          "a": "Are they studying?",
+          "hint": "Are в начало."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I ___ reading now.",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "do"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "She is ___ now.",
+          "options": [
+            "work",
+            "works",
+            "working",
+            "to work"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "They ___ sleeping.",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "does"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Вопрос: You are listening.",
+          "options": [
+            "Do you listening?",
+            "Are you listening?",
+            "Is you listening?",
+            "You are listening?"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Present Continuous =",
+          "options": [
+            "am/is/are + verb-ing",
+            "do/does + verb",
+            "can + verb",
+            "have got"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что означает “now”?",
+          "options": [
+            "вчера",
+            "обычно",
+            "сейчас",
+            "завтра"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“She isn’t sleeping” — правильное отрицание.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что означает “listen”?",
+          "options": [
+            "смотреть",
+            "слушать",
+            "говорить",
+            "писать"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-18",
+      "title": "Present Simple vs Present Continuous",
+      "ru": "Present Simple и Present Continuous",
+      "theory": [
+        "Present Simple описывает привычки и регулярные действия: I play football every Friday. Present Continuous — действие сейчас: I am playing football now.",
+        "Подсказки Present Simple: every day, usually, often, sometimes, never. Подсказки Present Continuous: now, right now, at the moment.",
+        "Важно смотреть не только на слово-подсказку, но и на смысл предложения."
+      ],
+      "grammar": [
+        [
+          "Время",
+          "Когда используем",
+          "Пример"
+        ],
+        [
+          "Present Simple",
+          "привычка/факт",
+          "She works every day."
+        ],
+        [
+          "Present Continuous",
+          "сейчас",
+          "She is working now."
+        ]
+      ],
+      "examples": [
+        [
+          "I usually walk to school.",
+          "Я обычно хожу в школу пешком."
+        ],
+        [
+          "Today I am going by bus.",
+          "Сегодня я еду на автобусе."
+        ],
+        [
+          "He plays tennis on Saturdays.",
+          "Он играет в теннис по субботам."
+        ],
+        [
+          "He is playing tennis now.",
+          "Он сейчас играет в теннис."
+        ]
+      ],
+      "vocab": [
+        [
+          "usually",
+          "/ˈjuːʒuəli/",
+          "обычно",
+          "I usually get up at seven."
+        ],
+        [
+          "often",
+          "/ˈɒfən/",
+          "часто",
+          "We often watch films."
+        ],
+        [
+          "sometimes",
+          "/ˈsʌmtaɪmz/",
+          "иногда",
+          "She sometimes walks."
+        ],
+        [
+          "at the moment",
+          "/ət ðə ˈməʊmənt/",
+          "в данный момент",
+          "He is studying at the moment."
+        ],
+        [
+          "today",
+          "/təˈdeɪ/",
+          "сегодня",
+          "Today I’m staying home."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Выберите форму: He ___ every day. (work)",
+          "a": "works",
+          "hint": "Every day → Present Simple."
+        },
+        {
+          "q": "Выберите форму: He ___ now. (work)",
+          "a": "is working",
+          "hint": "Now → Present Continuous."
+        },
+        {
+          "q": "Какое время подходит для привычек?",
+          "a": "Present Simple",
+          "hint": "Регулярные действия."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "She ___ every day.",
+          "options": [
+            "is working",
+            "works",
+            "work now",
+            "working"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "She ___ now.",
+          "options": [
+            "works",
+            "work",
+            "is working",
+            "does work now"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“usually” чаще связано с...",
+          "options": [
+            "Present Simple",
+            "Present Continuous",
+            "Past Simple",
+            "can"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“at the moment” чаще связано с...",
+          "options": [
+            "Present Simple",
+            "Present Continuous",
+            "have got",
+            "to be only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "I ___ football every Friday.",
+          "options": [
+            "am playing",
+            "play",
+            "plays",
+            "is play"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "I ___ football right now.",
+          "options": [
+            "play",
+            "plays",
+            "am playing",
+            "do play"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Present Simple подходит для привычек.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Present Continuous подходит для действий прямо сейчас.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-19",
+      "title": "Clothes & Shopping",
+      "ru": "Одежда и покупки",
+      "theory": [
+        "Для покупок полезны фразы: How much is this? — Сколько это стоит? How much are these? — Сколько стоят эти? Can I try it on? — Можно примерить?",
+        "Для одного предмета используйте it/this, для нескольких — they/these. Размер можно спросить: What size are you? или Do you have this in size M?",
+        "Чтобы выразить желание купить: I’d like this T-shirt, please."
+      ],
+      "grammar": [
+        [
+          "Ситуация",
+          "Фраза"
+        ],
+        [
+          "Цена одного",
+          "How much is this?"
+        ],
+        [
+          "Цена нескольких",
+          "How much are these?"
+        ],
+        [
+          "Примерка",
+          "Can I try it on?"
+        ],
+        [
+          "Размер",
+          "Do you have this in size M?"
+        ]
+      ],
+      "examples": [
+        [
+          "How much is this jacket?",
+          "Сколько стоит эта куртка?"
+        ],
+        [
+          "Can I try it on?",
+          "Можно это примерить?"
+        ],
+        [
+          "These shoes are too big.",
+          "Эти туфли слишком большие."
+        ],
+        [
+          "I’d like this T-shirt, please.",
+          "Я хотел(а) бы эту футболку."
+        ]
+      ],
+      "vocab": [
+        [
+          "T-shirt",
+          "/ˈtiː ʃɜːt/",
+          "футболка",
+          "This T-shirt is nice."
+        ],
+        [
+          "jacket",
+          "/ˈdʒækɪt/",
+          "куртка",
+          "I need a jacket."
+        ],
+        [
+          "trousers",
+          "/ˈtraʊzəz/",
+          "брюки",
+          "These trousers are black."
+        ],
+        [
+          "shoes",
+          "/ʃuːz/",
+          "обувь/туфли",
+          "These shoes are new."
+        ],
+        [
+          "size",
+          "/saɪz/",
+          "размер",
+          "What size do you need?"
+        ],
+        [
+          "cheap",
+          "/tʃiːp/",
+          "дешёвый",
+          "It’s cheap."
+        ],
+        [
+          "expensive",
+          "/ɪkˈspensɪv/",
+          "дорогой",
+          "That jacket is expensive."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Как спросить цену одного предмета?",
+          "a": "How much is this?",
+          "hint": "Один → is."
+        },
+        {
+          "q": "Как спросить «Можно примерить?»",
+          "a": "Can I try it on?",
+          "hint": "Can I..."
+        },
+        {
+          "q": "Переведите «Эта куртка дорогая».",
+          "a": "This jacket is expensive.",
+          "hint": "expensive = дорогой."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Как спросить цену одного предмета?",
+          "options": [
+            "How much is this?",
+            "How many is this?",
+            "What cost these?",
+            "How price it?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как спросить цену нескольких вещей?",
+          "options": [
+            "How much are these?",
+            "How much is these?",
+            "How many are price?",
+            "What these cost is?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“Can I try it on?” означает...",
+          "options": [
+            "Можно оплатить?",
+            "Можно примерить?",
+            "Можно вернуть?",
+            "Есть другой цвет?"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “size”?",
+          "options": [
+            "цена",
+            "размер",
+            "цвет",
+            "касса"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “cheap”?",
+          "options": [
+            "дорогой",
+            "дешёвый",
+            "маленький",
+            "новый"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Что означает “expensive”?",
+          "options": [
+            "дешёвый",
+            "дорогой",
+            "красивый",
+            "старый"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“These shoes” — несколько предметов.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как сказать «Я хотел бы эту футболку»?",
+          "options": [
+            "I’d like this T-shirt.",
+            "I like this T-shirt yesterday.",
+            "Give T-shirt.",
+            "I am T-shirt."
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-20",
+      "title": "A1 Review 1",
+      "ru": "Повторение уроков 1–19",
+      "theory": [
+        "Этот урок повторяет ключевые темы первой большой части A1: to be, have got, Present Simple, Present Continuous, can/can’t, there is/there are, some/any, время и предлоги.",
+        "Перед тестом вернитесь к тем урокам, где были ошибки. Цель — не просто запомнить ответы, а понять, почему используется конкретная форма.",
+        "После успешного прохождения этого урока будет открыт следующий блок A1."
+      ],
+      "grammar": [
+        [
+          "Тема",
+          "Ключевая схема"
+        ],
+        [
+          "to be",
+          "I am; he/she is; we/you/they are"
+        ],
+        [
+          "Present Simple",
+          "I work; she works; don’t/doesn’t"
+        ],
+        [
+          "Present Continuous",
+          "am/is/are + verb-ing"
+        ],
+        [
+          "can",
+          "can + base verb"
+        ],
+        [
+          "there is/are",
+          "1 предмет / несколько"
+        ]
+      ],
+      "examples": [
+        [
+          "She is a student and she studies English.",
+          "Она ученица и изучает английский."
+        ],
+        [
+          "There are some books on the table.",
+          "На столе есть несколько книг."
+        ],
+        [
+          "He can swim but he can’t drive.",
+          "Он умеет плавать, но не умеет водить."
+        ],
+        [
+          "They are watching TV now.",
+          "Они сейчас смотрят телевизор."
+        ]
+      ],
+      "vocab": [
+        [
+          "review",
+          "/rɪˈvjuː/",
+          "повторение",
+          "This is a review lesson."
+        ],
+        [
+          "remember",
+          "/rɪˈmembə/",
+          "помнить",
+          "Remember the rule."
+        ],
+        [
+          "mistake",
+          "/mɪˈsteɪk/",
+          "ошибка",
+          "Check your mistakes."
+        ],
+        [
+          "correct",
+          "/kəˈrekt/",
+          "правильный",
+          "Choose the correct answer."
+        ],
+        [
+          "ready",
+          "/ˈredi/",
+          "готовый",
+          "Are you ready?"
+        ]
+      ],
+      "practice": [
+        {
+          "q": "She ___ English every day. (study)",
+          "a": "studies",
+          "hint": "Present Simple, she."
+        },
+        {
+          "q": "They ___ watching TV now.",
+          "a": "are",
+          "hint": "Present Continuous."
+        },
+        {
+          "q": "There ___ two chairs.",
+          "a": "are",
+          "hint": "Несколько предметов."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "She ___ a teacher.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "He ___ English every day.",
+          "options": [
+            "study",
+            "studies",
+            "is study",
+            "studying"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "They ___ football now.",
+          "options": [
+            "play",
+            "plays",
+            "are playing",
+            "is playing"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "I can ___ .",
+          "options": [
+            "to swim",
+            "swim",
+            "swims",
+            "swimming"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "There ___ two windows.",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "has"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Have you got ___ milk?",
+          "options": [
+            "some",
+            "any",
+            "a",
+            "manys"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "___ Monday",
+          "options": [
+            "at",
+            "on",
+            "in",
+            "under"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "7:30 =",
+          "options": [
+            "quarter past seven",
+            "half past seven",
+            "quarter to seven",
+            "seven o’clock"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "How much ___ these shoes?",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "does"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Следующий урок открывается после результата не ниже 80%.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 };
