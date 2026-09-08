@@ -81,3 +81,113 @@ css-addon.txt
     justify-content:space-between;
   }
 }
+/* FIX: A1 header first, lesson list strictly below it */
+.course-row.course-accordion{
+  display:block !important;
+  padding:0 !important;
+  overflow:hidden;
+}
+
+.course-accordion-head{
+  width:100%;
+  display:grid !important;
+  grid-template-columns:80px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  padding:22px 24px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  font:inherit;
+}
+
+.course-accordion-title{
+  min-width:0;
+}
+
+.course-accordion-title h2{
+  margin:0 0 5px;
+}
+
+.course-accordion-title p{
+  margin:0;
+}
+
+.course-accordion-status{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+}
+
+.course-accordion-body{
+  display:none;
+  width:100%;
+  box-sizing:border-box;
+  padding:18px 24px 24px;
+  border-top:1px solid rgba(0,0,0,.07);
+}
+
+.course-accordion.open .course-accordion-body{
+  display:block !important;
+}
+
+.a1-progress{
+  width:100%;
+  margin:0 0 14px;
+}
+
+.lesson-items{
+  width:100%;
+  display:grid;
+  gap:8px;
+}
+
+.lesson-link{
+  width:100%;
+  box-sizing:border-box;
+}
+
+.lesson-link span{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.lesson-link b{
+  font-weight:600;
+}
+
+.lesson-link small{
+  font-size:.82rem;
+  font-weight:400;
+  opacity:.65;
+}
+
+.accordion-chevron{
+  font-size:26px;
+  line-height:1;
+  transition:transform .2s ease;
+}
+
+.course-accordion.open .accordion-chevron{
+  transform:rotate(180deg);
+}
+
+@media (max-width:700px){
+  .course-accordion-head{
+    grid-template-columns:58px minmax(0,1fr);
+    padding:18px 16px;
+  }
+
+  .course-accordion-status{
+    grid-column:1/-1;
+    justify-content:space-between;
+  }
+
+  .course-accordion-body{
+    padding:14px 16px 18px;
+  }
+}
