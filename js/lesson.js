@@ -2,6 +2,41 @@
   const profile = await bootGuard();
   if (!profile) return;
 
+
+  const speechState = {
+    rate: 1,
+    voice: null
+  };
+
+  function getEnglishVoice() {
+    const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    return voices.find(v => /^en(-|_)/i.test(v.lang) && /Google|Microsoft|Samantha|Daniel|Karen|Moira|Serena|Alex/i.test(v.name))
+      || voices.find(v => /^en(-|_)/i.test(v.lang))
+      || voices[0]
+      || null;
+  }
+
+  function speakEnglish(text) {
+    if (!('speechSynthesis' in window)) {
+      alert('Ваш браузер не поддерживает озвучивание текста.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = speechState.rate;
+    utterance.pitch = 1;
+    speechState.voice = getEnglishVoice();
+    if (speechState.voice) utterance.voice = speechState.voice;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {
+      speechState.voice = getEnglishVoice();
+    };
+  }
+
   const key = new URLSearchParams(location.search).get('lesson') || A1_DATA.lessons[0].key;
   const idx = A1_DATA.lessons.findIndex(x => x.key === key);
   if (idx < 0) { location.href = 'courses.html'; return; }
@@ -31,7 +66,13 @@
   ).join('');
 
   const examples = lesson.examples.map(e =>
-    `<div class="example"><strong>${e[0]}</strong><br><span class="muted">${e[1]}</span></div>`
+    `<div class="example example-with-audio">
+      <div>
+        <strong>${e[0]}</strong><br>
+        <span class="muted">${e[1]}</span>
+      </div>
+      <button class="audio-btn" type="button" data-speak="${encodeURIComponent(e[0])}" aria-label="Прослушать пример">🔊</button>
+    </div>`
   ).join('');
 
   const grammar = lesson.grammar?.length
@@ -57,6 +98,23 @@
     <h1>${lesson.title}</h1>
     <p class="muted">${lesson.ru}</p>
     <div class="progress-line"><div style="width:${Math.round((idx+1)/A1_DATA.lessons.length*100)}%"></div></div>
+
+    <div class="audio-toolbar">
+      <div>
+        <strong>🎧 Озвучивание урока</strong>
+        <span class="muted">Нажимайте 🔊 возле слов и примеров.</span>
+      </div>
+      <label class="speech-rate-label">
+        Скорость
+        <select id="speechRate">
+          <option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option>
+        </select>
+      </label>
+      <button id="listenLessonTitle" class="btn ghost" type="button">🔊 Название урока</button>
+      <button id="stopSpeech" class="btn ghost" type="button">⏹ Стоп</button>
+    </div>
+
     <h2>Объяснение</h2>
     ${lesson.theory.map(p=>`<p>${p}</p>`).join('')}
     ${grammar}
@@ -78,6 +136,31 @@
       btn.style.display = 'none';
     });
   });
+
+  document.querySelectorAll('[data-speak]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      speakEnglish(decodeURIComponent(btn.dataset.speak));
+    });
+  });
+
+  const speechRateSelect = document.getElementById('speechRate');
+  if (speechRateSelect) {
+    speechRateSelect.addEventListener('change', () => {
+      speechState.rate = Number(speechRateSelect.value) || 1;
+    });
+  }
+
+  const listenLessonTitle = document.getElementById('listenLessonTitle');
+  if (listenLessonTitle) {
+    listenLessonTitle.addEventListener('click', () => speakEnglish(lesson.title));
+  }
+
+  const stopSpeech = document.getElementById('stopSpeech');
+  if (stopSpeech) {
+    stopSpeech.addEventListener('click', () => {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    });
+  }
 
   const qa = document.getElementById('quizArea');
   qa.innerHTML = `
