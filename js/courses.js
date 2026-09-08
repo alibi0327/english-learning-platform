@@ -16,15 +16,25 @@
     const row = document.createElement('section');
     row.className = 'course-row';
     let lessonsHtml = '';
+
     if (c.code === 'A1' && ok) {
-      lessonsHtml = `<div class="lesson-items">` + A1_DATA.lessons.map((l, i) => {
-        const unlocked = i === 0 || completed.has(A1_DATA.lessons[i-1].key) || profile.role === 'admin';
-        const status = completed.has(l.key) ? '✓' : (unlocked ? '→' : '🔒');
-        return unlocked
-          ? `<a class="lesson-link" href="lesson.html?lesson=${encodeURIComponent(l.key)}"><span>${i+1}. ${l.title} — ${l.ru}</span><strong>${status}</strong></a>`
-          : `<div class="lesson-link locked"><span>${i+1}. ${l.title} — ${l.ru}</span><strong>${status}</strong></div>`;
-      }).join('') + `</div>`;
+      const doneA1 = A1_DATA.lessons.filter(l => completed.has(l.key)).length;
+      const percent = Math.round(doneA1 / A1_DATA.lessons.length * 100);
+
+      lessonsHtml = `
+        <div style="margin:14px 0">
+          <strong>Прогресс A1: ${doneA1} / ${A1_DATA.lessons.length} уроков — ${percent}%</strong>
+          <div class="progress-line"><div style="width:${percent}%"></div></div>
+        </div>
+        <div class="lesson-items">` + A1_DATA.lessons.map((l, i) => {
+          const unlocked = i === 0 || completed.has(A1_DATA.lessons[i-1].key) || profile.role === 'admin';
+          const status = completed.has(l.key) ? '✓' : (unlocked ? '→' : '🔒');
+          return unlocked
+            ? `<a class="lesson-link" href="lesson.html?lesson=${encodeURIComponent(l.key)}"><span>${i+1}. ${l.title} — ${l.ru}</span><strong>${status}</strong></a>`
+            : `<div class="lesson-link locked"><span>${i+1}. ${l.title} — ${l.ru}</span><strong>${status}</strong></div>`;
+        }).join('') + `</div>`;
     }
+
     row.innerHTML = `
       <div class="level-badge">${c.code}</div>
       <div><h2>${c.title}</h2><p class="muted">${c.description || ''}</p>${lessonsHtml}</div>
