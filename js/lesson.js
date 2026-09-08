@@ -5,36 +5,108 @@
 
   const speechState = {
     rate: 1,
-    voice: null
+    locale: 'en-US',
+    voice: null,
+    voices: []
   };
 
-  function getEnglishVoice() {
-    const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
-    return voices.find(v => /^en(-|_)/i.test(v.lang) && /Google|Microsoft|Samantha|Daniel|Karen|Moira|Serena|Alex/i.test(v.name))
-      || voices.find(v => /^en(-|_)/i.test(v.lang))
-      || voices[0]
+  function loadEnglishVoices() {
+    if (!('speechSynthesis' in window)) return [];
+    const all = window.speechSynthesis.getVoices() || [];
+    speechState.voices = all.filter(v => /^en(-|_)/i.test(v.lang || ''));
+
+    const preferredNames = [
+      'Microsoft Aria',
+      'Microsoft Jenny',
+      'Microsoft Guy',
+      'Google US English',
+      'Samantha',
+      'Alex',
+      'Daniel',
+      'Karen',
+      'Moira',
+      'Serena'
+    ];
+
+    const localeVoices = speechState.voices.filter(v =>
+      (v.lang || '').toLowerCase().startsWith(speechState.locale.toLowerCase())
+    );
+
+    speechState.voice =
+      preferredNames.map(name =>
+        localeVoices.find(v => (v.name || '').toLowerCase().includes(name.toLowerCase()))
+      ).find(Boolean)
+      || localeVoices[0]
+      || speechState.voices[0]
       || null;
+
+    const select = document.getElementById('speechVoice');
+    if (select) {
+      const previous = select.value;
+      select.innerHTML = speechState.voices.length
+        ? speechState.voices.map((v, i) =>
+            `<option value="${i}">${v.name} — ${v.lang}</option>`
+          ).join('')
+        : '<option value="">English voice not found</option>';
+
+      const activeIndex = speechState.voices.findIndex(v => v === speechState.voice);
+      if (activeIndex >= 0) select.value = String(activeIndex);
+      else if (previous && select.querySelector(`option[value="${previous}"]`)) select.value = previous;
+    }
+
+    return speechState.voices;
   }
 
-  function speakEnglish(text) {
+  async function ensureEnglishVoice() {
+    let voices = loadEnglishVoices();
+    if (voices.length) return speechState.voice;
+
+    await new Promise(resolve => {
+      let finished = false;
+      const done = () => {
+        if (finished) return;
+        finished = true;
+        resolve();
+      };
+      const timer = setTimeout(done, 1200);
+      window.speechSynthesis.addEventListener('voiceschanged', () => {
+        clearTimeout(timer);
+        done();
+      }, { once:true });
+    });
+
+    loadEnglishVoices();
+    return speechState.voice;
+  }
+
+  async function speakEnglish(text) {
     if (!('speechSynthesis' in window)) {
       alert('Ваш браузер не поддерживает озвучивание текста.');
       return;
     }
+
+    const voice = await ensureEnglishVoice();
+
+    if (!voice) {
+      alert('В браузере не найден английский голос. Попробуйте Chrome или Edge и установите English (US/UK) voice в системе.');
+      return;
+    }
+
     window.speechSynthesis.cancel();
+
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = voice.lang || speechState.locale;
+    utterance.voice = voice;
     utterance.rate = speechState.rate;
     utterance.pitch = 1;
-    speechState.voice = getEnglishVoice();
-    if (speechState.voice) utterance.voice = speechState.voice;
+    utterance.volume = 1;
+
     window.speechSynthesis.speak(utterance);
   }
 
   if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      speechState.voice = getEnglishVoice();
-    };
+    window.speechSynthesis.addEventListener('voiceschanged', loadEnglishVoices);
+    setTimeout(loadEnglishVoices, 100);
   }
 
   const key = new URLSearchParams(location.search).get('lesson') || A1_DATA.lessons[0].key;
@@ -100,18 +172,36 @@
     <div class="progress-line"><div style="width:${Math.round((idx+1)/A1_DATA.lessons.length*100)}%"></div></div>
 
     <div class="audio-toolbar">
-      <div>
-        <strong>🎧 Озвучивание урока</strong>
-        <span class="muted">Нажимайте 🔊 возле слов и примеров.</span>
+      <div class="audio-toolbar-title">
+        <strong>🎧 English pronunciation</strong>
+        <span class="muted">Используется только английский системный голос.</span>
       </div>
+
+      <label class="speech-rate-label">
+        Акцент
+        <select id="speechLocale">
+          <option value="en-US" selected>US 🇺🇸</option>
+          <option value="en-GB">UK 🇬🇧</option>
+        </select>
+      </label>
+
+      <label class="speech-voice-label">
+        Голос
+        <select id="speechVoice">
+          <option>Загрузка голосов...</option>
+        </select>
+      </label>
+
       <label class="speech-rate-label">
         Скорость
         <select id="speechRate">
           <option value="0.75">0.75×</option>
+          <option value="0.9">0.9×</option>
           <option value="1" selected>1×</option>
         </select>
       </label>
-      <button id="listenLessonTitle" class="btn ghost" type="button">🔊 Название урока</button>
+
+      <button id="listenLessonTitle" class="btn ghost" type="button">🔊 Проверить голос</button>
       <button id="stopSpeech" class="btn ghost" type="button">⏹ Стоп</button>
     </div>
 
@@ -149,6 +239,39 @@
       speechState.rate = Number(speechRateSelect.value) || 1;
     });
   }
+
+  const speechLocaleSelect = document.getElementById('speechLocale');
+  if (speechLocaleSelect) {
+    speechLocaleSelect.addEventListener('change', () => {
+      speechState.locale = speechLocaleSelect.value || 'en-US';
+      loadEnglishVoices();
+
+      // Prefer a voice that matches the selected accent.
+      const matching = speechState.voices.filter(v =>
+        (v.lang || '').toLowerCase().startsWith(speechState.locale.toLowerCase())
+      );
+      if (matching.length) {
+        speechState.voice = matching[0];
+        loadEnglishVoices();
+      }
+    });
+  }
+
+  const speechVoiceSelect = document.getElementById('speechVoice');
+  if (speechVoiceSelect) {
+    speechVoiceSelect.addEventListener('change', () => {
+      const index = Number(speechVoiceSelect.value);
+      if (Number.isInteger(index) && speechState.voices[index]) {
+        speechState.voice = speechState.voices[index];
+        speechState.locale = speechState.voice.lang || speechState.locale;
+        if (speechLocaleSelect) {
+          speechLocaleSelect.value = /^en-GB/i.test(speechState.locale) ? 'en-GB' : 'en-US';
+        }
+      }
+    });
+  }
+
+  loadEnglishVoices();
 
   const listenLessonTitle = document.getElementById('listenLessonTitle');
   if (listenLessonTitle) {
