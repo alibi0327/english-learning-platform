@@ -313,3 +313,38 @@
     align-items:flex-start;
   }
 }
+/* A1 PRONUNCIATION FIX — English voice selector */
+.audio-toolbar-title{
+  display:grid;
+  gap:3px;
+  margin-right:auto;
+  min-width:220px;
+}
+
+.speech-voice-label,
+.speech-rate-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.88rem;
+  white-space:nowrap;
+}
+
+.speech-voice-label select{
+  width:min(260px, 32vw);
+  min-width:180px;
+  padding:8px 10px;
+}
+
+@media(max-width:760px){
+  .speech-voice-label,
+  .speech-rate-label{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .speech-voice-label select,
+  .speech-rate-label select{
+    width:min(65%, 280px);
+  }
+}
