@@ -70,12 +70,25 @@ window.openAccess = (id) => {
 
     const m = document.getElementById('createUserMessage');
     const submitBtn = e.target.querySelector('button[type="submit"]');
+
     const fullName = document.getElementById('newFullName').value.trim();
     const email = document.getElementById('newEmail').value.trim().toLowerCase();
     const password = document.getElementById('newPassword').value;
     const role = document.getElementById('newRole').value;
     const selected = [...document.querySelectorAll('#newCourseChecks input:checked')]
       .map(x => x.value);
+
+    if (!fullName) {
+      m.className = 'message error';
+      m.textContent = 'Укажите имя пользователя.';
+      return;
+    }
+
+    if (!email) {
+      m.className = 'message error';
+      m.textContent = 'Укажите email.';
+      return;
+    }
 
     if (password.length < 8) {
       m.className = 'message error';
@@ -88,93 +101,40 @@ window.openAccess = (id) => {
     submitBtn.disabled = true;
 
     try {
-      // Создаём отдельный временный Supabase-клиент.
-      // Он НЕ заменяет текущую админ-сессию в браузере.
-      const signupClient = supabase.createClient(
-        APP_CONFIG.SUPABASE_URL,
-        APP_CONFIG.SUPABASE_PUBLISHABLE_KEY,
+      const { data: { session } } = await sb.auth.getSession();
+
+      if (!session?.access_token) {
+        throw new Error('Сессия администратора истекла. Войдите снова.');
+      }
+
+      // В Supabase функция была переименована, но её endpoint/slug остался smooth-handler.
+      const res = await fetch(
+        `${APP_CONFIG.SUPABASE_URL}/functions/v1/smooth-handler`,
         {
-          auth: {
-            persistSession: false,
-            autoRefreshToken: false,
-            detectSessionInUrl: false
-          }
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session.access_token}`,
+            'apikey': APP_CONFIG.SUPABASE_PUBLISHABLE_KEY
+          },
+          body: JSON.stringify({
+            full_name: fullName,
+            email,
+            password,
+            role,
+            course_ids: selected
+          })
         }
       );
 
-      const { data: signupData, error: signupError } = await signupClient.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName
-          }
-        }
-      });
+      const body = await res.json().catch(() => ({}));
 
-      if (signupError) throw signupError;
-      if (!signupData?.user?.id) throw new Error('Supabase не вернул ID нового пользователя.');
-
-      const userId = signupData.user.id;
-
-      // Триггер handle_new_user() создаёт строку profiles.
-      // Даём ему немного времени и ждём появления профиля.
-      let profileFound = false;
-      for (let i = 0; i < 12; i++) {
-        const { data: rows, error: readError } = await sb
-          .from('profiles')
-          .select('id')
-          .eq('id', userId)
-          .limit(1);
-
-        if (readError) throw readError;
-        if (rows && rows.length) {
-          profileFound = true;
-          break;
-        }
-        await new Promise(resolve => setTimeout(resolve, 250));
-      }
-
-      if (!profileFound) {
-        throw new Error('Пользователь создан в Auth, но профиль ещё не появился. Обновите страницу через несколько секунд.');
-      }
-
-      // Администратор задаёт имя, роль и статус через RLS-политику.
-      const { error: profileError } = await sb
-        .from('profiles')
-        .update({
-          full_name: fullName,
-          email,
-          role,
-          status: 'active',
-          updated_at: new Date().toISOString()
-        })
-        .eq('id', userId);
-
-      if (profileError) throw profileError;
-
-      // Выдаём выбранные курсы.
-      if (selected.length > 0) {
-        const accessRowsToInsert = selected.map(courseId => ({
-          user_id: userId,
-          course_id: courseId,
-          allowed: true
-        }));
-
-        const { error: accessError } = await sb
-          .from('course_access')
-          .insert(accessRowsToInsert);
-
-        if (accessError) throw accessError;
+      if (!res.ok) {
+        throw new Error(body.error || `Ошибка сервера (${res.status})`);
       }
 
       m.className = 'message success';
-
-      if (signupData.session) {
-        m.textContent = 'Пользователь создан. Он уже может войти по email и паролю.';
-      } else {
-        m.textContent = 'Пользователь создан. Если в Supabase включено подтверждение email, нужно подтвердить письмо перед первым входом.';
-      }
+      m.textContent = 'Пользователь создан и может войти по email и паролю.';
 
       e.target.reset();
       courseChecks('newCourseChecks');
@@ -183,17 +143,16 @@ window.openAccess = (id) => {
       setTimeout(() => {
         document.getElementById('createUserModal').classList.add('hidden');
         m.textContent = '';
-      }, 1400);
+      }, 1200);
 
     } catch (err) {
       console.error('Ошибка создания пользователя:', err);
       m.className = 'message error';
 
       const text = String(err?.message || '');
+
       if (/already|registered|exists/i.test(text)) {
         m.textContent = 'Пользователь с таким email уже существует.';
-      } else if (/rate limit/i.test(text)) {
-        m.textContent = 'Supabase временно ограничил создание пользователей. Попробуйте чуть позже.';
       } else {
         m.textContent = text || 'Не удалось создать пользователя.';
       }
