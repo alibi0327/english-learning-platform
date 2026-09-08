@@ -67,43 +67,149 @@ window.openAccess = (id) => {
 
   document.getElementById('createUserForm').addEventListener('submit', async e => {
     e.preventDefault();
+
     const m = document.getElementById('createUserMessage');
-    m.className='message'; m.textContent='Создаём пользователя...';
-    const selected = [...document.querySelectorAll('#newCourseChecks input:checked')].map(x=>x.value);
-    const { data: { session } } = await sb.auth.getSession();
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const fullName = document.getElementById('newFullName').value.trim();
+    const email = document.getElementById('newEmail').value.trim().toLowerCase();
+    const password = document.getElementById('newPassword').value;
+    const role = document.getElementById('newRole').value;
+    const selected = [...document.querySelectorAll('#newCourseChecks input:checked')]
+      .map(x => x.value);
 
-    const res = await fetch(`${APP_CONFIG.SUPABASE_URL}/functions/v1/admin-create-user`, {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization':`Bearer ${session.access_token}`,
-        'apikey':APP_CONFIG.SUPABASE_PUBLISHABLE_KEY
-      },
-      body:JSON.stringify({
-        full_name:document.getElementById('newFullName').value.trim(),
-        email:document.getElementById('newEmail').value.trim(),
-        password:document.getElementById('newPassword').value,
-        role:document.getElementById('newRole').value,
-        course_ids:selected
-      })
-    });
-
-    const body = await res.json().catch(()=>({}));
-    if (!res.ok) {
-      m.className='message error'; m.textContent=body.error || 'Не удалось создать пользователя. Проверьте, развернута ли Edge Function.';
+    if (password.length < 8) {
+      m.className = 'message error';
+      m.textContent = 'Пароль должен содержать минимум 8 символов.';
       return;
     }
-    m.className='message success'; m.textContent='Пользователь создан.';
-    e.target.reset();
-    await reloadData();
+
+    m.className = 'message';
+    m.textContent = 'Создаём пользователя...';
+    submitBtn.disabled = true;
+
+    try {
+      // Создаём отдельный временный Supabase-клиент.
+      // Он НЕ заменяет текущую админ-сессию в браузере.
+      const signupClient = supabase.createClient(
+        APP_CONFIG.SUPABASE_URL,
+        APP_CONFIG.SUPABASE_PUBLISHABLE_KEY,
+        {
+          auth: {
+            persistSession: false,
+            autoRefreshToken: false,
+            detectSessionInUrl: false
+          }
+        }
+      );
+
+      const { data: signupData, error: signupError } = await signupClient.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName
+          }
+        }
+      });
+
+      if (signupError) throw signupError;
+      if (!signupData?.user?.id) throw new Error('Supabase не вернул ID нового пользователя.');
+
+      const userId = signupData.user.id;
+
+      // Триггер handle_new_user() создаёт строку profiles.
+      // Даём ему немного времени и ждём появления профиля.
+      let profileFound = false;
+      for (let i = 0; i < 12; i++) {
+        const { data: rows, error: readError } = await sb
+          .from('profiles')
+          .select('id')
+          .eq('id', userId)
+          .limit(1);
+
+        if (readError) throw readError;
+        if (rows && rows.length) {
+          profileFound = true;
+          break;
+        }
+        await new Promise(resolve => setTimeout(resolve, 250));
+      }
+
+      if (!profileFound) {
+        throw new Error('Пользователь создан в Auth, но профиль ещё не появился. Обновите страницу через несколько секунд.');
+      }
+
+      // Администратор задаёт имя, роль и статус через RLS-политику.
+      const { error: profileError } = await sb
+        .from('profiles')
+        .update({
+          full_name: fullName,
+          email,
+          role,
+          status: 'active',
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', userId);
+
+      if (profileError) throw profileError;
+
+      // Выдаём выбранные курсы.
+      if (selected.length > 0) {
+        const accessRowsToInsert = selected.map(courseId => ({
+          user_id: userId,
+          course_id: courseId,
+          allowed: true
+        }));
+
+        const { error: accessError } = await sb
+          .from('course_access')
+          .insert(accessRowsToInsert);
+
+        if (accessError) throw accessError;
+      }
+
+      m.className = 'message success';
+
+      if (signupData.session) {
+        m.textContent = 'Пользователь создан. Он уже может войти по email и паролю.';
+      } else {
+        m.textContent = 'Пользователь создан. Если в Supabase включено подтверждение email, нужно подтвердить письмо перед первым входом.';
+      }
+
+      e.target.reset();
+      courseChecks('newCourseChecks');
+      await reloadData();
+
+      setTimeout(() => {
+        document.getElementById('createUserModal').classList.add('hidden');
+        m.textContent = '';
+      }, 1400);
+
+    } catch (err) {
+      console.error('Ошибка создания пользователя:', err);
+      m.className = 'message error';
+
+      const text = String(err?.message || '');
+      if (/already|registered|exists/i.test(text)) {
+        m.textContent = 'Пользователь с таким email уже существует.';
+      } else if (/rate limit/i.test(text)) {
+        m.textContent = 'Supabase временно ограничил создание пользователей. Попробуйте чуть позже.';
+      } else {
+        m.textContent = text || 'Не удалось создать пользователя.';
+      }
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 
   document.getElementById('accessForm').addEventListener('submit', async e => {
     e.preventDefault();
 
     const m = document.getElementById('accessMessage');
+    const submitBtn = e.target.querySelector('button[type="submit"]');
     m.className = 'message';
     m.textContent = 'Сохраняем...';
+    submitBtn.disabled = true;
 
     const userId = document.getElementById('accessUserId').value;
     const role = document.getElementById('editRole').value;
@@ -112,7 +218,6 @@ window.openAccess = (id) => {
       .map(x => x.value);
 
     try {
-      // 1. Обновляем роль и статус пользователя напрямую через Supabase.
       const { error: profileError } = await sb
         .from('profiles')
         .update({
@@ -124,7 +229,6 @@ window.openAccess = (id) => {
 
       if (profileError) throw profileError;
 
-      // 2. Удаляем старые доступы пользователя.
       const { error: deleteError } = await sb
         .from('course_access')
         .delete()
@@ -132,7 +236,6 @@ window.openAccess = (id) => {
 
       if (deleteError) throw deleteError;
 
-      // 3. Записываем выбранные курсы.
       if (selected.length > 0) {
         const rows = selected.map(courseId => ({
           user_id: userId,
@@ -160,6 +263,9 @@ window.openAccess = (id) => {
       console.error('Ошибка сохранения доступа:', err);
       m.className = 'message error';
       m.textContent = err?.message || 'Не удалось сохранить доступ.';
+    } finally {
+      submitBtn.disabled = false;
     }
   });
+
 })();
