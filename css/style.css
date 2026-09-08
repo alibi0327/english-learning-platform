@@ -13,3 +13,71 @@
   .topbar nav a{white-space:nowrap}.userbox #userName{display:none}.lesson-content{padding:22px}.check-grid{grid-template-columns:repeat(2,1fr)}
 }
 css-addon.txt
+/* Accordion for course/lesson list */
+.course-accordion{
+  padding:0 !important;
+  overflow:hidden;
+}
+.course-accordion-head{
+  width:100%;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:16px;
+  padding:20px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  font:inherit;
+}
+.course-accordion-head:disabled{
+  cursor:not-allowed;
+}
+.course-accordion-title h2{
+  margin:0 0 4px;
+}
+.course-accordion-title p{
+  margin:0;
+}
+.course-accordion-status{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.accordion-chevron{
+  font-size:26px;
+  line-height:1;
+  transition:transform .2s ease;
+}
+.course-accordion.open .accordion-chevron{
+  transform:rotate(180deg);
+}
+.course-accordion-body{
+  display:none;
+  padding:0 20px 20px;
+  border-top:1px solid rgba(0,0,0,.07);
+}
+.course-accordion.open .course-accordion-body{
+  display:block;
+}
+.lesson-link span{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.lesson-link small{
+  font-size:.82rem;
+  font-weight:400;
+  opacity:.65;
+}
+@media (max-width:700px){
+  .course-accordion-head{
+    grid-template-columns:auto 1fr;
+  }
+  .course-accordion-status{
+    grid-column:1/-1;
+    justify-content:space-between;
+  }
+}
