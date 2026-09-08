@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>English Path — сертификат A1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="certificate-page">
+<header class="topbar no-print">
+  <a class="brand" href="dashboard.html"><span class="logo small">EP</span><strong>English Path</strong></a>
+  <nav><a href="courses.html">← К курсам</a></nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="certificate-wrap">
+  <div id="certificateGate" class="message no-print"></div>
+
+  <section id="certificate" class="certificate-sheet">
+    <div class="certificate-border">
+      <div class="certificate-brand">ENGLISH PATH</div>
+      <div class="certificate-kicker">CERTIFICATE OF COMPLETION</div>
+      <h1>Level A1 · Beginner</h1>
+      <p class="certificate-text">Настоящий сертификат подтверждает, что</p>
+      <div id="certificateName" class="certificate-name">Student</div>
+      <p class="certificate-text">успешно завершил(а) программу английского языка уровня A1 и прошёл(ла) итоговый экзамен.</p>
+
+      <div class="certificate-stats">
+        <div><span>Курс</span><strong>A1 Beginner</strong></div>
+        <div><span>Final Exam</span><strong id="certificateScore">—</strong></div>
+        <div><span>Дата</span><strong id="certificateDate">—</strong></div>
+      </div>
+
+      <div class="certificate-footer">
+        <div>
+          <span>Certificate ID</span>
+          <strong id="certificateId">—</strong>
+        </div>
+        <div class="certificate-sign">
+          <div>English Path</div>
+          <span>Learning Platform</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="certificate-actions no-print">
+    <button id="printCertificate" class="btn primary">Сохранить сертификат в PDF</button>
+    <a href="progress.html" class="btn ghost">Мой прогресс</a>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/certificate.js"></script>
+</body>
+</html>
