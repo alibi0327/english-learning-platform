@@ -100,33 +100,66 @@ window.openAccess = (id) => {
 
   document.getElementById('accessForm').addEventListener('submit', async e => {
     e.preventDefault();
+
     const m = document.getElementById('accessMessage');
-    m.className='message'; m.textContent='Сохраняем...';
-    const selected = [...document.querySelectorAll('#editCourseChecks input:checked')].map(x=>x.value);
-    const { data: { session } } = await sb.auth.getSession();
+    m.className = 'message';
+    m.textContent = 'Сохраняем...';
 
-    const res = await fetch(`${APP_CONFIG.SUPABASE_URL}/functions/v1/admin-set-access`, {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization':`Bearer ${session.access_token}`,
-        'apikey':APP_CONFIG.SUPABASE_PUBLISHABLE_KEY
-      },
-      body:JSON.stringify({
-        user_id:document.getElementById('accessUserId').value,
-        role:document.getElementById('editRole').value,
-        status:document.getElementById('editStatus').value,
-        course_ids:selected
-      })
-    });
+    const userId = document.getElementById('accessUserId').value;
+    const role = document.getElementById('editRole').value;
+    const status = document.getElementById('editStatus').value;
+    const selected = [...document.querySelectorAll('#editCourseChecks input:checked')]
+      .map(x => x.value);
 
-    const body = await res.json().catch(()=>({}));
-    if (!res.ok) {
-      m.className='message error'; m.textContent=body.error || 'Не удалось сохранить.';
-      return;
+    try {
+      // 1. Обновляем роль и статус пользователя напрямую через Supabase.
+      const { error: profileError } = await sb
+        .from('profiles')
+        .update({
+          role,
+          status,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', userId);
+
+      if (profileError) throw profileError;
+
+      // 2. Удаляем старые доступы пользователя.
+      const { error: deleteError } = await sb
+        .from('course_access')
+        .delete()
+        .eq('user_id', userId);
+
+      if (deleteError) throw deleteError;
+
+      // 3. Записываем выбранные курсы.
+      if (selected.length > 0) {
+        const rows = selected.map(courseId => ({
+          user_id: userId,
+          course_id: courseId,
+          allowed: true
+        }));
+
+        const { error: insertError } = await sb
+          .from('course_access')
+          .insert(rows);
+
+        if (insertError) throw insertError;
+      }
+
+      m.className = 'message success';
+      m.textContent = 'Доступ успешно обновлён.';
+
+      await reloadData();
+
+      setTimeout(() => {
+        document.getElementById('accessModal').classList.add('hidden');
+      }, 700);
+
+    } catch (err) {
+      console.error('Ошибка сохранения доступа:', err);
+      m.className = 'message error';
+      m.textContent = err?.message || 'Не удалось сохранить доступ.';
     }
-    m.className='message success'; m.textContent='Доступ обновлён.';
-    await reloadData();
-    setTimeout(()=>document.getElementById('accessModal').classList.add('hidden'), 500);
   });
 })();
