@@ -211,3 +211,105 @@
     align-items:flex-start;
   }
 }
+/* A1 VOICE / SPEECH */
+.audio-toolbar{
+  margin:18px 0 26px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+}
+
+.audio-toolbar > div:first-child{
+  display:grid;
+  gap:3px;
+  margin-right:auto;
+}
+
+.speech-rate-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.9rem;
+}
+
+.speech-rate-label select{
+  width:auto;
+  min-width:84px;
+  padding:8px 10px;
+}
+
+.audio-btn{
+  border:1px solid #dbeafe;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-radius:10px;
+  width:40px;
+  height:40px;
+  display:inline-grid;
+  place-items:center;
+  cursor:pointer;
+  flex:0 0 auto;
+  font-size:1rem;
+  transition:.15s ease;
+}
+
+.audio-btn:hover{
+  background:#dbeafe;
+  transform:translateY(-1px);
+}
+
+.small-audio-btn{
+  width:32px;
+  height:32px;
+  border-radius:9px;
+  font-size:.9rem;
+}
+
+.example-with-audio{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.vocab-word-audio,
+.vocab-example-audio{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.vocab-example-audio{
+  justify-content:space-between;
+}
+
+@media(max-width:600px){
+  .audio-toolbar{
+    align-items:stretch;
+  }
+
+  .audio-toolbar > *{
+    width:100%;
+  }
+
+  .speech-rate-label{
+    justify-content:space-between;
+  }
+
+  .speech-rate-label select{
+    width:110px;
+  }
+
+  .example-with-audio{
+    align-items:flex-start;
+  }
+
+  .vocab-example-audio{
+    align-items:flex-start;
+  }
+}
