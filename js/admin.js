@@ -1,6 +1,7 @@
 let courses = [];
 let users = [];
 let accessRows = [];
+let currentAdminId = null;
 
 function courseChecks(targetId, selected = new Set()) {
   document.getElementById(targetId).innerHTML = courses.map(c => `
@@ -22,7 +23,14 @@ function drawUsers(filter='') {
       <td><span class="badge">${u.role}</span></td>
       <td><span class="badge ${u.status}">${u.status === 'active' ? 'Активен' : 'Заблокирован'}</span></td>
       <td><div class="course-tags">${tagsFor(u.id)}</div></td>
-      <td><button class="btn ghost" onclick="openAccess('${u.id}')">Изменить</button></td>
+      <td>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn ghost" onclick="openAccess('${u.id}')">Изменить</button>
+          ${u.id !== currentAdminId
+            ? `<button class="btn danger" onclick="deleteUser('${u.id}')">Удалить</button>`
+            : `<span class="muted" style="font-size:.82rem;align-self:center">Ваш аккаунт</span>`}
+        </div>
+      </td>
     </tr>`).join('');
 
   document.getElementById('statUsers').textContent = users.length;
@@ -54,9 +62,66 @@ window.openAccess = (id) => {
   document.getElementById('accessModal').classList.remove('hidden');
 };
 
+
+window.deleteUser = async (id) => {
+  const u = users.find(x => x.id === id);
+  if (!u) return;
+
+  if (id === currentAdminId) {
+    alert('Нельзя удалить собственный аккаунт администратора.');
+    return;
+  }
+
+  const label = u.full_name || u.email || 'этого пользователя';
+  const confirmed = confirm(
+    `Удалить пользователя "${label}"?\n\nБудут удалены его аккаунт, доступы, прогресс и результаты тестов. Это действие нельзя отменить.`
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+
+    if (!session?.access_token) {
+      throw new Error('Сессия администратора истекла. Войдите снова.');
+    }
+
+    const res = await fetch(
+      `${APP_CONFIG.SUPABASE_URL}/functions/v1/smooth-handler`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+          'apikey': APP_CONFIG.SUPABASE_PUBLISHABLE_KEY
+        },
+        body: JSON.stringify({
+          action: 'delete',
+          user_id: id
+        })
+      }
+    );
+
+    const body = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      throw new Error(body.error || `Ошибка сервера (${res.status})`);
+    }
+
+    await reloadData();
+    alert('Пользователь удалён.');
+  } catch (err) {
+    console.error('Ошибка удаления пользователя:', err);
+    alert(err?.message || 'Не удалось удалить пользователя.');
+  }
+};
+
+
 (async () => {
   const profile = await bootGuard(true);
   if (!profile) return;
+
+  currentAdminId = profile.id;
 
   await reloadData();
 
