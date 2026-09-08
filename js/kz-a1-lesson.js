@@ -1,0 +1,27 @@
+(async()=>{
+const profile=await bootGuard();if(!profile)return;
+const key=new URLSearchParams(location.search).get('lesson')||KZ_A1_DATA.lessons[0].key;
+const idx=KZ_A1_DATA.lessons.findIndex(x=>x.key===key);if(idx<0){location.href='courses.html';return;}
+const {data:course}=await sb.from('courses').select('id').eq('code','KZ-A1').single();
+if(!course){alert('Курс KZ-A1 не найден. Запустите SQL предыдущего пакета.');location.href='courses.html';return;}
+const {data:access}=await sb.from('course_access').select('allowed').eq('user_id',currentUser.id).eq('course_id',course.id).maybeSingle();
+if(profile.role!=='admin'&&!access?.allowed){location.href='courses.html';return;}
+const {data:prog}=await sb.from('lesson_progress').select('lesson_key,completed').eq('user_id',currentUser.id).eq('completed',true);
+const completed=new Set((prog||[]).map(x=>x.lesson_key));
+if(idx>0&&!completed.has(KZ_A1_DATA.lessons[idx-1].key)&&profile.role!=='admin'){location.href='courses.html';return;}
+const l=KZ_A1_DATA.lessons[idx];document.title=`Language Path — ${l.title}`;
+document.getElementById('lessonNav').innerHTML=KZ_A1_DATA.lessons.map((x,i)=>{
+const open=i===0||completed.has(KZ_A1_DATA.lessons[i-1].key)||profile.role==='admin',done=completed.has(x.key);
+return open?`<a class="${x.key===key?'active':''}" href="kz-a1-lesson.html?lesson=${x.key}">${done?'✓ ':''}${i+1}. ${x.title}</a>`:`<a style="opacity:.45;pointer-events:none">🔒 ${i+1}. ${x.title}</a>`}).join('');
+const grammar=`<h2>Грамматика / үлгі</h2><div class="table-wrap"><table class="vocab-table"><thead><tr>${l.grammar[0].map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${l.grammar.slice(1).map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const examples=l.examples.map(e=>`<div class="example"><strong>${e[0]}</strong><br><span class="muted">${e[1]}</span></div>`).join('');
+const vocab=l.vocab.map(v=>`<tr><td><strong>${v[0]}</strong></td><td>${v[2]}</td><td>${v[3]}</td></tr>`).join('');
+const practice=`<h2>Практика перед тестом</h2><p class="muted">Сначала ответьте сами, затем откройте ответ.</p>${l.practice.map((p,i)=>`<div class="question"><strong>${i+1}. ${p.q}</strong><p class="muted">${p.hint}</p><button class="btn ghost practice-answer-btn" data-answer="${encodeURIComponent(p.a)}">Показать ответ</button><div class="practice-answer message" style="display:none"></div></div>`).join('')}`;
+document.getElementById('lessonBody').innerHTML=`<div class="eyebrow">ҚАЗАҚ ТІЛІ · A1 БАСТАУЫШ · УРОК ${idx+1} ИЗ 30</div><h1>${l.title}</h1><p class="muted">${l.ru}</p><div class="progress-line"><div style="width:${Math.round((idx+1)/30*100)}%"></div></div><h2>Объяснение</h2>${l.theory.map(p=>`<p>${p}</p>`).join('')}${grammar}<h2>Примеры</h2>${examples}<h2>Словарь урока</h2><div class="table-wrap"><table class="vocab-table"><thead><tr><th>Қазақша</th><th>Перевод</th><th>Пример</th></tr></thead><tbody>${vocab}</tbody></table></div>${practice}`;
+document.querySelectorAll('.practice-answer-btn').forEach(b=>b.onclick=()=>{const x=b.nextElementSibling;x.style.display='block';x.className='practice-answer message success';x.textContent='Ответ: '+decodeURIComponent(b.dataset.answer);b.style.display='none';});
+document.getElementById('quizArea').innerHTML=`<div class="eyebrow">ОБЯЗАТЕЛЬНЫЙ ТЕСТ</div><h2>Проверка знаний</h2><p class="muted">Нужно минимум ${APP_CONFIG.PASS_SCORE}%.</p><form id="quizForm">${l.quiz.map((q,qi)=>`<div class="question"><strong>${qi+1}. ${q.q}</strong>${q.options.map((o,oi)=>`<label><input required type="radio" name="q${qi}" value="${oi}"> ${o}</label>`).join('')}</div>`).join('')}<button class="btn primary" type="submit">Завершить тест</button><div id="quizResult" class="message"></div></form>`;
+document.getElementById('quizForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);let correct=0;l.quiz.forEach((q,qi)=>{if(Number(f.get(`q${qi}`))===q.answer)correct++});const score=Math.round(correct/l.quiz.length*100),passed=score>=APP_CONFIG.PASS_SCORE,r=document.getElementById('quizResult');
+const {data:a}=await sb.from('quiz_results').select('id').eq('user_id',currentUser.id).eq('lesson_key',l.key);
+const {error:qe}=await sb.from('quiz_results').insert({user_id:currentUser.id,course_id:course.id,lesson_key:l.key,score,passed,attempt:(a?.length||0)+1});if(qe){r.className='message error';r.textContent=qe.message;return;}
+if(passed){const now=new Date().toISOString();const {error:pe}=await sb.from('lesson_progress').upsert({user_id:currentUser.id,course_id:course.id,lesson_key:l.key,completed:true,completed_at:now,updated_at:now},{onConflict:'user_id,course_id,lesson_key'});if(pe){r.className='message error';r.textContent=pe.message;return;}const next=KZ_A1_DATA.lessons[idx+1];r.className='message success';r.innerHTML=`Результат: <strong>${score}%</strong>. Тест пройден. ${next?`<a class="btn primary" style="margin-left:10px" href="kz-a1-lesson.html?lesson=${next.key}">Следующий урок →</a>`:`<a class="btn primary" style="margin-left:10px" href="kz-a1-final-exam.html">Final Exam →</a>`}`;}else{r.className='message error';r.innerHTML=`Результат: <strong>${score}%</strong>. Нужно минимум ${APP_CONFIG.PASS_SCORE}%.`;}}
+})();
