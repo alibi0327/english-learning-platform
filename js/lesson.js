@@ -143,8 +143,9 @@
       result.className = 'message success';
       const next = A1_DATA.lessons[idx+1];
       result.innerHTML = `Результат: <strong>${score}%</strong> (${correct}/${lesson.quiz.length}). Тест пройден. ${
-        next ? `<a class="btn primary" style="margin-left:10px" href="lesson.html?lesson=${next.key}">Следующий урок →</a>`
-             : '<strong>Первая часть A1 завершена!</strong>'
+        next
+          ? `<a class="btn primary" style="margin-left:10px" href="lesson.html?lesson=${next.key}">Следующий урок →</a>`
+          : `<a class="btn primary" style="margin-left:10px" href="final-exam.html">Перейти к A1 Final Exam →</a>`
       }`;
     } else {
       result.className = 'message error';
