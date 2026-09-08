@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>English Path — кабинет</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span class="logo small">EP</span><strong>English Path</strong></a>
+    <nav>
+      <a href="dashboard.html" class="active">Главная</a>
+      <a href="courses.html">Курсы</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="progress.html">Прогресс</a>
+      <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+    </nav>
+    <div class="userbox">
+      <span id="userName">...</span>
+      <button id="logoutBtn" class="btn ghost">Выйти</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Персональный кабинет</div>
+        <h1 id="welcomeTitle">Добро пожаловать</h1>
+        <p>Продолжайте обучение с последнего доступного урока.</p>
+        <a class="btn primary" href="courses.html">Продолжить обучение</a>
+      </div>
+      <div class="hero-stat">
+        <span class="muted">Общий прогресс</span>
+        <strong id="overallProgress">0%</strong>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div><div class="eyebrow">Уровни</div><h2>Мои курсы</h2></div>
+      </div>
+      <div id="courseCards" class="grid cards"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/guard.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
