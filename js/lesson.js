@@ -6,7 +6,11 @@
   const idx = A1_DATA.lessons.findIndex(x => x.key === key);
   if (idx < 0) { location.href = 'courses.html'; return; }
 
-  const { data: prog } = await sb.from('lesson_progress').select('lesson_key,completed').eq('user_id', currentUser.id).eq('completed', true);
+  const { data: prog } = await sb.from('lesson_progress')
+    .select('lesson_key,completed')
+    .eq('user_id', currentUser.id)
+    .eq('completed', true);
+
   const completed = new Set((prog || []).map(x => x.lesson_key));
   const unlocked = idx === 0 || completed.has(A1_DATA.lessons[idx-1].key) || profile.role === 'admin';
   if (!unlocked) { location.href = 'courses.html'; return; }
@@ -16,30 +20,70 @@
 
   document.getElementById('lessonNav').innerHTML = A1_DATA.lessons.map((l, i) => {
     const isUnlocked = i === 0 || completed.has(A1_DATA.lessons[i-1].key) || profile.role === 'admin';
+    const done = completed.has(l.key);
     return isUnlocked
-      ? `<a class="${l.key===key?'active':''}" href="lesson.html?lesson=${l.key}">${i+1}. ${l.title}</a>`
+      ? `<a class="${l.key===key?'active':''}" href="lesson.html?lesson=${l.key}">${done?'✓ ':''}${i+1}. ${l.title}</a>`
       : `<a style="opacity:.45;pointer-events:none">🔒 ${i+1}. ${l.title}</a>`;
   }).join('');
 
-  const vocab = lesson.vocab.map(v => `<tr><td><strong>${v[0]}</strong></td><td>${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td></tr>`).join('');
-  const examples = lesson.examples.map(e => `<div class="example"><strong>${e[0]}</strong><br><span class="muted">${e[1]}</span></div>`).join('');
+  const vocab = lesson.vocab.map(v =>
+    `<tr><td><strong>${v[0]}</strong></td><td>${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td></tr>`
+  ).join('');
+
+  const examples = lesson.examples.map(e =>
+    `<div class="example"><strong>${e[0]}</strong><br><span class="muted">${e[1]}</span></div>`
+  ).join('');
+
+  const grammar = lesson.grammar?.length
+    ? `<h2>Правило в таблице</h2>
+       <div class="table-wrap"><table class="vocab-table">
+       <thead><tr>${lesson.grammar[0].map(x=>`<th>${x}</th>`).join('')}</tr></thead>
+       <tbody>${lesson.grammar.slice(1).map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody>
+       </table></div>` : '';
+
+  const practice = lesson.practice?.length
+    ? `<h2>Практика перед тестом</h2>
+       <p class="muted">Сначала попробуйте ответить самостоятельно, затем нажмите «Показать ответ».</p>
+       <div class="practice-list">${lesson.practice.map((p,i)=>`
+         <div class="question">
+           <strong>${i+1}. ${p.q}</strong>
+           <p class="muted">${p.hint || ''}</p>
+           <button class="btn ghost practice-answer-btn" type="button" data-answer="${encodeURIComponent(p.a)}">Показать ответ</button>
+           <div class="practice-answer message" style="display:none"></div>
+         </div>`).join('')}</div>` : '';
 
   document.getElementById('lessonBody').innerHTML = `
-    <div class="eyebrow">Урок ${idx+1}</div>
+    <div class="eyebrow">A1 BEGINNER · УРОК ${idx+1} ИЗ ${A1_DATA.lessons.length}</div>
     <h1>${lesson.title}</h1>
     <p class="muted">${lesson.ru}</p>
+    <div class="progress-line"><div style="width:${Math.round((idx+1)/A1_DATA.lessons.length*100)}%"></div></div>
     <h2>Объяснение</h2>
     ${lesson.theory.map(p=>`<p>${p}</p>`).join('')}
+    ${grammar}
     <h2>Примеры</h2>${examples}
     <h2>Слова урока</h2>
-    <table class="vocab-table"><thead><tr><th>English</th><th>Транскрипция</th><th>Перевод</th><th>Пример</th></tr></thead><tbody>${vocab}</tbody></table>
+    <div class="table-wrap"><table class="vocab-table">
+      <thead><tr><th>English</th><th>Транскрипция</th><th>Перевод</th><th>Пример</th></tr></thead>
+      <tbody>${vocab}</tbody>
+    </table></div>
+    ${practice}
   `;
+
+  document.querySelectorAll('.practice-answer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const box = btn.nextElementSibling;
+      box.style.display = 'block';
+      box.className = 'practice-answer message success';
+      box.textContent = `Ответ: ${decodeURIComponent(btn.dataset.answer)}`;
+      btn.style.display = 'none';
+    });
+  });
 
   const qa = document.getElementById('quizArea');
   qa.innerHTML = `
-    <div class="eyebrow">Обязательный тест</div>
+    <div class="eyebrow">ОБЯЗАТЕЛЬНЫЙ ТЕСТ</div>
     <h2>Проверка знаний</h2>
-    <p class="muted">Для открытия следующего урока необходимо набрать минимум ${APP_CONFIG.PASS_SCORE}%.</p>
+    <p class="muted">Следующий урок откроется только после результата не ниже ${APP_CONFIG.PASS_SCORE}%.</p>
     <form id="quizForm">
       ${lesson.quiz.map((q, qi)=>`
         <div class="question"><strong>${qi+1}. ${q.q}</strong>
@@ -52,26 +96,41 @@
 
   document.getElementById('quizForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const form = new FormData(e.target);
     let correct = 0;
     lesson.quiz.forEach((q, qi) => {
-      const chosen = Number(new FormData(e.target).get(`q${qi}`));
-      if (chosen === q.answer) correct++;
+      if (Number(form.get(`q${qi}`)) === q.answer) correct++;
     });
+
     const score = Math.round(correct / lesson.quiz.length * 100);
     const passed = score >= APP_CONFIG.PASS_SCORE;
     const result = document.getElementById('quizResult');
 
-    const { data: attempts } = await sb.from('quiz_results').select('id').eq('user_id', currentUser.id).eq('lesson_key', lesson.key);
+    const { data: course, error: courseError } = await sb.from('courses')
+      .select('id').eq('code','A1').single();
+
+    if (courseError || !course) {
+      result.className = 'message error';
+      result.textContent = 'Не удалось определить курс A1.';
+      return;
+    }
+
+    const { data: attempts } = await sb.from('quiz_results')
+      .select('id')
+      .eq('user_id', currentUser.id)
+      .eq('lesson_key', lesson.key);
+
     await sb.from('quiz_results').insert({
       user_id: currentUser.id,
-      course_id: (await sb.from('courses').select('id').eq('code','A1').single()).data.id,
+      course_id: course.id,
       lesson_key: lesson.key,
-      score, passed,
+      score,
+      passed,
       attempt: (attempts?.length || 0) + 1
     });
 
     if (passed) {
-      const course = (await sb.from('courses').select('id').eq('code','A1').single()).data;
       await sb.from('lesson_progress').upsert({
         user_id: currentUser.id,
         course_id: course.id,
@@ -83,10 +142,13 @@
 
       result.className = 'message success';
       const next = A1_DATA.lessons[idx+1];
-      result.innerHTML = `Результат: <strong>${score}%</strong>. Тест пройден. ${next ? `<a href="lesson.html?lesson=${next.key}">Перейти к следующему уроку →</a>` : 'Уровень завершён.'}`;
+      result.innerHTML = `Результат: <strong>${score}%</strong> (${correct}/${lesson.quiz.length}). Тест пройден. ${
+        next ? `<a class="btn primary" style="margin-left:10px" href="lesson.html?lesson=${next.key}">Следующий урок →</a>`
+             : '<strong>Первая часть A1 завершена!</strong>'
+      }`;
     } else {
       result.className = 'message error';
-      result.textContent = `Результат: ${score}%. Нужно минимум ${APP_CONFIG.PASS_SCORE}%. Повторите материал и попробуйте ещё раз.`;
+      result.innerHTML = `Результат: <strong>${score}%</strong> (${correct}/${lesson.quiz.length}). Нужно минимум ${APP_CONFIG.PASS_SCORE}%. Повторите материал и попробуйте ещё раз.`;
     }
   });
 })();
