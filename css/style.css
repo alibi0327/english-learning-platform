@@ -1,438 +1,85 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f6f8fb;color:#0f172a}a{color:inherit;text-decoration:none}.hidden{display:none!important}.muted{color:#64748b}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800;color:#2563eb}.container{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:36px 0 70px}.topbar{height:72px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:28px;padding:0 28px;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:10px;white-space:nowrap}.logo{width:52px;height:52px;border-radius:16px;background:#0f172a;color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-.04em}.logo.small{width:38px;height:38px;border-radius:12px}.topbar nav{display:flex;gap:8px;flex:1}.topbar nav a{padding:10px 12px;border-radius:10px;color:#475569;font-weight:650}.topbar nav a:hover,.topbar nav a.active{background:#eff6ff;color:#1d4ed8}.userbox{display:flex;align-items:center;gap:12px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.primary{background:#2563eb;color:#fff}.btn.primary:hover{background:#1d4ed8}.btn.ghost{background:#f1f5f9;color:#334155}.btn.danger{background:#fee2e2;color:#b91c1c}.btn.full{width:100%}.auth-page{min-height:100vh;background:radial-gradient(circle at 15% 10%,#dbeafe 0,transparent 30%),#f8fafc;display:grid;place-items:center;padding:24px}.auth-shell{width:min(980px,100%);display:grid;grid-template-columns:1.1fr .9fr;background:#fff;border:1px solid #e2e8f0;border-radius:28px;overflow:hidden;box-shadow:0 28px 80px rgba(15,23,42,.12)}.brand-panel{padding:64px;background:#0f172a;color:#fff;display:flex;flex-direction:column;justify-content:center}.brand-panel h1{font-size:3rem;margin:20px 0 12px}.brand-panel p{color:#cbd5e1;font-size:1.08rem;line-height:1.7}.feature-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.feature-pills span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:999px;font-size:.85rem}.login-card{padding:58px}.login-card h2{font-size:2rem;margin:8px 0}.login-card form{display:grid;gap:16px;margin-top:28px}label{display:grid;gap:7px;font-weight:700;color:#334155}input,select{width:100%;border:1px solid #cbd5e1;border-radius:12px;padding:12px 13px;background:#fff;font:inherit;outline:none}input:focus,select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px #dbeafe}.message{margin-top:12px;font-size:.92rem}.message.error{color:#b91c1c}.message.success{color:#047857}.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border-radius:24px;padding:42px;display:flex;align-items:center;justify-content:space-between;gap:30px}.hero h1{font-size:2.35rem;margin:8px 0}.hero p{color:#dbeafe;max-width:620px}.hero-stat{min-width:180px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px}.hero-stat strong{font-size:2.6rem;display:block;margin-top:6px}.section{margin-top:38px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}.section-title h2,.panel h2{margin:4px 0}.grid{display:grid;gap:18px}.cards{grid-template-columns:repeat(4,1fr)}.course-card,.metric,.word-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px}.course-card h3{margin:8px 0}.course-card.locked{opacity:.62}.progressbar{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:14px 0}.progressbar>span{display:block;height:100%;background:#2563eb}.page-head{margin:12px 0 28px}.page-head h1{font-size:2.5rem;margin:7px 0}.page-head p{color:#64748b;max-width:760px}.course-list{display:grid;gap:18px}.course-row{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px;display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center}.level-badge{font-size:2rem;font-weight:900;color:#1d4ed8}.lesson-items{display:grid;gap:8px;margin-top:14px}.lesson-link{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-radius:10px;background:#f8fafc;border:1px solid #edf2f7}.lesson-link.locked{color:#94a3b8;cursor:not-allowed}.lesson-layout{display:grid;grid-template-columns:280px minmax(0,820px);gap:34px;width:min(1180px,calc(100% - 32px));margin:0 auto;padding:34px 0 70px}.lesson-sidebar{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;height:max-content;position:sticky;top:96px}.lesson-sidebar a{display:block;padding:10px;border-radius:10px;margin-top:5px;color:#475569}.lesson-sidebar a.active{background:#eff6ff;color:#1d4ed8;font-weight:800}.lesson-content{background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:34px}.lesson-content h1{font-size:2.3rem}.lesson-content h2{margin-top:30px}.lesson-content p,.lesson-content li{line-height:1.75}.example{border-left:4px solid #3b82f6;background:#eff6ff;padding:14px 16px;border-radius:0 12px 12px 0;margin:12px 0}.vocab-table{width:100%;border-collapse:collapse;margin:16px 0}.vocab-table td,.vocab-table th{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left}.quiz-card{margin-top:34px;border-top:1px solid #e2e8f0;padding-top:28px}.question{padding:16px 0;border-bottom:1px solid #eef2f7}.question label{display:flex;align-items:center;gap:9px;font-weight:500;margin-top:8px}.question input{width:auto}.panel{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px;margin-top:20px}.toolbar{display:flex;gap:12px;margin:16px 0}.dictionary-grid{grid-template-columns:repeat(3,1fr)}.word-card strong{font-size:1.25rem}.word-card .translation{font-weight:700;margin-top:8px}.word-card .example-text{color:#64748b;font-size:.92rem;margin-top:10px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px 12px;border-bottom:1px solid #e2e8f0;vertical-align:middle}th{font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b}.badge{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800;background:#eef2ff;color:#3730a3}.badge.active{background:#dcfce7;color:#166534}.badge.blocked{background:#fee2e2;color:#991b1b}.course-tags{display:flex;gap:5px;flex-wrap:wrap}.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:grid;place-items:center;padding:20px;z-index:50}.modal-card{width:min(560px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:24px}.modal-head{display:flex;align-items:center;justify-content:space-between}.modal-head h2{margin:0}.icon-btn{border:0;background:#f1f5f9;width:36px;height:36px;border-radius:10px;font-size:22px;cursor:pointer}.modal form{display:grid;gap:15px;margin-top:18px}fieldset{border:1px solid #e2e8f0;border-radius:12px;padding:14px}legend{padding:0 7px;font-weight:800}.check-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.check-grid label{display:flex;align-items:center;gap:5px;background:#f8fafc;padding:8px;border-radius:9px}.check-grid input{width:auto}
-
-@media(max-width:900px){
-  .auth-shell{grid-template-columns:1fr}.brand-panel{padding:34px}.brand-panel h1{font-size:2.2rem}.login-card{padding:34px}
-  .topbar{height:auto;padding:14px 18px;flex-wrap:wrap}.topbar nav{order:3;width:100%;overflow:auto}.userbox{margin-left:auto}
-  .cards{grid-template-columns:repeat(2,1fr)}.dictionary-grid{grid-template-columns:repeat(2,1fr)}
-  .course-row{grid-template-columns:80px 1fr}.course-row>.btn{grid-column:1/-1}
-  .lesson-layout{grid-template-columns:1fr}.lesson-sidebar{position:static}.hero{align-items:flex-start}
-}
-@media(max-width:600px){
-  .container,.lesson-layout{width:min(100% - 20px,1180px)}.cards,.dictionary-grid{grid-template-columns:1fr}
-  .hero{padding:26px;flex-direction:column}.hero h1,.page-head h1{font-size:1.9rem}.login-card,.brand-panel{padding:26px}
-  .topbar nav a{white-space:nowrap}.userbox #userName{display:none}.lesson-content{padding:22px}.check-grid{grid-template-columns:repeat(2,1fr)}
-}
-css-addon.txt
-/* Accordion for course/lesson list */
-.course-accordion{
-  padding:0 !important;
-  overflow:hidden;
-}
-.course-accordion-head{
-  width:100%;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:16px;
-  padding:20px;
-  border:0;
-  background:transparent;
-  color:inherit;
-  text-align:left;
-  cursor:pointer;
-  font:inherit;
-}
-.course-accordion-head:disabled{
-  cursor:not-allowed;
-}
-.course-accordion-title h2{
-  margin:0 0 4px;
-}
-.course-accordion-title p{
-  margin:0;
-}
-.course-accordion-status{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.accordion-chevron{
-  font-size:26px;
-  line-height:1;
-  transition:transform .2s ease;
-}
-.course-accordion.open .accordion-chevron{
-  transform:rotate(180deg);
-}
-.course-accordion-body{
-  display:none;
-  padding:0 20px 20px;
-  border-top:1px solid rgba(0,0,0,.07);
-}
-.course-accordion.open .course-accordion-body{
-  display:block;
-}
-.lesson-link span{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
-.lesson-link small{
-  font-size:.82rem;
-  font-weight:400;
-  opacity:.65;
-}
-@media (max-width:700px){
-  .course-accordion-head{
-    grid-template-columns:auto 1fr;
-  }
-  .course-accordion-status{
-    grid-column:1/-1;
-    justify-content:space-between;
-  }
-}
-/* FIX: A1 header first, lesson list strictly below it */
-.course-row.course-accordion{
-  display:block !important;
-  padding:0 !important;
-  overflow:hidden;
+/* ADMIN: статус обучения ученика */
+.student-status-modal-card{
+  width:min(1040px, calc(100vw - 32px));
+  max-height:90vh;
+  overflow:auto;
 }
 
-.course-accordion-head{
-  width:100%;
-  display:grid !important;
-  grid-template-columns:80px minmax(0,1fr) auto;
-  align-items:center;
-  gap:18px;
-  padding:22px 24px;
-  border:0;
-  background:transparent;
-  color:inherit;
-  text-align:left;
-  cursor:pointer;
-  font:inherit;
+.student-summary-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  margin:18px 0 24px;
 }
 
-.course-accordion-title{
-  min-width:0;
+.student-summary-grid .metric{
+  min-height:92px;
 }
 
-.course-accordion-title h2{
-  margin:0 0 5px;
+.student-status-section{
+  margin-top:24px;
 }
 
-.course-accordion-title p{
-  margin:0;
-}
-
-.course-accordion-status{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:12px;
-}
-
-.course-accordion-body{
-  display:none;
-  width:100%;
-  box-sizing:border-box;
-  padding:18px 24px 24px;
-  border-top:1px solid rgba(0,0,0,.07);
-}
-
-.course-accordion.open .course-accordion-body{
-  display:block !important;
-}
-
-.a1-progress{
-  width:100%;
-  margin:0 0 14px;
-}
-
-.lesson-items{
-  width:100%;
-  display:grid;
-  gap:8px;
-}
-
-.lesson-link{
-  width:100%;
-  box-sizing:border-box;
-}
-
-.lesson-link span{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-
-.lesson-link b{
-  font-weight:600;
-}
-
-.lesson-link small{
-  font-size:.82rem;
-  font-weight:400;
-  opacity:.65;
-}
-
-.accordion-chevron{
-  font-size:26px;
-  line-height:1;
-  transition:transform .2s ease;
-}
-
-.course-accordion.open .accordion-chevron{
-  transform:rotate(180deg);
-}
-
-@media (max-width:700px){
-  .course-accordion-head{
-    grid-template-columns:58px minmax(0,1fr);
-    padding:18px 16px;
-  }
-
-  .course-accordion-status{
-    grid-column:1/-1;
-    justify-content:space-between;
-  }
-
-  .course-accordion-body{
-    padding:14px 16px 18px;
-  }
-}
-/* A1 STAGE 1 COMPLETE: Final Exam + Certificate */
-.final-exam-box,
-.certificate-unlock,
-.certificate-progress-card{
-  margin-top:18px;
+.student-level-card{
+  margin-top:12px;
   padding:18px;
   border:1px solid rgba(0,0,0,.08);
   border-radius:16px;
+  background:rgba(255,255,255,.7);
+}
+
+.student-level-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
-  background:rgba(255,255,255,.65);
+  gap:16px;
+  margin-bottom:14px;
 }
 
-.final-exam-box.locked{
-  opacity:.6;
+.student-level-head h3{
+  margin:4px 0 0;
 }
 
-.final-exam-box h3,
-.certificate-unlock h3{
-  margin:4px 0 5px;
-}
-
-.exam-container{
-  max-width:980px;
-}
-
-.final-question{
-  margin-bottom:18px;
-}
-
-.exam-submit-bar{
-  position:sticky;
-  bottom:12px;
-  z-index:5;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px;
-  margin-top:20px;
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:14px;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(8px);
-}
-
-.final-success h3{
-  margin-top:0;
-}
-
-.certificate-page{
-  background:#f4f6fb;
-}
-
-.certificate-wrap{
-  width:min(1120px, calc(100% - 32px));
-  margin:28px auto 50px;
-}
-
-.certificate-sheet{
-  aspect-ratio:1.414/1;
-  background:#fff;
-  box-shadow:0 18px 60px rgba(20,30,50,.14);
-  padding:24px;
-  box-sizing:border-box;
-}
-
-.certificate-border{
-  height:100%;
-  box-sizing:border-box;
-  border:3px solid #1f4fe0;
-  outline:1px solid rgba(31,79,224,.25);
-  outline-offset:-12px;
-  padding:7% 8%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
-
-.certificate-brand{
-  font-weight:900;
-  letter-spacing:.22em;
-  color:#1f4fe0;
-  font-size:clamp(18px,2vw,30px);
-}
-
-.certificate-kicker{
-  margin-top:18px;
-  font-size:clamp(11px,1.1vw,16px);
-  letter-spacing:.18em;
-  font-weight:700;
-  opacity:.6;
-}
-
-.certificate-sheet h1{
-  margin:12px 0 20px;
-  font-size:clamp(30px,4vw,58px);
-}
-
-.certificate-text{
-  max-width:760px;
-  font-size:clamp(14px,1.4vw,20px);
-  line-height:1.6;
-  margin:7px 0;
-}
-
-.certificate-name{
-  width:80%;
-  margin:12px 0;
-  padding:8px 20px 12px;
-  border-bottom:2px solid rgba(31,79,224,.35);
-  font-size:clamp(28px,4vw,56px);
-  font-weight:800;
-}
-
-.certificate-stats{
-  width:82%;
+.student-status-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-top:26px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
 }
 
-.certificate-stats div{
+.student-status-grid div{
   padding:12px;
   border-radius:12px;
-  background:#f6f8fd;
+  background:rgba(0,0,0,.035);
 }
 
-.certificate-stats span,
-.certificate-footer span{
+.student-status-grid span{
   display:block;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  opacity:.55;
-  margin-bottom:5px;
+  font-size:.8rem;
+  opacity:.6;
+  margin-bottom:4px;
 }
 
-.certificate-footer{
-  width:82%;
-  margin-top:28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  text-align:left;
+.student-status-grid strong{
+  font-size:1.05rem;
 }
 
-.certificate-sign{
-  text-align:center;
-  min-width:180px;
-  border-top:1px solid rgba(0,0,0,.3);
-  padding-top:8px;
-}
-
-.certificate-sign div{
-  font-weight:800;
-  color:#1f4fe0;
-}
-
-.certificate-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin-top:20px;
-}
-
-@media (max-width:700px){
-  .final-exam-box,
-  .certificate-unlock,
-  .certificate-progress-card{
-    align-items:flex-start;
-    flex-direction:column;
+@media(max-width:800px){
+  .student-summary-grid{
+    grid-template-columns:1fr 1fr;
   }
 
-  .exam-submit-bar{
-    align-items:flex-start;
-    flex-direction:column;
+  .student-status-grid{
+    grid-template-columns:1fr 1fr;
   }
+}
 
-  .certificate-sheet{
-    aspect-ratio:auto;
-    min-height:760px;
-    padding:12px;
-  }
-
-  .certificate-border{
-    padding:54px 22px;
-  }
-
-  .certificate-stats{
-    width:100%;
+@media(max-width:520px){
+  .student-summary-grid,
+  .student-status-grid{
     grid-template-columns:1fr;
   }
 
-  .certificate-footer{
-    width:100%;
-    gap:24px;
+  .student-level-head{
+    align-items:flex-start;
     flex-direction:column;
-    align-items:center;
-    text-align:center;
-  }
-
-  .certificate-name{
-    width:100%;
-  }
-}
-
-@media print{
-  @page{
-    size:A4 landscape;
-    margin:0;
-  }
-
-  body{
-    background:#fff !important;
-  }
-
-  .no-print{
-    display:none !important;
-  }
-
-  .certificate-wrap{
-    width:100%;
-    margin:0;
-  }
-
-  .certificate-sheet{
-    width:297mm;
-    height:210mm;
-    aspect-ratio:auto;
-    box-shadow:none;
-    padding:8mm;
-    page-break-after:avoid;
-  }
-
-  .certificate-border{
-    padding:14mm 20mm;
   }
 }
