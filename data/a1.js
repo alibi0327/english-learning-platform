@@ -3815,6 +3815,2309 @@ window.A1_DATA = {
           "answer": 0
         }
       ]
+    },
+    {
+      "key": "a1-21",
+      "title": "Possessives & Personal Things",
+      "ru": "Притяжательные формы и личные вещи",
+      "theory": [
+        "Притяжательные прилагательные показывают, кому принадлежит предмет: my — мой, your — твой/ваш, his — его, her — её, its — его/её для предмета или животного, our — наш, their — их.",
+        "После притяжательного прилагательного обычно идёт существительное: my phone, her bag, their house. Нельзя говорить “the my phone”.",
+        "Для принадлежности человеку также используется ’s: Anna’s book — книга Анны, Tom’s phone — телефон Тома."
+      ],
+      "grammar": [
+        [
+          "Местоимение",
+          "Притяжательная форма",
+          "Пример"
+        ],
+        [
+          "I",
+          "my",
+          "my book"
+        ],
+        [
+          "you",
+          "your",
+          "your phone"
+        ],
+        [
+          "he",
+          "his",
+          "his jacket"
+        ],
+        [
+          "she",
+          "her",
+          "her bag"
+        ],
+        [
+          "we",
+          "our",
+          "our school"
+        ],
+        [
+          "they",
+          "their",
+          "their house"
+        ]
+      ],
+      "examples": [
+        [
+          "This is my phone.",
+          "Это мой телефон."
+        ],
+        [
+          "Her name is Kate.",
+          "Её зовут Кейт."
+        ],
+        [
+          "Their house is big.",
+          "Их дом большой."
+        ],
+        [
+          "This is Anna’s book.",
+          "Это книга Анны."
+        ]
+      ],
+      "vocab": [
+        [
+          "wallet",
+          "/ˈwɒlɪt/",
+          "кошелёк",
+          "This is my wallet."
+        ],
+        [
+          "backpack",
+          "/ˈbækpæk/",
+          "рюкзак",
+          "His backpack is black."
+        ],
+        [
+          "umbrella",
+          "/ʌmˈbrelə/",
+          "зонт",
+          "Her umbrella is new."
+        ],
+        [
+          "glasses",
+          "/ˈɡlɑːsɪz/",
+          "очки",
+          "These are my glasses."
+        ],
+        [
+          "watch",
+          "/wɒtʃ/",
+          "наручные часы",
+          "His watch is old."
+        ],
+        [
+          "belong",
+          "/bɪˈlɒŋ/",
+          "принадлежать",
+          "This bag belongs to me."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: She has a bag. It is ___ bag.",
+          "a": "her",
+          "hint": "Для she притяжательная форма her."
+        },
+        {
+          "q": "Переведите: «Это наш дом».",
+          "a": "This is our house.",
+          "hint": "our = наш."
+        },
+        {
+          "q": "Как сказать «книга Тома»?",
+          "a": "Tom’s book",
+          "hint": "Имя + ’s."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I →",
+          "options": [
+            "my",
+            "his",
+            "their",
+            "our"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "She →",
+          "options": [
+            "your",
+            "her",
+            "his",
+            "its"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "They →",
+          "options": [
+            "our",
+            "their",
+            "my",
+            "her"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Выберите: This is ___ phone. (он)",
+          "options": [
+            "her",
+            "his",
+            "my",
+            "our"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“Anna’s bag” означает...",
+          "options": [
+            "сумка Анны",
+            "Анна в сумке",
+            "сумки Анны",
+            "сумка для Анны"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Правильно:",
+          "options": [
+            "the my book",
+            "my book",
+            "mine book",
+            "me book"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "our = наш/наша/наше/наши.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Что означает “wallet”?",
+          "options": [
+            "зонт",
+            "кошелёк",
+            "рюкзак",
+            "часы"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-22",
+      "title": "Places in Town & Directions",
+      "ru": "Места в городе и как спросить дорогу",
+      "theory": [
+        "Чтобы спросить дорогу, используйте Where is the ...? или How can I get to the ...? Для простого A1 достаточно: Go straight, turn left, turn right.",
+        "Полезные места: bank, supermarket, pharmacy, hospital, school, station, cafe, park.",
+        "Для описания расположения используйте next to, opposite, between, near: The bank is next to the cafe."
+      ],
+      "grammar": [
+        [
+          "Фраза",
+          "Значение"
+        ],
+        [
+          "Go straight.",
+          "Идите прямо."
+        ],
+        [
+          "Turn left.",
+          "Поверните налево."
+        ],
+        [
+          "Turn right.",
+          "Поверните направо."
+        ],
+        [
+          "It’s next to...",
+          "Это рядом с..."
+        ],
+        [
+          "It’s opposite...",
+          "Это напротив..."
+        ]
+      ],
+      "examples": [
+        [
+          "Where is the pharmacy?",
+          "Где аптека?"
+        ],
+        [
+          "Go straight and turn left.",
+          "Идите прямо и поверните налево."
+        ],
+        [
+          "The bank is opposite the park.",
+          "Банк напротив парка."
+        ],
+        [
+          "The cafe is next to the station.",
+          "Кафе рядом со станцией."
+        ]
+      ],
+      "vocab": [
+        [
+          "bank",
+          "/bæŋk/",
+          "банк",
+          "The bank is near here."
+        ],
+        [
+          "pharmacy",
+          "/ˈfɑːməsi/",
+          "аптека",
+          "Where is the pharmacy?"
+        ],
+        [
+          "hospital",
+          "/ˈhɒspɪtəl/",
+          "больница",
+          "The hospital is big."
+        ],
+        [
+          "station",
+          "/ˈsteɪʃən/",
+          "станция; вокзал",
+          "The station is next to the cafe."
+        ],
+        [
+          "straight",
+          "/streɪt/",
+          "прямо",
+          "Go straight."
+        ],
+        [
+          "left",
+          "/left/",
+          "налево; левый",
+          "Turn left."
+        ],
+        [
+          "right",
+          "/raɪt/",
+          "направо; правый",
+          "Turn right."
+        ],
+        [
+          "opposite",
+          "/ˈɒpəzɪt/",
+          "напротив",
+          "It is opposite the park."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Как сказать «Идите прямо»?",
+          "a": "Go straight.",
+          "hint": "Go + straight."
+        },
+        {
+          "q": "Как спросить «Где банк?»",
+          "a": "Where is the bank?",
+          "hint": "Where is the ...?"
+        },
+        {
+          "q": "Переведите: «Аптека рядом с кафе».",
+          "a": "The pharmacy is next to the cafe.",
+          "hint": "next to = рядом."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "“Turn left” означает...",
+          "options": [
+            "идите прямо",
+            "поверните налево",
+            "поверните направо",
+            "остановитесь"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как спросить «Где станция?»",
+          "options": [
+            "Where is the station?",
+            "Who is the station?",
+            "How station is?",
+            "When is station?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“opposite” означает...",
+          "options": [
+            "рядом",
+            "между",
+            "напротив",
+            "внутри"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“pharmacy” =",
+          "options": [
+            "аптека",
+            "банк",
+            "парк",
+            "вокзал"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“hospital” =",
+          "options": [
+            "школа",
+            "магазин",
+            "больница",
+            "станция"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Go ___ .",
+          "options": [
+            "straight",
+            "leftly",
+            "opposite to go",
+            "station"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“Turn right” — поверните направо.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "The bank is ___ the cafe. (рядом с)",
+          "options": [
+            "next to",
+            "under",
+            "at time",
+            "past"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-23",
+      "title": "Weather & Seasons",
+      "ru": "Погода и времена года",
+      "theory": [
+        "О погоде часто говорят с конструкцией It is: It’s sunny, It’s cold, It’s windy. Для дождя и снега можно сказать It’s raining / It’s snowing.",
+        "Времена года: spring, summer, autumn/fall, winter. С временами года обычно используется in: in summer, in winter.",
+        "Чтобы спросить о погоде: What’s the weather like? или How’s the weather?"
+      ],
+      "grammar": [
+        [
+          "Погода",
+          "Фраза"
+        ],
+        [
+          "солнечно",
+          "It’s sunny."
+        ],
+        [
+          "облачно",
+          "It’s cloudy."
+        ],
+        [
+          "ветрено",
+          "It’s windy."
+        ],
+        [
+          "идёт дождь",
+          "It’s raining."
+        ],
+        [
+          "идёт снег",
+          "It’s snowing."
+        ]
+      ],
+      "examples": [
+        [
+          "It’s cold today.",
+          "Сегодня холодно."
+        ],
+        [
+          "What’s the weather like?",
+          "Какая погода?"
+        ],
+        [
+          "It’s raining now.",
+          "Сейчас идёт дождь."
+        ],
+        [
+          "We swim in summer.",
+          "Мы плаваем летом."
+        ]
+      ],
+      "vocab": [
+        [
+          "sunny",
+          "/ˈsʌni/",
+          "солнечно",
+          "It’s sunny today."
+        ],
+        [
+          "cloudy",
+          "/ˈklaʊdi/",
+          "облачно",
+          "It’s cloudy."
+        ],
+        [
+          "windy",
+          "/ˈwɪndi/",
+          "ветрено",
+          "It’s windy outside."
+        ],
+        [
+          "rain",
+          "/reɪn/",
+          "дождь",
+          "It is raining."
+        ],
+        [
+          "snow",
+          "/snəʊ/",
+          "снег",
+          "It is snowing."
+        ],
+        [
+          "spring",
+          "/sprɪŋ/",
+          "весна",
+          "Spring is warm."
+        ],
+        [
+          "summer",
+          "/ˈsʌmə/",
+          "лето",
+          "I like summer."
+        ],
+        [
+          "winter",
+          "/ˈwɪntə/",
+          "зима",
+          "Winter is cold."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Как сказать «Сегодня солнечно»?",
+          "a": "It’s sunny today.",
+          "hint": "It is + weather adjective."
+        },
+        {
+          "q": "Как спросить о погоде?",
+          "a": "What’s the weather like?",
+          "hint": "What’s the weather like?"
+        },
+        {
+          "q": "Переведите «зимой».",
+          "a": "in winter",
+          "hint": "С временем года используем in."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "“sunny” =",
+          "options": [
+            "ветрено",
+            "солнечно",
+            "облачно",
+            "холодно"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“It’s raining” =",
+          "options": [
+            "идёт снег",
+            "идёт дождь",
+            "солнечно",
+            "жарко"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как спросить о погоде?",
+          "options": [
+            "What’s the weather like?",
+            "What time is weather?",
+            "Where weather?",
+            "Who is weather?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“winter” =",
+          "options": [
+            "весна",
+            "лето",
+            "осень",
+            "зима"
+          ],
+          "answer": 3
+        },
+        {
+          "q": "___ summer",
+          "options": [
+            "at",
+            "on",
+            "in",
+            "under"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "“cloudy” =",
+          "options": [
+            "облачно",
+            "снежно",
+            "солнечно",
+            "жарко"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "It’s windy — правильная фраза о погоде.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“spring” =",
+          "options": [
+            "весна",
+            "лето",
+            "зима",
+            "дождь"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-24",
+      "title": "Likes, Dislikes & Hobbies",
+      "ru": "Любимые занятия, нравится и не нравится",
+      "theory": [
+        "Чтобы сказать, что нравится, используйте like: I like music. Для занятия часто используется глагол + -ing: I like reading, She likes dancing.",
+        "Отрицание: I don’t like ..., He doesn’t like .... Более сильные варианты: love — очень любить, hate — ненавидеть.",
+        "Чтобы спросить о предпочтениях: What do you like doing? Do you like sport?"
+      ],
+      "grammar": [
+        [
+          "Форма",
+          "Пример"
+        ],
+        [
+          "like + noun",
+          "I like music."
+        ],
+        [
+          "like + verb-ing",
+          "I like reading."
+        ],
+        [
+          "don’t like",
+          "I don’t like cooking."
+        ],
+        [
+          "doesn’t like",
+          "He doesn’t like dancing."
+        ]
+      ],
+      "examples": [
+        [
+          "I like playing football.",
+          "Мне нравится играть в футбол."
+        ],
+        [
+          "She loves reading.",
+          "Она очень любит читать."
+        ],
+        [
+          "He doesn’t like cooking.",
+          "Ему не нравится готовить."
+        ],
+        [
+          "What do you like doing?",
+          "Что тебе нравится делать?"
+        ]
+      ],
+      "vocab": [
+        [
+          "hobby",
+          "/ˈhɒbi/",
+          "хобби",
+          "My hobby is drawing."
+        ],
+        [
+          "reading",
+          "/ˈriːdɪŋ/",
+          "чтение",
+          "I like reading."
+        ],
+        [
+          "drawing",
+          "/ˈdrɔːɪŋ/",
+          "рисование",
+          "She likes drawing."
+        ],
+        [
+          "music",
+          "/ˈmjuːzɪk/",
+          "музыка",
+          "We love music."
+        ],
+        [
+          "sport",
+          "/spɔːt/",
+          "спорт",
+          "Do you like sport?"
+        ],
+        [
+          "love",
+          "/lʌv/",
+          "очень любить",
+          "I love swimming."
+        ],
+        [
+          "hate",
+          "/heɪt/",
+          "ненавидеть",
+          "He hates waiting."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: I like ___ books. (read)",
+          "a": "reading",
+          "hint": "После like для занятия используем -ing."
+        },
+        {
+          "q": "Сделайте отрицание: He likes cooking.",
+          "a": "He doesn’t like cooking.",
+          "hint": "doesn’t + like."
+        },
+        {
+          "q": "Как спросить «Что тебе нравится делать?»",
+          "a": "What do you like doing?",
+          "hint": "What do you like doing?"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I like ___ .",
+          "options": [
+            "read",
+            "reading",
+            "to reading",
+            "reads"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "He ___ football.",
+          "options": [
+            "like",
+            "likes",
+            "liking",
+            "is like"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "He ___ cooking.",
+          "options": [
+            "doesn’t like",
+            "don’t likes",
+            "isn’t like",
+            "doesn’t likes"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“love” означает...",
+          "options": [
+            "ненавидеть",
+            "очень любить",
+            "читать",
+            "рисовать"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“hobby” =",
+          "options": [
+            "работа",
+            "хобби",
+            "урок",
+            "спортзал"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Как спросить о любимых занятиях?",
+          "options": [
+            "What do you like doing?",
+            "What are like you?",
+            "Do what liking?",
+            "Where is hobby?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "После like можно использовать глагол с -ing.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“drawing” =",
+          "options": [
+            "плавание",
+            "рисование",
+            "чтение",
+            "танцы"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-25",
+      "title": "Past Simple — Was / Were",
+      "ru": "Past Simple: was / were",
+      "theory": [
+        "Was и were — формы глагола to be в прошлом. I/he/she/it → was. You/we/they → were.",
+        "Отрицание: was not = wasn’t, were not = weren’t. Вопрос: Was he at school? Were they at home?",
+        "Часто используются слова yesterday, last night, last week, last year."
+      ],
+      "grammar": [
+        [
+          "Подлежащее",
+          "Утверждение",
+          "Отрицание"
+        ],
+        [
+          "I/He/She/It",
+          "was",
+          "wasn’t"
+        ],
+        [
+          "You/We/They",
+          "were",
+          "weren’t"
+        ]
+      ],
+      "examples": [
+        [
+          "I was at home yesterday.",
+          "Я был дома вчера."
+        ],
+        [
+          "They were tired.",
+          "Они были уставшими."
+        ],
+        [
+          "She wasn’t at school.",
+          "Её не было в школе."
+        ],
+        [
+          "Were you busy?",
+          "Ты был занят?"
+        ]
+      ],
+      "vocab": [
+        [
+          "yesterday",
+          "/ˈjestədeɪ/",
+          "вчера",
+          "I was busy yesterday."
+        ],
+        [
+          "last",
+          "/lɑːst/",
+          "прошлый",
+          "last week"
+        ],
+        [
+          "busy",
+          "/ˈbɪzi/",
+          "занятый",
+          "She was busy."
+        ],
+        [
+          "late",
+          "/leɪt/",
+          "поздно; опоздавший",
+          "He was late."
+        ],
+        [
+          "early",
+          "/ˈɜːli/",
+          "рано",
+          "We were early."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: I ___ at home yesterday.",
+          "a": "was",
+          "hint": "I → was."
+        },
+        {
+          "q": "Дополните: They ___ tired.",
+          "a": "were",
+          "hint": "They → were."
+        },
+        {
+          "q": "Сделайте вопрос: She was at school.",
+          "a": "Was she at school?",
+          "hint": "Was в начало."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I ___ at home yesterday.",
+          "options": [
+            "were",
+            "was",
+            "am",
+            "is"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "They ___ happy.",
+          "options": [
+            "was",
+            "were",
+            "is",
+            "be"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Отрицание was:",
+          "options": [
+            "wasn’t",
+            "weren’t",
+            "don’t was",
+            "not were"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Вопрос: He was busy.",
+          "options": [
+            "Did he was busy?",
+            "Was he busy?",
+            "Were he busy?",
+            "He was busy?"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“yesterday” =",
+          "options": [
+            "сегодня",
+            "завтра",
+            "вчера",
+            "неделя"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "You ___ at school.",
+          "options": [
+            "was",
+            "were",
+            "is",
+            "am"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "We use were with they.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“last week” =",
+          "options": [
+            "на следующей неделе",
+            "на прошлой неделе",
+            "сегодня",
+            "вчера утром"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-26",
+      "title": "Past Simple — Regular Verbs",
+      "ru": "Past Simple: правильные глаголы",
+      "theory": [
+        "Для большинства правильных глаголов Past Simple образуется добавлением -ed: work → worked, play → played, watch → watched.",
+        "Если глагол заканчивается на -e, добавляем только -d: live → lived. Если согласная + y, y меняется на i: study → studied.",
+        "Past Simple описывает завершённые действия в прошлом: I watched a film yesterday."
+      ],
+      "grammar": [
+        [
+          "Глагол",
+          "Past Simple"
+        ],
+        [
+          "work",
+          "worked"
+        ],
+        [
+          "play",
+          "played"
+        ],
+        [
+          "live",
+          "lived"
+        ],
+        [
+          "study",
+          "studied"
+        ],
+        [
+          "watch",
+          "watched"
+        ]
+      ],
+      "examples": [
+        [
+          "I worked yesterday.",
+          "Я работал вчера."
+        ],
+        [
+          "She watched a film last night.",
+          "Она смотрела фильм вчера вечером."
+        ],
+        [
+          "We played football on Sunday.",
+          "Мы играли в футбол в воскресенье."
+        ],
+        [
+          "He studied English last year.",
+          "Он изучал английский в прошлом году."
+        ]
+      ],
+      "vocab": [
+        [
+          "visit",
+          "/ˈvɪzɪt/",
+          "посещать",
+          "We visited our friends."
+        ],
+        [
+          "finish",
+          "/ˈfɪnɪʃ/",
+          "заканчивать",
+          "I finished my homework."
+        ],
+        [
+          "clean",
+          "/kliːn/",
+          "убирать; чистить",
+          "She cleaned her room."
+        ],
+        [
+          "walk",
+          "/wɔːk/",
+          "гулять; идти пешком",
+          "They walked home."
+        ],
+        [
+          "start",
+          "/stɑːt/",
+          "начинать",
+          "The lesson started at nine."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Past Simple от work.",
+          "a": "worked",
+          "hint": "+ed."
+        },
+        {
+          "q": "Past Simple от study.",
+          "a": "studied",
+          "hint": "y → ied."
+        },
+        {
+          "q": "Переведите: «Я смотрел фильм вчера».",
+          "a": "I watched a film yesterday.",
+          "hint": "watch → watched."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Past Simple от “work”",
+          "options": [
+            "workt",
+            "worked",
+            "works",
+            "working"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Past Simple от “study”",
+          "options": [
+            "studied",
+            "studyed",
+            "studys",
+            "studying"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Past Simple от “live”",
+          "options": [
+            "liveed",
+            "lived",
+            "livied",
+            "living"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "I ___ a film yesterday.",
+          "options": [
+            "watch",
+            "watched",
+            "watches",
+            "am watching"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "“visit” =",
+          "options": [
+            "посещать",
+            "ждать",
+            "покупать",
+            "спать"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“cleaned” — форма прошедшего времени.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "She ___ her room yesterday.",
+          "options": [
+            "clean",
+            "cleaned",
+            "cleans",
+            "is cleaning"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Past Simple часто описывает завершённое действие в прошлом.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-27",
+      "title": "Past Simple — Common Irregular Verbs",
+      "ru": "Past Simple: частые неправильные глаголы",
+      "theory": [
+        "Неправильные глаголы не образуют прошлое время простым добавлением -ed, поэтому их формы нужно запоминать.",
+        "Частые формы A1: go → went, have → had, do → did, see → saw, get → got, come → came, eat → ate, drink → drank.",
+        "В утвердительных предложениях используем вторую форму: We went to the park yesterday."
+      ],
+      "grammar": [
+        [
+          "Base verb",
+          "Past Simple",
+          "Перевод"
+        ],
+        [
+          "go",
+          "went",
+          "идти/ехать"
+        ],
+        [
+          "have",
+          "had",
+          "иметь"
+        ],
+        [
+          "do",
+          "did",
+          "делать"
+        ],
+        [
+          "see",
+          "saw",
+          "видеть"
+        ],
+        [
+          "come",
+          "came",
+          "приходить"
+        ],
+        [
+          "eat",
+          "ate",
+          "есть"
+        ],
+        [
+          "drink",
+          "drank",
+          "пить"
+        ]
+      ],
+      "examples": [
+        [
+          "We went to the park.",
+          "Мы ходили в парк."
+        ],
+        [
+          "I had breakfast at eight.",
+          "Я позавтракал в восемь."
+        ],
+        [
+          "She saw her friend yesterday.",
+          "Она видела подругу вчера."
+        ],
+        [
+          "They ate pizza.",
+          "Они ели пиццу."
+        ]
+      ],
+      "vocab": [
+        [
+          "went",
+          "/went/",
+          "пошёл/поехал",
+          "He went home."
+        ],
+        [
+          "had",
+          "/hæd/",
+          "имел; ел/пил в выражениях",
+          "I had lunch."
+        ],
+        [
+          "saw",
+          "/sɔː/",
+          "видел",
+          "We saw a film."
+        ],
+        [
+          "came",
+          "/keɪm/",
+          "пришёл",
+          "She came early."
+        ],
+        [
+          "ate",
+          "/eɪt/",
+          "ел",
+          "They ate dinner."
+        ],
+        [
+          "drank",
+          "/dræŋk/",
+          "пил",
+          "I drank water."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Past Simple от go.",
+          "a": "went",
+          "hint": "Неправильная форма."
+        },
+        {
+          "q": "Past Simple от see.",
+          "a": "saw",
+          "hint": "Неправильная форма."
+        },
+        {
+          "q": "Переведите: «Мы ели пиццу».",
+          "a": "We ate pizza.",
+          "hint": "eat → ate."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "go →",
+          "options": [
+            "goed",
+            "went",
+            "goes",
+            "gone"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "see →",
+          "options": [
+            "seed",
+            "saw",
+            "seen",
+            "sees"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "eat →",
+          "options": [
+            "eated",
+            "ate",
+            "eats",
+            "eaten only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "have →",
+          "options": [
+            "haved",
+            "had",
+            "has",
+            "having"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "We ___ to the park yesterday.",
+          "options": [
+            "go",
+            "went",
+            "goes",
+            "going"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "She ___ her friend.",
+          "options": [
+            "saw",
+            "see",
+            "seed",
+            "seeing"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“drank” — Past Simple от drink.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“came” — Past Simple от...",
+          "options": [
+            "come",
+            "can",
+            "call",
+            "cook"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-28",
+      "title": "Past Simple — Questions & Negatives",
+      "ru": "Past Simple: вопросы и отрицания",
+      "theory": [
+        "В вопросах Past Simple используйте did: Did you work yesterday? Did she go to school?",
+        "В отрицаниях используйте didn’t: I didn’t work. He didn’t go. После did/didn’t основной глагол всегда возвращается в базовую форму.",
+        "Нельзя говорить Did you went? Правильно: Did you go?"
+      ],
+      "grammar": [
+        [
+          "Тип",
+          "Схема",
+          "Пример"
+        ],
+        [
+          "Вопрос",
+          "Did + subject + base verb?",
+          "Did she work?"
+        ],
+        [
+          "Отрицание",
+          "subject + didn’t + base verb",
+          "She didn’t work."
+        ],
+        [
+          "Короткий ответ",
+          "+",
+          "Yes, she did."
+        ],
+        [
+          "Короткий ответ",
+          "−",
+          "No, she didn’t."
+        ]
+      ],
+      "examples": [
+        [
+          "Did you watch the film?",
+          "Ты смотрел фильм?"
+        ],
+        [
+          "Did he go to school?",
+          "Он ходил в школу?"
+        ],
+        [
+          "I didn’t see Anna.",
+          "Я не видел Анну."
+        ],
+        [
+          "No, they didn’t.",
+          "Нет."
+        ]
+      ],
+      "vocab": [
+        [
+          "ago",
+          "/əˈɡəʊ/",
+          "назад",
+          "two days ago"
+        ],
+        [
+          "week",
+          "/wiːk/",
+          "неделя",
+          "last week"
+        ],
+        [
+          "weekend",
+          "/ˌwiːkˈend/",
+          "выходные",
+          "at the weekend"
+        ],
+        [
+          "trip",
+          "/trɪp/",
+          "поездка",
+          "We had a good trip."
+        ],
+        [
+          "arrive",
+          "/əˈraɪv/",
+          "прибывать",
+          "They arrived late."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Сделайте вопрос: You worked yesterday.",
+          "a": "Did you work yesterday?",
+          "hint": "Did + base verb."
+        },
+        {
+          "q": "Сделайте отрицание: He went home.",
+          "a": "He didn’t go home.",
+          "hint": "После didn’t → go."
+        },
+        {
+          "q": "Короткий ответ «нет» на Did she call?",
+          "a": "No, she didn’t.",
+          "hint": "No + subject + didn’t."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Правильный вопрос:",
+          "options": [
+            "Did you went?",
+            "Did you go?",
+            "Do you went?",
+            "Were you go?"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Правильное отрицание:",
+          "options": [
+            "He didn’t went.",
+            "He didn’t go.",
+            "He not went.",
+            "He doesn’t went."
+          ],
+          "answer": 1
+        },
+        {
+          "q": "После did используется...",
+          "options": [
+            "Past Simple форма",
+            "базовая форма",
+            "-ing",
+            "to + verb"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Короткий ответ: Did they work?",
+          "options": [
+            "Yes, they did.",
+            "Yes, they do.",
+            "Yes, they were.",
+            "Yes, did."
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“two days ago” =",
+          "options": [
+            "через два дня",
+            "два дня назад",
+            "два дня",
+            "вчера"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Did she ___ the film?",
+          "options": [
+            "watched",
+            "watch",
+            "watches",
+            "watching"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "didn’t = did not.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "I didn’t ___ him.",
+          "options": [
+            "saw",
+            "see",
+            "seen",
+            "seeing"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "key": "a1-29",
+      "title": "Future Plans — Be Going To",
+      "ru": "Планы на будущее: be going to",
+      "theory": [
+        "Be going to используется для планов и намерений на будущее: I’m going to study tonight. She’s going to visit her grandmother.",
+        "Формула: am/is/are + going to + базовый глагол. Отрицание: I’m not going to..., He isn’t going to....",
+        "Вопрос: Are you going to travel? Is she going to study?"
+      ],
+      "grammar": [
+        [
+          "Подлежащее",
+          "Форма"
+        ],
+        [
+          "I",
+          "am going to + verb"
+        ],
+        [
+          "He/She/It",
+          "is going to + verb"
+        ],
+        [
+          "You/We/They",
+          "are going to + verb"
+        ]
+      ],
+      "examples": [
+        [
+          "I’m going to study tonight.",
+          "Я собираюсь заниматься сегодня вечером."
+        ],
+        [
+          "We’re going to travel in summer.",
+          "Мы собираемся путешествовать летом."
+        ],
+        [
+          "She isn’t going to cook.",
+          "Она не собирается готовить."
+        ],
+        [
+          "Are you going to watch the film?",
+          "Ты собираешься посмотреть фильм?"
+        ]
+      ],
+      "vocab": [
+        [
+          "plan",
+          "/plæn/",
+          "план",
+          "What’s your plan?"
+        ],
+        [
+          "tomorrow",
+          "/təˈmɒrəʊ/",
+          "завтра",
+          "See you tomorrow."
+        ],
+        [
+          "tonight",
+          "/təˈnaɪt/",
+          "сегодня вечером",
+          "I’m studying tonight."
+        ],
+        [
+          "travel",
+          "/ˈtrævəl/",
+          "путешествовать",
+          "We are going to travel."
+        ],
+        [
+          "visit",
+          "/ˈvɪzɪt/",
+          "посетить",
+          "I’m going to visit my family."
+        ],
+        [
+          "weekend",
+          "/ˌwiːkˈend/",
+          "выходные",
+          "this weekend"
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Дополните: I ___ going to study.",
+          "a": "am",
+          "hint": "I + am."
+        },
+        {
+          "q": "Сделайте вопрос: You are going to travel.",
+          "a": "Are you going to travel?",
+          "hint": "Are в начало."
+        },
+        {
+          "q": "Как сказать «завтра»?",
+          "a": "tomorrow",
+          "hint": "tomorrow."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "I ___ going to study.",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "do"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "She ___ going to travel.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "does"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "They ___ going to visit us.",
+          "options": [
+            "is",
+            "are",
+            "am",
+            "be"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "После going to используется...",
+          "options": [
+            "базовый глагол",
+            "-ing",
+            "Past Simple",
+            "глагол с -s"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Вопрос:",
+          "options": [
+            "Are you going to travel?",
+            "Do you going to travel?",
+            "Is you going travel?",
+            "You are going travel?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "“tomorrow” =",
+          "options": [
+            "вчера",
+            "завтра",
+            "сегодня",
+            "вечером"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Be going to можно использовать для планов.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "She isn’t going to cook — правильное отрицание.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "key": "a1-30",
+      "title": "A1 Communication Review",
+      "ru": "Итоговое повторение общения на уровне A1",
+      "theory": [
+        "На уровне A1 важно уметь рассказать о себе: имя, возраст, страна, семья, учёба, интересы, распорядок дня и простые планы.",
+        "Также нужно понимать базовые бытовые ситуации: магазин, кафе, время, погода, дорога по городу, простые события в прошлом.",
+        "Это последний учебный урок. После его успешного теста откроется отдельный A1 Final Exam."
+      ],
+      "grammar": [
+        [
+          "Навык",
+          "Пример"
+        ],
+        [
+          "Представиться",
+          "My name is ... I’m from ..."
+        ],
+        [
+          "Рассказать о привычке",
+          "I usually get up at ..."
+        ],
+        [
+          "Сказать о прошлом",
+          "I went to ... yesterday."
+        ],
+        [
+          "Сказать о плане",
+          "I’m going to ... tomorrow."
+        ],
+        [
+          "Попросить/спросить",
+          "Can I...? / Where is...?"
+        ]
+      ],
+      "examples": [
+        [
+          "Hi, I’m Alex. I’m from Kazakhstan.",
+          "Привет, я Алекс. Я из Казахстана."
+        ],
+        [
+          "I usually study in the evening.",
+          "Я обычно занимаюсь вечером."
+        ],
+        [
+          "Yesterday I visited my friend.",
+          "Вчера я навестил друга."
+        ],
+        [
+          "Tomorrow I’m going to play football.",
+          "Завтра я собираюсь играть в футбол."
+        ]
+      ],
+      "vocab": [
+        [
+          "introduce",
+          "/ˌɪntrəˈdjuːs/",
+          "представлять(ся)",
+          "Introduce yourself."
+        ],
+        [
+          "describe",
+          "/dɪˈskraɪb/",
+          "описывать",
+          "Describe your day."
+        ],
+        [
+          "ask",
+          "/ɑːsk/",
+          "спрашивать",
+          "Ask a question."
+        ],
+        [
+          "answer",
+          "/ˈɑːnsə/",
+          "отвечать; ответ",
+          "Answer the question."
+        ],
+        [
+          "conversation",
+          "/ˌkɒnvəˈseɪʃən/",
+          "разговор",
+          "Have a short conversation."
+        ],
+        [
+          "complete",
+          "/kəmˈpliːt/",
+          "завершить",
+          "Complete the A1 course."
+        ]
+      ],
+      "practice": [
+        {
+          "q": "Напишите 2–3 предложения о себе на английском.",
+          "a": "Example: My name is Alex. I’m from Kazakhstan. I’m a student.",
+          "hint": "Используйте to be и простые факты."
+        },
+        {
+          "q": "Напишите одно предложение о вчерашнем дне.",
+          "a": "Example: I watched a film yesterday.",
+          "hint": "Используйте Past Simple."
+        },
+        {
+          "q": "Напишите один план на завтра.",
+          "a": "Example: I’m going to study tomorrow.",
+          "hint": "Используйте be going to."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Как представиться?",
+          "options": [
+            "My name is Alex.",
+            "I name Alex.",
+            "Me is Alex.",
+            "Mine Alex."
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Привычка: She ___ English every day.",
+          "options": [
+            "studies",
+            "is studying now",
+            "studied yesterday",
+            "going study"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Действие сейчас: They ___ now.",
+          "options": [
+            "work every day",
+            "are working",
+            "worked",
+            "works"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Прошлое: We ___ to the park yesterday.",
+          "options": [
+            "go",
+            "went",
+            "are going",
+            "goes"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "План: I’m ___ study tomorrow.",
+          "options": [
+            "going to",
+            "go to",
+            "went to",
+            "going"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как спросить дорогу?",
+          "options": [
+            "Where is the bank?",
+            "How old is bank?",
+            "Who bank?",
+            "When is bank?"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Как заказать воду вежливо?",
+          "options": [
+            "I’d like some water, please.",
+            "Water give.",
+            "I’m water.",
+            "Any water is."
+          ],
+          "answer": 0
+        },
+        {
+          "q": "После успешного урока 30 откроется A1 Final Exam.",
+          "options": [
+            "Да",
+            "Нет"
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ],
+  "finalExam": [
+    {
+      "q": "Выберите правильное приветствие.",
+      "options": [
+        "Hello!",
+        "Name you?",
+        "Am hello.",
+        "Good name."
+      ],
+      "answer": 0
+    },
+    {
+      "q": "“What’s your name?” означает...",
+      "options": [
+        "Сколько тебе лет?",
+        "Как тебя зовут?",
+        "Откуда ты?",
+        "Где ты?"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "40 по-английски...",
+      "options": [
+        "fourteen",
+        "forty",
+        "fourty",
+        "four-zero"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "I ___ a student.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "She ___ my friend.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Правильный вопрос:",
+      "options": [
+        "Are you ready?",
+        "You are ready?",
+        "Do you are ready?",
+        "Is you ready?"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "___ apple",
+      "options": [
+        "a",
+        "an",
+        "are",
+        "two"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Множественное число child...",
+      "options": [
+        "childs",
+        "children",
+        "childes",
+        "childrens"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Один предмет рядом: ___ is my phone.",
+      "options": [
+        "This",
+        "These",
+        "Those",
+        "They"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "I ___ got a brother.",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "am"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "She ___ English every day.",
+      "options": [
+        "study",
+        "studies",
+        "studying",
+        "studyed"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "___ you study English?",
+      "options": [
+        "Does",
+        "Do",
+        "Are",
+        "Is"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "___ Monday",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "under"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "8:30 =",
+      "options": [
+        "half past eight",
+        "quarter past eight",
+        "quarter to eight",
+        "eight o’clock"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "The book is ___ the table.",
+      "options": [
+        "on",
+        "at",
+        "past",
+        "to time"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "There ___ two chairs.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "has"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Have you got ___ milk?",
+      "options": [
+        "some",
+        "any",
+        "a",
+        "an"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "I can ___ .",
+      "options": [
+        "to swim",
+        "swim",
+        "swims",
+        "swimming"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "She is ___ now.",
+      "options": [
+        "work",
+        "works",
+        "working",
+        "worked"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "I ___ football every Friday.",
+      "options": [
+        "play",
+        "am playing",
+        "played now",
+        "plays"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Как спросить цену одного предмета?",
+      "options": [
+        "How much is this?",
+        "How many this?",
+        "What this price are?",
+        "How cost?"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "They → притяжательная форма",
+      "options": [
+        "our",
+        "their",
+        "her",
+        "my"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "“Turn right” означает...",
+      "options": [
+        "идите прямо",
+        "поверните направо",
+        "поверните налево",
+        "остановитесь"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "“sunny” означает...",
+      "options": [
+        "облачно",
+        "солнечно",
+        "ветрено",
+        "снежно"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "I like ___ books.",
+      "options": [
+        "read",
+        "reading",
+        "reads",
+        "to reading"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "I ___ at home yesterday.",
+      "options": [
+        "were",
+        "was",
+        "am",
+        "is"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Past Simple от work...",
+      "options": [
+        "worked",
+        "workt",
+        "works",
+        "working"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Past Simple от go...",
+      "options": [
+        "goed",
+        "went",
+        "gone",
+        "goes"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Past Simple от see...",
+      "options": [
+        "seed",
+        "saw",
+        "seen only",
+        "sees"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Правильный вопрос в Past Simple:",
+      "options": [
+        "Did you go?",
+        "Did you went?",
+        "Do you went?",
+        "Were you go?"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Правильное отрицание:",
+      "options": [
+        "He didn’t went.",
+        "He didn’t go.",
+        "He not went.",
+        "He doesn’t went."
+      ],
+      "answer": 1
+    },
+    {
+      "q": "I ___ going to study tomorrow.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "do"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "После going to используется...",
+      "options": [
+        "базовый глагол",
+        "Past Simple",
+        "-ing обязательно",
+        "глагол с -s"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "“pharmacy” =",
+      "options": [
+        "банк",
+        "аптека",
+        "станция",
+        "кафе"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "“winter” =",
+      "options": [
+        "весна",
+        "лето",
+        "осень",
+        "зима"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "“Her bag” означает...",
+      "options": [
+        "его сумка",
+        "её сумка",
+        "их сумка",
+        "наша сумка"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "“There isn’t any bread” означает...",
+      "options": [
+        "Хлеб есть.",
+        "Хлеба нет.",
+        "Есть несколько хлебов.",
+        "Где хлеб?"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "“Can you help me?” означает...",
+      "options": [
+        "Ты можешь мне помочь?",
+        "Ты видел меня?",
+        "Ты знаешь меня?",
+        "Ты идёшь домой?"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Present Continuous используется для действия прямо сейчас.",
+      "options": [
+        "Да",
+        "Нет"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "A1 Final Exam считается пройденным при результате не ниже 80%.",
+      "options": [
+        "Да",
+        "Нет"
+      ],
+      "answer": 0
     }
   ]
 };
