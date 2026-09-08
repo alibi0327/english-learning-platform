@@ -348,3 +348,168 @@
     width:min(65%, 280px);
   }
 }
+/* LANGUAGE PATH — English + Қазақ тілі */
+.language-course-section{
+  margin-top:28px;
+}
+
+.language-section-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:14px;
+  padding:20px 22px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+}
+
+.language-section-head h2{
+  margin:3px 0 5px;
+  font-size:1.55rem;
+}
+
+.language-section-head p{
+  margin:0;
+}
+
+.language-flag{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  font-size:1.8rem;
+  flex:0 0 auto;
+}
+
+.language-flag.large{
+  width:64px;
+  height:64px;
+  font-size:2.1rem;
+}
+
+.language-level-list{
+  display:grid;
+  gap:12px;
+}
+
+.coming-soon-card{
+  margin-top:18px;
+  padding:18px;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  border-radius:14px;
+}
+
+.language-dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+
+.language-dashboard-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+  padding:22px;
+}
+
+.language-dashboard-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.language-dashboard-top h3{
+  margin:4px 0 0;
+  font-size:1.45rem;
+}
+
+.language-level-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:18px 0 14px;
+}
+
+.language-level-pills span{
+  min-width:42px;
+  text-align:center;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-weight:800;
+  font-size:.85rem;
+}
+
+.language-card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:14px;
+}
+
+.admin-course-group{
+  padding:12px 0;
+}
+
+.admin-course-group + .admin-course-group{
+  border-top:1px solid #e2e8f0;
+  margin-top:6px;
+}
+
+.admin-course-group-title{
+  margin-bottom:10px;
+  color:#334155;
+}
+
+.admin-course-levels{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+
+.admin-course-levels label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:9px 8px;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  background:#f8fafc;
+}
+
+.admin-course-levels input{
+  width:auto;
+}
+
+@media(max-width:800px){
+  .language-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-course-levels{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:520px){
+  .language-section-head{
+    align-items:flex-start;
+  }
+
+  .language-card-footer{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .admin-course-levels{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
