@@ -1,0 +1,21 @@
+.spelling-practice{margin-top:18px;margin-bottom:18px;overflow:hidden}
+.spelling-head{display:flex;justify-content:space-between;gap:22px;align-items:flex-start}
+.spelling-head h2{margin:5px 0 8px}.spelling-score{min-width:130px;text-align:right}
+.spelling-score strong,.spelling-score span{display:block}.spelling-score strong{font-size:23px}.spelling-score span{margin-top:6px;color:#7b8798}
+.spelling-progress{height:8px;background:#edf1f6;border-radius:99px;overflow:hidden;margin:18px 0 22px}.spelling-progress span{display:block;height:100%;background:#2454dc;border-radius:99px;transition:width .25s}
+.spelling-exercise{background:#f8fafc;border:1px solid #e3e9f1;border-radius:18px;padding:20px}
+.spelling-mode{display:inline-flex;padding:6px 10px;border-radius:99px;background:#e9efff;color:#244ec9;font-size:12px;font-weight:800;text-transform:uppercase}
+.spelling-counter{float:right;color:#77869a;font-size:13px}.spelling-exercise h3{clear:both;font-size:20px;margin:18px 0}
+.spelling-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.spelling-input-row input{width:100%;min-height:49px;border:2px solid #d8e1ec;border-radius:13px;padding:0 14px;font-size:18px;background:white;outline:none;box-sizing:border-box}
+.spelling-input-row input:focus{border-color:#2454dc;box-shadow:0 0 0 3px rgba(36,84,220,.09)}
+.spelling-feedback{min-height:0;margin-top:12px;border-radius:13px}.spelling-feedback.success,.spelling-feedback.error{padding:13px 15px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.spelling-feedback.success{background:#eaf8ef;color:#14743b}.spelling-feedback.error{background:#fff0f0;color:#a82b2b}.spelling-feedback span{display:block}
+.virtual-keyboard-wrap{margin-top:20px;padding-top:17px;border-top:1px solid #e4eaf2}.keyboard-label{font-size:12px;font-weight:800;color:#748399;text-transform:uppercase;margin-bottom:9px}
+.virtual-keyboard{display:flex;flex-wrap:wrap;gap:6px}.key{border:1px solid #d8e0eb;background:#fff;border-radius:9px;min-width:38px;height:40px;padding:0 10px;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 2px 0 #d7dee8}
+.key:hover{transform:translateY(-1px)}.key:active{transform:translateY(1px);box-shadow:none}.key.special{background:#eaf0ff;color:#1e4fd0;border-color:#c9d6ff}
+.keyboard-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.key.action{font-size:13px;min-width:auto;padding:0 14px;background:#f0f3f7}
+.spelling-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:18px}.spelling-footer .muted{font-size:12px}
+.spelling-finish{display:flex;align-items:center;gap:18px;background:#f7fafc;border:1px solid #e1e7ef;border-radius:18px;padding:22px}.spelling-finish>div:nth-child(2){flex:1}.spelling-result-icon{font-size:42px}
+.hidden{display:none!important}
+@media(max-width:700px){.spelling-head{flex-direction:column}.spelling-score{text-align:left}.spelling-input-row{grid-template-columns:1fr}.spelling-input-row .btn{width:100%}.spelling-footer{align-items:flex-start;flex-direction:column}.spelling-finish{align-items:flex-start;flex-direction:column}.key{min-width:35px;height:38px;padding:0 8px}}
