@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — журнал класса</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notifications.css?v=20260909-1">
+  <link rel="stylesheet" href="css/teacher-journal.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="teacher.html">Кабинет преподавателя</a>
+    <a href="messages.html">Сообщения</a>
+    <a href="teacher-journal.html" class="active">Журнал</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container journal-page">
+  <section class="journal-hero">
+    <div>
+      <div class="eyebrow">CLASS JOURNAL</div>
+      <h1>Журнал класса</h1>
+      <p>Сводная картина по всем вашим ученикам: уроки, тесты, домашние задания и активность.</p>
+    </div>
+    <div class="journal-summary" id="journalSummary">
+      <div><span>Учеников</span><strong id="journalStudents">0</strong></div>
+      <div><span>Средний балл класса</span><strong id="journalAverage">0%</strong></div>
+      <div><span>На проверке</span><strong id="journalReview">0</strong></div>
+    </div>
+  </section>
+
+  <section class="panel journal-tools">
+    <input id="journalSearch" type="search" placeholder="Найти ученика...">
+    <select id="journalSort">
+      <option value="name">По имени</option>
+      <option value="activity">По активности</option>
+      <option value="progress">По урокам</option>
+      <option value="score">По среднему баллу</option>
+      <option value="review">Сначала на проверке</option>
+    </select>
+  </section>
+
+  <section class="panel">
+    <div class="table-wrap">
+      <table class="journal-table">
+        <thead>
+          <tr>
+            <th>Ученик</th>
+            <th>Уроки</th>
+            <th>Средний балл</th>
+            <th>Лучший</th>
+            <th>Тесты</th>
+            <th>Домашние задания</th>
+            <th>Последняя активность</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="journalTableBody">
+          <tr><td colspan="8" class="muted">Загрузка...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/teacher-journal.js?v=20260909-1"></script>
+  <script src="js/notifications.js?v=20260909-1"></script>
+</body>
+</html>
