@@ -1,0 +1,24 @@
+.dashboard-pro{padding-bottom:50px}
+.dashboard-hero{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:center}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.hero-progress{padding:22px;border:1px solid var(--line,#dbe4f0);border-radius:20px;background:rgba(255,255,255,.7)}
+.hero-progress strong{display:block;font-size:42px;margin:4px 0 12px}
+.dashboard-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0 28px}
+.metric-card{background:#fff;border:1px solid #dfe7f1;border-radius:18px;padding:18px;box-shadow:0 8px 26px rgba(28,57,90,.05)}
+.metric-card span,.metric-card small{display:block;color:#6f7f94}.metric-card strong{font-size:28px;display:block;margin:6px 0}
+.next-lesson-card{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.language-dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.language-dashboard-card{background:#fff;border:1px solid #dfe7f1;border-radius:22px;padding:22px}
+.language-dashboard-top{display:flex;align-items:center;gap:14px}.language-flag.large{font-size:34px}
+.language-level-pills{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.language-level-pills span{padding:7px 11px;border-radius:999px;background:#f1f4f8;color:#8794a6;font-weight:700}
+.language-level-pills span.available{background:#eaf2ff;color:#1c55d9}.language-level-pills span.finished{background:#e9f8ef;color:#198754}
+.language-progress-row,.language-card-footer{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.progressbar{height:9px;background:#edf1f6;border-radius:99px;overflow:hidden;margin:9px 0 18px}.progressbar span{display:block;height:100%;background:#2454dc;border-radius:99px}
+.dashboard-two-columns{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.achievement-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.achievement{display:flex;gap:12px;align-items:center;border:1px solid #e0e7ef;border-radius:16px;padding:13px;background:#fff}
+.achievement.locked{opacity:.52}.achievement-icon{font-size:24px}.achievement strong,.achievement small{display:block}.achievement small{color:#738198;margin-top:3px}
+.recent-list{display:grid}.recent-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f4}.recent-row small{display:block;color:#7e8998;margin-top:3px}.wide{width:100%;margin-top:14px;text-align:center}
+@media(max-width:900px){.dashboard-hero{grid-template-columns:1fr}.dashboard-metrics{grid-template-columns:repeat(2,1fr)}.language-dashboard-grid,.dashboard-two-columns{grid-template-columns:1fr}}
+@media(max-width:560px){.dashboard-metrics,.achievement-grid{grid-template-columns:1fr}.next-lesson-card,.language-card-footer{align-items:flex-start;flex-direction:column}.hero-progress{width:auto}}
