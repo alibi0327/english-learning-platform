@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — админ-панель</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin-courses-fix.css?v=20260908-3">
+  <link rel="stylesheet" href="css/admin-profile.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">← Кабинет</a>
+    <a href="admin.html" class="active">Пользователи</a>
+    <a href="admin-control.html">Контроль платформы</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container">
+  <section class="page-head">
+    <div class="eyebrow">Administration</div>
+    <h1>Управление обучением</h1>
+    <p>Создавайте пользователей, назначайте уровни, контролируйте доступ и отслеживайте прогресс каждого ученика.</p>
+  </section>
+
+  <section class="admin-stats grid cards">
+    <div class="metric"><span>Всего пользователей</span><strong id="statUsers">0</strong></div>
+    <div class="metric"><span>Активных</span><strong id="statActive">0</strong></div>
+    <div class="metric"><span>Учеников</span><strong id="statStudents">0</strong></div>
+    <div class="metric"><span>Администраторов</span><strong id="statAdmins">0</strong></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-title">
+      <div><div class="eyebrow">Пользователи</div><h2>Доступы</h2></div>
+      <button id="openCreateUser" class="btn primary">+ Добавить пользователя</button>
+    </div>
+    <div class="toolbar"><input id="userSearch" placeholder="Поиск по имени или email"></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Пользователь</th><th>Роль</th><th>Статус</th><th>Доступ</th><th>Обучение</th><th>Действие</th></tr></thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div id="createUserModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head"><h2>Новый пользователь</h2><button id="closeCreateUser" class="icon-btn">×</button></div>
+    <form id="createUserForm">
+      <label>Имя<input id="newFullName" required placeholder="Имя ученика"></label>
+      <label>Email<input id="newEmail" type="email" required placeholder="student@example.com"></label>
+      <label>Временный пароль<input id="newPassword" type="password" required minlength="8" placeholder="Минимум 8 символов"></label>
+      <label>Роль
+        <select id="newRole"><option value="student">Ученик</option><option value="teacher">Преподаватель</option></select>
+      </label>
+      <fieldset><legend>Доступ к курсам</legend><div id="newCourseChecks" class="check-grid"></div></fieldset>
+      <button class="btn primary full" type="submit">Создать пользователя</button>
+      <div id="createUserMessage" class="message"></div>
+    </form>
+  </div>
+</div>
+
+<div id="accessModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head"><h2>Изменить доступ</h2><button id="closeAccess" class="icon-btn">×</button></div>
+    <div id="accessUserName" class="muted"></div>
+    <form id="accessForm">
+      <input id="accessUserId" type="hidden">
+      <label>Роль
+        <select id="editRole"><option value="student">Ученик</option><option value="teacher">Преподаватель</option><option value="admin">Администратор</option></select>
+      </label>
+      <label>Статус
+        <select id="editStatus"><option value="active">Активен</option><option value="blocked">Заблокирован</option></select>
+      </label>
+      <fieldset><legend>Курсы</legend><div id="editCourseChecks" class="check-grid"></div></fieldset>
+      <button class="btn primary full" type="submit">Сохранить</button>
+      <div id="accessMessage" class="message"></div>
+    </form>
+  </div>
+</div>
+
+
+<div id="studentStatusModal" class="modal hidden">
+  <div class="modal-card student-status-modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow">СТАТУС УЧЕНИКА</div>
+        <h2 id="studentStatusName">Ученик</h2>
+      </div>
+      <button id="closeStudentStatus" class="icon-btn">×</button>
+    </div>
+
+    <section class="student-status-section">
+      <div class="eyebrow">ЛИЧНЫЕ ДАННЫЕ</div>
+      <div id="studentPersonalData" class="student-personal-data">
+        <p class="muted">Загрузка данных...</p>
+      </div>
+    </section>
+
+    <div id="studentStatusSummary" class="grid cards student-summary-grid"></div>
+
+    <section class="student-status-section">
+      <div class="eyebrow">ПРОГРЕСС ПО УРОВНЯМ</div>
+      <div id="studentCourseStatus"></div>
+    </section>
+
+    <section class="student-status-section">
+      <div class="eyebrow">ПОСЛЕДНИЕ ТЕСТЫ</div>
+      <div id="studentRecentTests"></div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/admin.js?v=20260909-4"></script>
+<script src="js/admin-profile.js?v=20260909-1"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — полный контроль</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin-control.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">← Кабинет</a>
+    <a href="admin.html">Пользователи</a>
+    <a href="admin-control.html" class="active">Контроль платформы</a>
+  </nav>
+  <div class="userbox">
+    <span id="userName">...</span>
+    <button id="logoutBtn" class="btn ghost">Выйти</button>
+  </div>
+</header>
+
+<main class="container admin-control-page">
+  <section class="admin-control-hero">
+    <div>
+      <div class="eyebrow">SUPER ADMIN</div>
+      <h1>Центр контроля платформы</h1>
+      <p>Преподаватели, ученики, сообщения, домашние задания и текущие статусы — в одном месте.</p>
+    </div>
+    <div class="admin-control-live">
+      <span>Статус</span>
+      <strong>● Онлайн-контроль</strong>
+    </div>
+  </section>
+
+  <section class="admin-control-stats">
+    <article><span>Преподавателей</span><strong id="statTeachers">0</strong></article>
+    <article><span>Учеников в классах</span><strong id="statLinkedStudents">0</strong></article>
+    <article><span>ДЗ на проверке</span><strong id="statHomeworkReview">0</strong></article>
+    <article><span>Всего сообщений</span><strong id="statMessages">0</strong></article>
+  </section>
+
+  <section class="admin-control-tabs">
+    <button class="admin-tab active" data-tab="teachers" type="button">Преподаватели и ученики</button>
+    <button class="admin-tab" data-tab="messages" type="button">Сообщения</button>
+    <button class="admin-tab" data-tab="homework" type="button">Домашние задания</button>
+    <button class="admin-tab" data-tab="statuses" type="button">Статусы пользователей</button>
+  </section>
+
+  <!-- TEACHERS / STUDENTS -->
+  <section id="tab-teachers" class="admin-tab-panel">
+    <div class="admin-split">
+      <aside class="panel admin-side-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">ПРЕПОДАВАТЕЛИ</div><h2>Список</h2></div>
+        </div>
+        <input id="teacherSearch" class="admin-search" type="search" placeholder="Найти преподавателя...">
+        <div id="adminTeacherList" class="admin-teacher-list"><p class="muted">Загрузка...</p></div>
+      </aside>
+
+      <section class="panel admin-main-panel">
+        <div id="teacherEmpty" class="admin-empty">
+          <div>👩‍🏫</div>
+          <h2>Выберите преподавателя</h2>
+          <p class="muted">Здесь можно добавлять и убирать учеников из его класса.</p>
+        </div>
+
+        <div id="teacherWorkspace" class="hidden">
+          <div class="admin-workspace-head">
+            <div>
+              <div class="eyebrow">ПРЕПОДАВАТЕЛЬ</div>
+              <h2 id="selectedTeacherName">—</h2>
+              <p id="selectedTeacherEmail" class="muted">—</p>
+            </div>
+            <span id="selectedTeacherStatus" class="status-pill">—</span>
+          </div>
+
+          <section class="admin-add-student-box">
+            <div>
+              <div class="eyebrow">ДОБАВИТЬ УЧЕНИКА</div>
+              <strong>Привязать существующего ученика к преподавателю</strong>
+            </div>
+            <div class="admin-add-student-form">
+              <input id="adminStudentEmail" type="email" placeholder="student@example.com">
+              <button id="adminAddStudentBtn" class="btn primary" type="button">Добавить</button>
+            </div>
+            <div id="adminAddStudentMessage" class="message"></div>
+          </section>
+
+          <div class="section-title admin-section-space">
+            <div><div class="eyebrow">КЛАСС</div><h2>Ученики преподавателя</h2></div>
+            <span id="selectedTeacherStudentCount" class="badge">0</span>
+          </div>
+
+          <div id="selectedTeacherStudents" class="admin-students-table"></div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- MESSAGES -->
+  <section id="tab-messages" class="admin-tab-panel hidden">
+    <div class="admin-split messages-admin-split">
+      <aside class="panel admin-side-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">ДИАЛОГИ</div><h2>Все переписки</h2></div>
+        </div>
+        <input id="pairSearch" class="admin-search" type="search" placeholder="Учитель или ученик...">
+        <div id="adminPairList" class="admin-pair-list"><p class="muted">Загрузка...</p></div>
+      </aside>
+
+      <section class="panel admin-main-panel admin-chat-panel">
+        <div id="adminChatEmpty" class="admin-empty">
+          <div>💬</div>
+          <h2>Выберите диалог</h2>
+          <p class="muted">Администратор может читать переписку и отвечать в неё.</p>
+        </div>
+
+        <div id="adminChatWorkspace" class="hidden admin-chat-workspace">
+          <div class="admin-chat-head">
+            <div>
+              <div class="eyebrow">КОНТРОЛЬ ПЕРЕПИСКИ</div>
+              <h2 id="adminChatTitle">—</h2>
+              <p id="adminChatSubtitle" class="muted">—</p>
+            </div>
+            <button id="refreshAdminChat" class="btn ghost" type="button">Обновить</button>
+          </div>
+
+          <div id="adminChatMessages" class="admin-chat-messages"></div>
+
+          <form id="adminChatForm" class="admin-chat-compose">
+            <textarea id="adminChatInput" rows="3" maxlength="2000" required
+              placeholder="Сообщение администратора..."></textarea>
+            <div>
+              <span class="muted">Сообщение увидят преподаватель и ученик.</span>
+              <button class="btn primary" type="submit">Отправить от администратора</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- HOMEWORK -->
+  <section id="tab-homework" class="admin-tab-panel hidden">
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">ДОМАШНИЕ ЗАДАНИЯ</div>
+          <h2>Контроль всех заданий</h2>
+        </div>
+        <select id="adminHomeworkFilter">
+          <option value="all">Все статусы</option>
+          <option value="assigned">Назначено</option>
+          <option value="submitted">На проверке</option>
+          <option value="revision">Исправить</option>
+          <option value="accepted">Проверено</option>
+        </select>
+      </div>
+      <div class="toolbar">
+        <input id="adminHomeworkSearch" type="search" placeholder="Поиск по ученику, преподавателю или заданию...">
+      </div>
+      <div id="adminHomeworkTable"></div>
+    </section>
+  </section>
+
+  <!-- USER STATUSES -->
+  <section id="tab-statuses" class="admin-tab-panel hidden">
+    <section class="panel">
+      <div class="section-title">
+        <div><div class="eyebrow">СТАТУСЫ</div><h2>Все пользователи</h2></div>
+        <a class="btn primary" href="admin.html">Управление пользователями</a>
+      </div>
+      <div class="toolbar">
+        <input id="adminStatusSearch" type="search" placeholder="Поиск по имени или email...">
+        <select id="adminStatusRole">
+          <option value="all">Все роли</option>
+          <option value="admin">Администраторы</option>
+          <option value="teacher">Преподаватели</option>
+          <option value="student">Ученики</option>
+        </select>
+      </div>
+      <div id="adminStatusTable"></div>
+    </section>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/admin-control.js?v=20260909-1"></script>
+</body>
+</html>
