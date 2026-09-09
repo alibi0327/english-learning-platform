@@ -1,26 +1,235 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Language Path — обучение</title><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="shortcut icon" href="favicon.ico"><link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/notifications.css?v=20260909-6"></head>
-<body><header class="topbar"><a class="brand" href="dashboard.html">
-  <img
-    src="logo.png"
-    alt="Language Path"
-    class="site-logo"
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
   >
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="shortcut icon" href="favicon.ico">
-  <strong>Language Path</strong>
-</a>
-    <a href="dashboard.html">Главная</a>
-    <a href="courses.html" class="active">Обучение</a>
-    <a href="dictionary.html">Словарь</a>
-    <a href="progress.html">Прогресс</a>
-    <a href="messages.html">Сообщения<span id="messagesNavBadge" class="nav-notification-badge hidden">0</span></a>
-    <a href="homework.html">Домашние задания<span id="homeworkNavBadge" class="nav-notification-badge hidden">0</span></a>
-    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
-    <a href="teacher-journal.html" id="teacherJournalLink" class="hidden">Журнал</a>
-    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
-  </nav><div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div></header>
-<main class="container"><section class="page-head"><div class="eyebrow">Language Path</div><h1>Обучение</h1><p>Выберите язык и доступный уровень. Уроки открываются последовательно после успешного теста.</p></section><div id="coursesList"></div></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/supabase-client.js"></script><script src="js/guard.js"></script><script src="data/a1.js"></script><script src="data/a2.js"></script><script src="js/courses.js"></script>  <script src="js/notifications.js?v=20260909-6"></script>
-</body></html>
+
+  <title>Language Path — обучение</title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="favicon-32.png"
+  >
+
+  <link
+    rel="shortcut icon"
+    href="favicon.ico"
+  >
+
+  <!-- Основные стили -->
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <!-- Уведомления -->
+  <link
+    rel="stylesheet"
+    href="css/notifications.css?v=20260909-6"
+  >
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+  <!-- Логотип -->
+  <a
+    class="brand"
+    href="dashboard.html"
+  >
+
+    <img
+      src="logo.png"
+      alt="Language Path"
+      class="site-logo"
+    >
+
+    <strong>
+      Language Path
+    </strong>
+
+  </a>
+
+
+  <!-- Главное меню -->
+  <nav>
+
+    <a href="dashboard.html">
+      Главная
+    </a>
+
+    <a
+      href="courses.html"
+      class="active"
+    >
+      Обучение
+    </a>
+
+    <a href="dictionary.html">
+      Словарь
+    </a>
+
+    <a href="progress.html">
+      Прогресс
+    </a>
+
+
+    <a href="messages.html">
+
+      Сообщения
+
+      <span
+        id="messagesNavBadge"
+        class="nav-notification-badge hidden"
+      >
+        0
+      </span>
+
+    </a>
+
+
+    <a href="homework.html">
+
+      Домашние задания
+
+      <span
+        id="homeworkNavBadge"
+        class="nav-notification-badge hidden"
+      >
+        0
+      </span>
+
+    </a>
+
+
+    <a
+      id="teacherLink"
+      href="teacher.html"
+      class="hidden"
+    >
+      Кабинет преподавателя
+    </a>
+
+
+    <a
+      id="teacherJournalLink"
+      href="teacher-journal.html"
+      class="hidden"
+    >
+      Журнал
+    </a>
+
+
+    <a
+      id="adminLink"
+      href="admin.html"
+      class="hidden"
+    >
+      Админ
+    </a>
+
+  </nav>
+
+
+  <div class="userbox">
+
+    <span id="userName">
+      ...
+    </span>
+
+    <button
+      id="logoutBtn"
+      class="btn ghost"
+    >
+      Выйти
+    </button>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <section class="page-head">
+
+    <div class="eyebrow">
+      Language Path
+    </div>
+
+    <h1>
+      Обучение
+    </h1>
+
+    <p>
+      Выберите язык и доступный уровень.
+      Уроки открываются последовательно после успешного теста.
+    </p>
+
+  </section>
+
+
+  <div id="coursesList">
+  </div>
+
+</main>
+
+
+<!-- Supabase -->
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
+<!-- Настройки -->
+<script src="js/config.js"></script>
+
+<script src="js/supabase-client.js"></script>
+
+<script src="js/guard.js"></script>
+
+
+<!-- ========================= -->
+<!-- ENGLISH DATA              -->
+<!-- ========================= -->
+
+<script src="data/a1.js"></script>
+
+<script src="data/a2.js"></script>
+
+
+<!-- ========================= -->
+<!-- KAZAKH DATA               -->
+<!-- ========================= -->
+
+<!-- ЭТОГО У ТЕБЯ НЕ БЫЛО -->
+<script src="data/kz-a1.js"></script>
+
+
+<!-- ========================= -->
+<!-- COURSES                   -->
+<!-- ========================= -->
+
+<script src="js/courses.js?v=20260909-7"></script>
+
+
+<!-- Роли -->
+<script src="js/role-nav.js?v=20260909-1"></script>
+
+
+<!-- Уведомления всегда последними -->
+<script src="js/notifications.js?v=20260909-6"></script>
+
+</body>
+
+</html>
