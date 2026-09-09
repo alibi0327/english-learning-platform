@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — кабинет преподавателя</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/teacher.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="messages.html">Сообщения</a>
+    <a href="teacher-journal.html">Журнал</a>
+    <a href="teacher.html" class="active">Кабинет преподавателя</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container teacher-page">
+  <section class="teacher-hero">
+    <div>
+      <div class="eyebrow">TEACHER SPACE</div>
+      <h1>Кабинет преподавателя</h1>
+      <p>Добавляйте учеников, отслеживайте их обучение и общайтесь с ними напрямую.</p>
+    </div>
+    <div class="teacher-hero-stat">
+      <span>Мои ученики</span>
+      <strong id="teacherStudentCount">0</strong>
+    </div>
+  </section>
+
+  <section class="teacher-grid">
+    <aside class="teacher-sidebar">
+      <div class="panel teacher-add-panel">
+        <div class="eyebrow">ДОБАВИТЬ УЧЕНИКА</div>
+        <h2>По электронной почте</h2>
+        <p class="muted">Ученик должен уже иметь аккаунт Language Path.</p>
+        <form id="addStudentForm">
+          <input id="studentEmailInput" type="email" required placeholder="student@example.com">
+          <button class="btn primary full" type="submit">Добавить ученика</button>
+        </form>
+        <div id="addStudentMessage" class="message"></div>
+      </div>
+
+      <div class="panel teacher-list-panel">
+        <div class="teacher-list-head">
+          <div>
+            <div class="eyebrow">УЧЕНИКИ</div>
+            <h2>Мой класс</h2>
+          </div>
+          <input id="studentSearch" type="search" placeholder="Поиск...">
+        </div>
+        <div id="teacherStudentList" class="teacher-student-list">
+          <p class="muted">Загрузка...</p>
+        </div>
+      </div>
+    </aside>
+
+    <section class="teacher-main">
+      <div id="teacherEmptyState" class="panel teacher-empty">
+        <div class="teacher-empty-icon">👩‍🏫</div>
+        <h2>Выберите ученика</h2>
+        <p class="muted">Здесь появятся прогресс, последние результаты и чат.</p>
+      </div>
+
+      <div id="teacherStudentWorkspace" class="hidden">
+        <section class="panel student-overview">
+          <div class="student-overview-top">
+            <div class="student-overview-person">
+              <div id="studentWorkspaceAvatar" class="teacher-avatar">ST</div>
+              <div>
+                <div class="eyebrow">УЧЕНИК</div>
+                <h2 id="studentWorkspaceName">—</h2>
+                <div id="studentWorkspaceEmail" class="muted">—</div>
+              </div>
+            </div>
+            <div class="student-overview-actions">
+              <a id="openFullChatBtn" class="btn primary" href="messages.html">Открыть чат</a>
+              <button id="removeStudentBtn" class="btn danger" type="button">Убрать из класса</button>
+            </div>
+          </div>
+
+          <div class="teacher-metrics">
+            <article><span>Уроки</span><strong id="metricLessons">0</strong></article>
+            <article><span>Средний балл</span><strong id="metricAverage">0%</strong></article>
+            <article><span>Лучший балл</span><strong id="metricBest">0%</strong></article>
+            <article><span>Последняя активность</span><strong id="metricLast">—</strong></article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="section-title">
+            <div><div class="eyebrow">ПРОГРЕСС</div><h2>Уровни ученика</h2></div>
+          </div>
+          <div id="studentCourseProgress" class="teacher-course-progress"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-title">
+            <div><div class="eyebrow">ПОСЛЕДНИЕ ТЕСТЫ</div><h2>Результаты</h2></div>
+          </div>
+          <div id="studentRecentQuizzes"></div>
+        </section>
+
+        <section class="panel teacher-homework-panel">
+          <div class="section-title">
+            <div><div class="eyebrow">ДОМАШНИЕ ЗАДАНИЯ</div><h2>Задания ученику</h2></div>
+          </div>
+
+          <form id="teacherHomeworkForm" class="teacher-homework-form">
+            <input id="homeworkTitle" type="text" maxlength="160" required placeholder="Название задания">
+            <textarea id="homeworkDescription" maxlength="5000" rows="4" required placeholder="Описание задания: что нужно сделать..."></textarea>
+            <div class="teacher-homework-form-bottom">
+              <label>Срок выполнения
+                <input id="homeworkDueAt" type="datetime-local">
+              </label>
+              <button class="btn primary" type="submit">Назначить задание</button>
+            </div>
+          </form>
+          <div id="teacherHomeworkMessage" class="message"></div>
+
+          <div class="homework-filter-row">
+            <strong>История заданий</strong>
+            <select id="teacherHomeworkFilter">
+              <option value="all">Все</option>
+              <option value="assigned">Назначено</option>
+              <option value="submitted">На проверке</option>
+              <option value="revision">Нужно исправить</option>
+              <option value="accepted">Принято</option>
+            </select>
+          </div>
+          <div id="teacherHomeworkList" class="teacher-homework-list">
+            <p class="muted">Выберите ученика.</p>
+          </div>
+        </section>
+
+        <section class="panel teacher-mini-chat">
+          <div class="section-title">
+            <div><div class="eyebrow">СООБЩЕНИЯ</div><h2>Быстрый чат</h2></div>
+          </div>
+          <div id="teacherChatMessages" class="teacher-chat-messages"></div>
+          <form id="teacherChatForm" class="teacher-chat-form">
+            <textarea id="teacherChatInput" maxlength="2000" rows="2" placeholder="Напишите сообщение ученику..." required></textarea>
+            <button class="btn primary" type="submit">Отправить</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/teacher.js?v=20260909-1"></script>
+</body>
+</html>
