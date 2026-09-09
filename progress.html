@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — прогресс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notifications.css?v=20260909-6">
+  <link rel="stylesheet" href="css/progress-pro.css?v=20260909-2">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="dictionary.html">Словарь</a>
+    <a href="progress.html" class="active">Прогресс</a>
+    <a href="messages.html">Сообщения<span id="messagesNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a href="homework.html">Домашние задания<span id="homeworkNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
+    <a href="teacher-journal.html" id="teacherJournalLink" class="hidden">Журнал</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container">
+  <section class="page-head"><div class="eyebrow">LEARNING ANALYTICS</div><h1>Мой прогресс</h1><p>Уроки, экзамены, сертификаты и повторение неудачных тестов.</p></section>
+
+  <section id="progressSummary" class="progress-summary-grid"></section>
+
+  <section class="section">
+    <div class="section-title"><div><div class="eyebrow">УРОВНИ</div><h2>Прогресс по курсам</h2></div></div>
+    <div id="levelProgress" class="level-progress-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><div><div class="eyebrow">ПОВТОРЕНИЕ</div><h2>Что стоит пересдать</h2></div></div>
+    <div id="retryList" class="panel"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><div><div class="eyebrow">СЕРТИФИКАТЫ</div><h2>Мои сертификаты</h2></div></div>
+    <div id="certificateList" class="certificate-list-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><div><div class="eyebrow">ИСТОРИЯ</div><h2>Результаты тестов</h2></div></div>
+    <div id="quizHistory"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/progress.js?v=20260909-2"></script>
+  <script src="js/notifications.js?v=20260909-6"></script>
+</body>
+</html>

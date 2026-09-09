@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — словарь</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notifications.css?v=20260909-6">
+  <link rel="stylesheet" href="css/dictionary-pro.css?v=20260909-2">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="dictionary.html" class="active">Словарь</a>
+    <a href="progress.html">Прогресс</a>
+    <a href="messages.html">Сообщения<span id="messagesNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a href="homework.html">Домашние задания<span id="homeworkNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
+    <a href="teacher-journal.html" id="teacherJournalLink" class="hidden">Журнал</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container">
+  <section class="page-head">
+    <div class="eyebrow">DICTIONARY</div>
+    <h1>Мой словарь</h1>
+    <p>Английские и казахские слова из всех готовых уровней.</p>
+  </section>
+
+  <section class="dictionary-toolbar panel">
+    <input id="dictionarySearch" placeholder="Найти слово или перевод...">
+    <select id="languageFilter">
+      <option value="all">Все языки</option><option value="en">🇬🇧 English</option><option value="kz">🇰🇿 Қазақ тілі</option>
+    </select>
+    <select id="levelFilter"><option value="all">Все уровни</option></select>
+    <button id="favoriteOnlyBtn" class="btn ghost" type="button">☆ Только избранное</button>
+  </section>
+
+  <div class="dictionary-summary"><span id="wordCount">0 слов</span><button id="flashcardBtn" class="btn primary" type="button">Карточки</button></div>
+  <div id="dictionaryGrid" class="dictionary-pro-grid"></div>
+
+  <div id="flashcardModal" class="flashcard-modal hidden">
+    <div class="flashcard-shell">
+      <button id="closeFlashcards" class="flashcard-close">×</button>
+      <div class="eyebrow" id="flashMeta">СЛОВАРЬ</div>
+      <div id="flashWord" class="flash-word">—</div>
+      <div id="flashAnswer" class="flash-answer hidden"></div>
+      <div class="flash-actions">
+        <button id="showAnswer" class="btn primary">Показать перевод</button>
+        <button id="nextFlashcard" class="btn ghost">Следующее →</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="data/a1.js"></script>
+<script src="data/a2.js"></script>
+<script src="data/kz-a1.js"></script>
+<script src="data/kz-a2.js"></script>
+<script src="data/kz-b1.js"></script>
+<script src="data/kz-b2.js"></script>
+<script src="data/kz-c1.js"></script>
+<script src="js/dictionary.js?v=20260909-2"></script>
+  <script src="js/notifications.js?v=20260909-6"></script>
+</body>
+</html>

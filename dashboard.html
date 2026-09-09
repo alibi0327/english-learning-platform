@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — кабинет</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notifications.css?v=20260909-6">
+  <link rel="stylesheet" href="css/dashboard-pro.css?v=20260909-2">
+  <link rel="stylesheet" href="css/profile-cabinet.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html" class="active">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="dictionary.html">Словарь</a>
+    <a href="progress.html">Прогресс</a>
+    <a href="messages.html">Сообщения<span id="messagesNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a href="homework.html">Домашние задания<span id="homeworkNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
+    <a href="teacher-journal.html" id="teacherJournalLink" class="hidden">Журнал</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container dashboard-pro">
+  <section class="hero dashboard-hero">
+    <div>
+      <div class="eyebrow">ПЕРСОНАЛЬНЫЙ КАБИНЕТ</div>
+      <h1 id="welcomeTitle">Добро пожаловать</h1>
+      <p id="heroText">Продолжайте обучение с последнего доступного урока.</p>
+      <div class="hero-actions">
+        <a id="continueBtn" class="btn primary" href="courses.html">Продолжить обучение</a>
+        <a class="btn ghost" href="progress.html">Мой прогресс</a>
+      </div>
+    </div>
+    <aside class="personal-cabinet-card">
+      <div class="cabinet-profile-top">
+        <div id="cabinetAvatar" class="cabinet-avatar"><span id="cabinetInitials">LP</span></div>
+        <div class="cabinet-person">
+          <div class="eyebrow">МОЙ КАБИНЕТ</div>
+          <strong id="cabinetName">Загрузка...</strong>
+          <span id="cabinetRole" class="muted">Ученик</span>
+        </div>
+      </div>
+
+      <div class="cabinet-contacts">
+        <div><span>Телефон</span><strong id="cabinetPhone">Не указан</strong></div>
+        <div><span>Почта</span><strong id="cabinetEmail">Не указана</strong></div>
+      </div>
+
+      <button id="openProfileCabinet" class="btn ghost full" type="button">Редактировать кабинет</button>
+
+      <div class="cabinet-progress">
+        <div class="cabinet-progress-head">
+          <span class="muted">Общий прогресс</span>
+          <strong id="overallProgress">0%</strong>
+        </div>
+        <div class="progressbar"><span id="overallProgressBar" style="width:0%"></span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="dashboard-metrics" id="dashboardMetrics">
+    <article class="metric-card"><span>🔥 Серия</span><strong id="streakValue">0 дней</strong><small>учебная активность</small></article>
+    <article class="metric-card"><span>✅ Уроки</span><strong id="lessonsValue">0</strong><small>завершено</small></article>
+    <article class="metric-card"><span>🎯 Средний балл</span><strong id="avgScoreValue">0%</strong><small>по тестам</small></article>
+    <article class="metric-card"><span>🎓 Сертификаты</span><strong id="certValue">0</strong><small>получено</small></article>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div><div class="eyebrow">СЛЕДУЮЩИЙ ШАГ</div><h2>Продолжить обучение</h2></div>
+    </div>
+    <div id="nextLessonCard" class="panel"><p class="muted">Определяем следующий урок...</p></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div><div class="eyebrow">ЯЗЫКИ</div><h2>Мои курсы</h2></div>
+      <a class="btn ghost" href="courses.html">Все уровни</a>
+    </div>
+    <div id="languageCards" class="language-dashboard-grid">
+      <div class="panel"><p class="muted">Загрузка курсов...</p></div>
+    </div>
+  </section>
+
+  <section class="dashboard-two-columns">
+    <section class="section">
+      <div class="section-title"><div><div class="eyebrow">МОТИВАЦИЯ</div><h2>Достижения</h2></div></div>
+      <div id="achievementGrid" class="achievement-grid"></div>
+    </section>
+    <section class="section">
+      <div class="section-title"><div><div class="eyebrow">АКТИВНОСТЬ</div><h2>Последние результаты</h2></div></div>
+      <div id="recentActivity" class="panel"></div>
+    </section>
+  </section>
+</main>
+
+<div id="profileCabinetModal" class="modal hidden">
+  <div class="modal-card profile-cabinet-modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow">ПЕРСОНАЛЬНЫЙ КАБИНЕТ</div>
+        <h2>Мои данные</h2>
+      </div>
+      <button id="closeProfileCabinet" class="icon-btn" type="button">×</button>
+    </div>
+
+    <form id="profileCabinetForm">
+      <div class="profile-photo-editor">
+        <div id="profileAvatarPreview" class="profile-avatar-preview"><span id="profileAvatarInitials">LP</span></div>
+        <div>
+          <label class="btn ghost profile-upload-btn">
+            Выбрать фото
+            <input id="profileAvatarFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+          </label>
+          <button id="removeProfilePhoto" class="btn ghost hidden" type="button">Удалить фото</button>
+          <p class="muted profile-photo-note">JPG, PNG или WEBP · максимум 3 МБ</p>
+        </div>
+      </div>
+
+      <label>Имя и фамилия
+        <input id="profileFullName" type="text" maxlength="100" required placeholder="Имя и фамилия">
+      </label>
+
+      <label>Номер телефона
+        <input id="profilePhone" type="tel" maxlength="30" placeholder="+7 700 000 00 00">
+      </label>
+
+      <label>Контактная почта
+        <input id="profileContactEmail" type="email" maxlength="150" placeholder="name@example.com">
+      </label>
+
+      <label>Почта для входа
+        <input id="profileLoginEmail" type="email" disabled>
+      </label>
+
+      <div class="profile-privacy-note">
+        🔒 Эти данные доступны владельцу кабинета и администраторам платформы.
+      </div>
+
+      <button id="saveProfileCabinet" class="btn primary full" type="submit">Сохранить данные</button>
+      <div id="profileCabinetMessage" class="message"></div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/dashboard.js?v=20260909-2"></script>
+<script src="js/profile-cabinet.js?v=20260909-1"></script>
+<script src="js/role-nav.js?v=20260909-1"></script>
+  <script src="js/notifications.js?v=20260909-6"></script>
+</body>
+</html>

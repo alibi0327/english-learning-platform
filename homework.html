@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — домашние задания</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notifications.css?v=20260909-6">
+  <link rel="stylesheet" href="css/homework.css?v=20260909-4">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="dictionary.html">Словарь</a>
+    <a href="progress.html">Прогресс</a>
+    <a href="messages.html">Сообщения<span id="messagesNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a href="homework.html" class="active">Домашние задания<span id="homeworkNavBadge" class="nav-notification-badge hidden">0</span></a>
+    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
+    <a href="teacher-journal.html" id="teacherJournalLink" class="hidden">Журнал</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container homework-page">
+  <section class="homework-hero">
+    <div>
+      <div class="eyebrow">HOMEWORK</div>
+      <h1 id="homeworkPageTitle">Домашние задания</h1>
+      <p id="homeworkHeroText">Задания, ответы и результаты проверки.</p>
+    </div>
+    <div class="homework-hero-stats">
+      <div class="notification-stat"><span>🔔 Новые</span><strong id="hwUnreadCount">0</strong></div>
+      <div><span id="statOneLabel">К выполнению</span><strong id="hwOpenCount">0</strong></div>
+      <div><span id="statTwoLabel">На проверке</span><strong id="hwReviewCount">0</strong></div>
+      <div><span id="statThreeLabel">Принято</span><strong id="hwAcceptedCount">0</strong></div>
+    </div>
+  </section>
+
+  <!-- TEACHER MODE -->
+  <section id="teacherHomeworkWorkspace" class="hidden">
+    <section id="teacherHomeworkNotifications" class="panel homework-notification-panel hidden">
+      <div>
+        <div class="eyebrow">🔔 УВЕДОМЛЕНИЯ</div>
+        <h2>Новые ответы учеников</h2>
+        <p id="teacherNotificationText" class="muted">Есть новые ответы на домашние задания.</p>
+      </div>
+      <button id="showTeacherUnreadOnly" class="btn primary" type="button">Показать новые</button>
+    </section>
+
+    <section class="panel teacher-create-homework">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">НОВОЕ ЗАДАНИЕ</div>
+          <h2>Добавить домашнее задание</h2>
+          <p class="muted">Выберите ученика, добавьте текст, при необходимости фотографию и дедлайн.</p>
+        </div>
+      </div>
+
+      <form id="teacherCreateHomeworkForm" class="teacher-create-form">
+        <div class="teacher-create-grid">
+          <label>Ученик
+            <select id="teacherHomeworkStudent" required>
+              <option value="">Выберите ученика</option>
+            </select>
+          </label>
+
+          <label>Дедлайн
+            <input id="teacherHomeworkDeadline" type="datetime-local">
+          </label>
+        </div>
+
+        <label>Название задания
+          <input id="teacherHomeworkTitle" type="text" maxlength="160" required placeholder="Например: Урок 5 — новые слова">
+        </label>
+
+        <label>Описание задания
+          <textarea id="teacherHomeworkDescription" maxlength="5000" rows="6" required placeholder="Что именно нужно сделать ученику..."></textarea>
+        </label>
+
+        <div class="homework-image-upload">
+          <div>
+            <div class="eyebrow">ФОТО К ЗАДАНИЮ</div>
+            <p class="muted">Можно прикрепить изображение задания, страницы учебника, схемы или примера.</p>
+          </div>
+
+          <div class="homework-image-controls">
+            <label class="btn ghost homework-file-button">
+              📷 Выбрать фото
+              <input id="teacherHomeworkImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+            </label>
+            <button id="removeHomeworkImage" type="button" class="btn ghost hidden">Удалить фото</button>
+          </div>
+
+          <div id="homeworkImagePreviewWrap" class="homework-image-preview-wrap hidden">
+            <img id="homeworkImagePreview" alt="Предпросмотр фото задания">
+          </div>
+          <small class="muted">JPG, PNG или WEBP · максимум 5 МБ</small>
+        </div>
+
+        <div class="teacher-create-actions">
+          <span class="muted">Задание сразу появится у выбранного ученика.</span>
+          <button id="createHomeworkBtn" class="btn primary" type="submit">Назначить задание</button>
+        </div>
+        <div id="teacherCreateHomeworkMessage" class="message"></div>
+      </form>
+    </section>
+
+    <section class="panel homework-toolbar">
+      <div>
+        <div class="eyebrow">МОИ ЗАДАНИЯ</div>
+        <h2>Созданные задания</h2>
+      </div>
+      <select id="teacherHomeworkListFilter">
+        <option value="all">Все задания</option>
+        <option value="assigned">Назначено</option>
+        <option value="submitted">На проверке</option>
+        <option value="revision">Нужно исправить</option>
+        <option value="accepted">Принято</option>
+      </select>
+    </section>
+
+    <div id="teacherHomeworkList" class="homework-list">
+      <div class="panel"><p class="muted">Загрузка...</p></div>
+    </div>
+  </section>
+
+  <!-- STUDENT MODE -->
+  <section id="studentHomeworkWorkspace" class="hidden">
+    <section id="studentHomeworkNotifications" class="panel homework-notification-panel hidden">
+      <div>
+        <div class="eyebrow">🔔 УВЕДОМЛЕНИЯ</div>
+        <h2>Есть новое от преподавателя</h2>
+        <p id="studentNotificationText" class="muted">Откройте задание, чтобы посмотреть результат проверки или новое задание.</p>
+      </div>
+      <button id="showStudentUnreadOnly" class="btn primary" type="button">Показать новые</button>
+    </section>
+
+    <section class="panel homework-toolbar">
+      <div>
+        <div class="eyebrow">ФИЛЬТР</div>
+        <h2>Мои задания</h2>
+      </div>
+      <select id="homeworkFilter">
+        <option value="all">Все задания</option>
+        <option value="assigned">К выполнению</option>
+        <option value="revision">Нужно исправить</option>
+        <option value="submitted">На проверке</option>
+        <option value="accepted">Принято</option>
+      </select>
+    </section>
+
+    <div id="homeworkList" class="homework-list">
+      <div class="panel"><p class="muted">Загрузка...</p></div>
+    </div>
+  </section>
+</main>
+
+<!-- STUDENT DETAIL -->
+<div id="homeworkModal" class="modal hidden">
+  <div class="modal-card homework-modal-card">
+    <div class="modal-head">
+      <div>
+        <div id="homeworkModalStatus" class="eyebrow">ЗАДАНИЕ</div>
+        <h2 id="homeworkModalTitle">—</h2>
+      </div>
+      <button id="closeHomeworkModal" class="icon-btn" type="button">×</button>
+    </div>
+
+    <div class="homework-detail-meta">
+      <div><span>Преподаватель</span><strong id="homeworkTeacher">—</strong></div>
+      <div><span>Дедлайн</span><strong id="homeworkDue">—</strong></div>
+    </div>
+
+    <div id="studentHomeworkImageBox" class="homework-detail-image hidden">
+      <img id="studentHomeworkImage" alt="Фото к домашнему заданию">
+    </div>
+
+    <div class="homework-detail-box">
+      <span>Задание</span>
+      <p id="homeworkDescriptionText"></p>
+    </div>
+
+    <div id="teacherReviewBox" class="homework-review-box hidden">
+      <span>Комментарий преподавателя</span>
+      <p id="teacherReviewText"></p>
+    </div>
+
+    <form id="studentHomeworkForm">
+      <label>Ваш ответ
+        <textarea id="studentHomeworkAnswer" rows="8" maxlength="10000" required placeholder="Напишите ответ на домашнее задание..."></textarea>
+      </label>
+      <div class="homework-answer-actions">
+        <span class="muted">Ответ можно исправлять, пока задание не принято.</span>
+        <button id="submitHomeworkBtn" class="btn primary" type="submit">Отправить преподавателю</button>
+      </div>
+      <div id="studentHomeworkMessage" class="message"></div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/role-nav.js?v=20260909-1"></script>
+<script src="js/homework.js?v=20260909-4"></script>
+  <script src="js/notifications.js?v=20260909-6"></script>
+</body>
+</html>
