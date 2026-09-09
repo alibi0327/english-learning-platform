@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — сертификат A1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/certificate-standard.css?v=20260909-1">
+</head>
+<body class="certificate-standard-page"
+      data-course-code="A1"
+      data-course-title="English Language — A1 Beginner"
+      data-final-key="a1-final"
+      data-final-url="final-exam.html"
+      data-level="A1"
+      data-level-name="Beginner">
+
+<header class="topbar no-print">
+  <a class="brand" href="dashboard.html">
+    <span class="logo small">LP</span>
+    <strong>Language Path</strong>
+  </a>
+  <nav><a href="courses.html">← К обучению</a></nav>
+  <div class="userbox">
+    <span id="userName">...</span>
+    <button id="logoutBtn" class="btn ghost">Выйти</button>
+  </div>
+</header>
+
+<main class="certificate-standard-wrap">
+  <div id="certificateGate" class="message no-print"></div>
+
+  <section id="certificate" class="certificate-document">
+    <div class="certificate-outer-frame">
+      <div class="certificate-inner-frame">
+
+        <div class="certificate-topline">
+          <div class="certificate-logo-block">
+            <div class="certificate-logo">LP</div>
+            <div>
+              <strong>LANGUAGE PATH</strong>
+              <span>Learning Platform</span>
+            </div>
+          </div>
+
+          <div class="certificate-meta-top">
+            <span>Certificate No.</span>
+            <strong id="certificateId">—</strong>
+          </div>
+        </div>
+
+        <div class="certificate-heading">
+          <div class="certificate-small-title">CERTIFICATE OF COMPLETION</div>
+          <h1>СЕРТИФИКАТ</h1>
+          <div class="certificate-level-badge">English · A1</div>
+        </div>
+
+        <div class="certificate-body">
+          <p class="certificate-label">Настоящий сертификат выдан</p>
+          <div id="certificateName" class="certificate-recipient">Student Name</div>
+          <div class="certificate-recipient-line"></div>
+
+          <p class="certificate-statement">has successfully completed the English Language A1 course and passed the final assessment.</p>
+
+          <div class="certificate-course-panel">
+            <div>
+              <span>Программа / Course</span>
+              <strong>English Language — A1 Beginner</strong>
+            </div>
+            <div>
+              <span>Уровень / Level</span>
+              <strong>A1 · Beginner</strong>
+            </div>
+            <div>
+              <span>Результат / Final Exam</span>
+              <strong id="certificateScore">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="certificate-bottom">
+          <div class="certificate-date-block">
+            <span>Дата выдачи / Issue date</span>
+            <strong id="certificateDate">—</strong>
+          </div>
+
+          <div class="certificate-seal">
+            <div class="certificate-seal-ring">
+              <span>LP</span>
+              <small>VERIFIED</small>
+            </div>
+          </div>
+
+          <div class="certificate-signature-block">
+            <div class="signature-line"></div>
+            <strong>Language Path</strong>
+            <span>Authorized platform representative</span>
+          </div>
+        </div>
+
+        <div class="certificate-footnote">
+          <span>Issued electronically by Language Path learning platform.</span>
+          <span>Verification ID: <b id="certificateIdBottom">—</b></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="certificate-actions no-print">
+    <button id="printCertificate" class="btn primary" type="button">Сохранить / Печать PDF</button>
+    <a href="progress.html" class="btn ghost">Мой прогресс</a>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/certificate-standard.js?v=20260909-1"></script>
+</body>
+</html>
