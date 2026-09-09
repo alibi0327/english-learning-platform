@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — кабинет</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard-pro.css?v=20260909-2">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html" class="active">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="dictionary.html">Словарь</a>
+    <a href="progress.html">Прогресс</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container dashboard-pro">
+  <section class="hero dashboard-hero">
+    <div>
+      <div class="eyebrow">ПЕРСОНАЛЬНЫЙ КАБИНЕТ</div>
+      <h1 id="welcomeTitle">Добро пожаловать</h1>
+      <p id="heroText">Продолжайте обучение с последнего доступного урока.</p>
+      <div class="hero-actions">
+        <a id="continueBtn" class="btn primary" href="courses.html">Продолжить обучение</a>
+        <a class="btn ghost" href="progress.html">Мой прогресс</a>
+      </div>
+    </div>
+    <div class="hero-progress">
+      <span class="muted">Общий прогресс</span>
+      <strong id="overallProgress">0%</strong>
+      <div class="progressbar"><span id="overallProgressBar" style="width:0%"></span></div>
+    </div>
+  </section>
+
+  <section class="dashboard-metrics" id="dashboardMetrics">
+    <article class="metric-card"><span>🔥 Серия</span><strong id="streakValue">0 дней</strong><small>учебная активность</small></article>
+    <article class="metric-card"><span>✅ Уроки</span><strong id="lessonsValue">0</strong><small>завершено</small></article>
+    <article class="metric-card"><span>🎯 Средний балл</span><strong id="avgScoreValue">0%</strong><small>по тестам</small></article>
+    <article class="metric-card"><span>🎓 Сертификаты</span><strong id="certValue">0</strong><small>получено</small></article>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div><div class="eyebrow">СЛЕДУЮЩИЙ ШАГ</div><h2>Продолжить обучение</h2></div>
+    </div>
+    <div id="nextLessonCard" class="panel"><p class="muted">Определяем следующий урок...</p></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div><div class="eyebrow">ЯЗЫКИ</div><h2>Мои курсы</h2></div>
+      <a class="btn ghost" href="courses.html">Все уровни</a>
+    </div>
+    <div id="languageCards" class="language-dashboard-grid">
+      <div class="panel"><p class="muted">Загрузка курсов...</p></div>
+    </div>
+  </section>
+
+  <section class="dashboard-two-columns">
+    <section class="section">
+      <div class="section-title"><div><div class="eyebrow">МОТИВАЦИЯ</div><h2>Достижения</h2></div></div>
+      <div id="achievementGrid" class="achievement-grid"></div>
+    </section>
+    <section class="section">
+      <div class="section-title"><div><div class="eyebrow">АКТИВНОСТЬ</div><h2>Последние результаты</h2></div></div>
+      <div id="recentActivity" class="panel"></div>
+    </section>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/dashboard.js?v=20260909-2"></script>
+</body>
+</html>
