@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Language Path — сообщения</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/messages.css?v=20260909-1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><span class="logo small">LP</span><strong>Language Path</strong></a>
+  <nav>
+    <a href="dashboard.html">Главная</a>
+    <a href="courses.html">Обучение</a>
+    <a href="progress.html">Прогресс</a>
+    <a href="messages.html" class="active">Сообщения</a>
+    <a id="teacherLink" href="teacher.html" class="hidden">Кабинет преподавателя</a>
+    <a id="adminLink" href="admin.html" class="hidden">Админ</a>
+  </nav>
+  <div class="userbox"><span id="userName">...</span><button id="logoutBtn" class="btn ghost">Выйти</button></div>
+</header>
+
+<main class="container messages-page">
+  <section class="page-head">
+    <div class="eyebrow">DIRECT MESSAGES</div>
+    <h1>Сообщения</h1>
+    <p id="messagesSubtitle">Общение преподавателя и ученика.</p>
+  </section>
+
+  <section class="messages-layout">
+    <aside class="panel conversations-panel">
+      <div class="conversations-head">
+        <h2 id="conversationTitle">Контакты</h2>
+        <input id="conversationSearch" type="search" placeholder="Поиск...">
+      </div>
+      <div id="conversationList" class="conversation-list">
+        <p class="muted">Загрузка...</p>
+      </div>
+    </aside>
+
+    <section class="panel chat-panel">
+      <div id="chatEmpty" class="chat-empty">
+        <div>💬</div>
+        <h2>Выберите собеседника</h2>
+        <p class="muted">История сообщений появится здесь.</p>
+      </div>
+
+      <div id="chatWorkspace" class="hidden chat-workspace">
+        <div class="chat-header">
+          <div id="chatAvatar" class="chat-avatar">LP</div>
+          <div>
+            <h2 id="chatName">—</h2>
+            <span id="chatRole" class="muted">—</span>
+          </div>
+        </div>
+
+        <div id="chatMessages" class="chat-messages"></div>
+
+        <form id="chatForm" class="chat-compose">
+          <textarea id="chatInput" maxlength="2000" rows="2" placeholder="Напишите сообщение..." required></textarea>
+          <div class="chat-compose-bottom">
+            <span class="muted">До 2000 символов</span>
+            <button class="btn primary" type="submit">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/messages.js?v=20260909-1"></script>
+</body>
+</html>
